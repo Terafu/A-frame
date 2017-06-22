@@ -1,0 +1,155 @@
+/* BODY */
+body {
+	margin: 0;
+	height:100%;
+	width: 100%;
+	background: #F0F0F0;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* MENU */
+.collapsible{	
+	list-style: none;
+	float: right;
+	width: 20%;
+	display: block;
+	background: #F0F0F0;
+}
+
+.collapsible li {
+    margin: 0;
+    background: #F0F0F0;
+    text-align: center;
+}
+
+.collapsible li a {
+	text-decoration: none;
+    color: #666666;
+    display: block;
+    padding: 8px;
+}
+
+.collapsible li a:hover {
+	background: #F8F8F8;
+    text-decoration:none;
+}
+
+.collapsible li ul {
+	list-style: none;
+    background: #D3D3D3;
+    display: none;
+    margin:0;
+    padding:0;
+}
+   
+.collapsible li ul li {
+	margin:0;
+	background: #D3D3D3;
+}
+    
+.collapsible li ul li a {
+	padding: 5px; 
+    display: block; 
+    background: #D3D3D3;
+    font-weight: bold; 
+}
+
+.collapsible li ul li a:hover {
+	text-decoration: none;
+	background: #D3D3D3;
+}
+
+.collapsible .dropdown > a:hover { 
+	background: #F8F8F8; 
+}
+
+.collapsible .dropdown > a { 
+	font-size: 130%; 
+}
+
+.collapsible .dropdown ul { 
+	padding-top: 15px;
+	padding-bottom: 15px; 
+}
+
+.collapsible hr {
+	width: 20%;
+	border-style:solid;
+	border-color: #666666;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+/* MENU RADIO */
+input[type="radio"] + label {
+    color:#666666;
+    vertical-align: left;
+}
+
+input[type="radio"]:checked + label {
+    color: #AAAAAA;
+    vertical-align: left;
+}
+
+/* MENU RANGE */
+#slider-vertical {
+	height: 200px;
+	background: #239fd9;
+	margin-left: 47.5%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+span.ui-slider-handle {
+	background: #1E8ABC;
+}
+
+.ui-slider-range {
+	background: #A7D9F1;
+}
+
+#lux {
+	border: 0; 
+	color: #666666; 
+	font-weight: bold; 
+	background: #D3D3D3;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+/* MENU SUBMIT */
+input[type="submit"] {
+	border: 0;
+	color: #666666;
+	width: 100%;
+	background-color: #ADDBAE;
+	font-size: 130%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+input[type="submit"]:hover {
+	background-color: #C9E2CA;
+}
+
+/* SCENE */
+#scene {
+	float: left;
+	display: block;
+	width: 80%;
+}
+
+button {
+	border: 0;
+	color: #666666;
+	background-color: #ADDBAE;
+	font-size: 130%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+button:hover {
+	background-color: #C9E2CA;
+}
