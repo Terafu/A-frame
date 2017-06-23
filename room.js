@@ -196,7 +196,6 @@ jQuery(document).ready(function(){
 	$('#play-sound').on("click", function() {
 		var entity = document.querySelector('[sound]');
 		$(entity).attr("sound", "src: #"+soundToPlay+"; autoplay: true");
-		console.log(soundToPlay);
 	    entity.components.sound.playSound();
 	});
 
