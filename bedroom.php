@@ -294,7 +294,7 @@
             </li>
           </ul>
         </li>
-        <li><input type="submit" value="Validate my choices"></li>
+        <li><input type="submit" value="Validate"></li>
         <input name="prev" type="hidden" value="bedroom">
       </form>                
     </div>

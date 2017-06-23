@@ -40,6 +40,9 @@
 
   <!-- TO PUT IN ANOTHER FILE -->
     <script>
+      if (screen.width < 1000)
+          window.location.replace("kitchen2.php");
+
       AFRAME.registerComponent('set-position', {
         schema: {default: ''},
 
@@ -58,7 +61,7 @@
       <form action="results.php" method="get">
         <li class="dropdown"><a id="warmth">Warmth</a>
           <ul>
-            <li><a>Roof insulation type</a>
+            <li><a>Roof insulation</a>
               <input id="warmth-roof-glass" type="radio" name="warmth-roof" value="glass" 
               <?php 
                   if ($kitchen) 
@@ -67,22 +70,22 @@
                     if (isset($_SESSION['kitchen']['warmth-roof']) && $_SESSION['kitchen']['warmth-roof'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="warmth-roof-glass">Glass Insulation</label><br>
+              <label for="warmth-roof-glass">Glass</label><br>
               <input id="warmth-roof-poly" type="radio" name="warmth-roof" value="poly"
               <?php 
                 if (isset($_SESSION['kitchen']['warmth-roof']) && $_SESSION['kitchen']['warmth-roof'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-roof-poly">Extended Polystyrene</label><br>
+              <label for="warmth-roof-poly">Polystyrene</label><br>
               <input id="warmth-roof-rock" type="radio" name="warmth-roof" value="rock"
               <?php 
                 if (isset($_SESSION['kitchen']['warmth-roof']) && $_SESSION['kitchen']['warmth-roof'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-roof-rock">Rock Insulation</label><br>
+              <label for="warmth-roof-rock">Rock</label><br>
             </li>
             <hr>
-            <li><a>Floor insulation type</a>
+            <li><a>Floor insulation</a>
               <input id="warmth-floor-glass" type="radio" name="warmth-floor" value="glass"
               <?php 
                   if ($kitchen) 
@@ -91,22 +94,22 @@
                     if (isset($_SESSION['kitchen']['warmth-floor']) && $_SESSION['kitchen']['warmth-floor'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="warmth-floor-glass">Glass Insulation</label><br>
+              <label for="warmth-floor-glass">Glass</label><br>
               <input id="warmth-floor-poly" type="radio" name="warmth-floor" value="poly"
               <?php 
                 if (isset($_SESSION['kitchen']['warmth-floor']) && $_SESSION['kitchen']['warmth-floor'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-floor-poly">Extended Polystyrene</label><br>
+              <label for="warmth-floor-poly">Polystyrene</label><br>
               <input id="warmth-floor-rock" type="radio" name="warmth-floor" value="rock"
               <?php 
                 if (isset($_SESSION['kitchen']['warmth-floor']) && $_SESSION['kitchen']['warmth-floor'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-floor-rock">Rock Insulation</label><br>
+              <label for="warmth-floor-rock">Rock</label><br>
             </li>
             <hr>
-            <li><a>Wall insulation type</a>
+            <li><a>Wall insulation</a>
               <input id="warmth-wall-glass" type="radio" name="warmth-wall" value="glass"
               <?php 
                   if ($kitchen) 
@@ -115,19 +118,19 @@
                     if (isset($_SESSION['kitchen']['warmth-wall']) && $_SESSION['kitchen']['warmth-wall'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="warmth-wall-glass">Glass Insulation</label><br>
+              <label for="warmth-wall-glass">Glass</label><br>
               <input id="warmth-wall-poly" type="radio" name="warmth-wall" value="poly"
               <?php 
                 if (isset($_SESSION['kitchen']['warmth-wall']) && $_SESSION['kitchen']['warmth-wall'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-wall-poly">Extended Polystyrene</label><br>
+              <label for="warmth-wall-poly">Polystyrene</label><br>
               <input id="warmth-wall-rock" type="radio" name="warmth-wall" value="rock"
               <?php 
                 if (isset($_SESSION['kitchen']['warmth-wall']) && $_SESSION['kitchen']['warmth-wall'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-wall-rock">Rock Insulation</label><br>
+              <label for="warmth-wall-rock">Rock</label><br>
             </li>
             <hr>
             <li><a>Junctions</a>
@@ -139,19 +142,19 @@
                     if (isset($_SESSION['kitchen']['warmth-junctions']) && $_SESSION['kitchen']['warmth-junctions'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="warmth-junctions-glass">Glass Insulation</label><br>
+              <label for="warmth-junctions-glass">Glass</label><br>
               <input id="warmth-junctions-poly" type="radio" name="warmth-junctions" value="poly"
               <?php 
                 if (isset($_SESSION['kitchen']['warmth-junctions']) && $_SESSION['kitchen']['warmth-junctions'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-junctions-poly">Extended Polystyrene</label><br>
+              <label for="warmth-junctions-poly">Polystyrene</label><br>
               <input id="warmth-junctions-rock" type="radio" name="warmth-junctions" value="rock"
               <?php 
                 if (isset($_SESSION['kitchen']['warmth-junctions']) && $_SESSION['kitchen']['warmth-junctions'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-junctions-rock">Rock Insulation</label><br>
+              <label for="warmth-junctions-rock">Rock</label><br>
             </li>
           </ul>
         </li>
@@ -171,7 +174,7 @@
         </li>
         <li class="dropdown"><a id="sound">Sound</a>
           <ul>
-            <li><a>Wall insulation type</a>
+            <li><a>Wall insulation</a>
               <input id="sound-wall-glass" type="radio" name="sound-wall" value="glass"
               <?php 
                   if ($kitchen) 
@@ -180,22 +183,22 @@
                     if (isset($_SESSION['kitchen']['sound-wall']) && $_SESSION['kitchen']['sound-wall'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="sound-wall-glass">Glass Insulation</label><br>
+              <label for="sound-wall-glass">Glass</label><br>
               <input id="sound-wall-poly" type="radio" name="sound-wall" value="poly"
               <?php 
                 if (isset($_SESSION['kitchen']['sound-wall']) && $_SESSION['kitchen']['sound-wall'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="sound-wall-poly">Extended Polystyrene</label><br>
+              <label for="sound-wall-poly">Polystyrene</label><br>
               <input id="sound-wall-rock" type="radio" name="sound-wall" value="rock"
               <?php 
                 if (isset($_SESSION['kitchen']['sound-wall']) && $_SESSION['kitchen']['sound-wall'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="sound-wall-rock">Rock Insulation</label><br>
+              <label for="sound-wall-rock">Rock</label><br>
             </li>
             <hr>
-            <li><a>Floor insulation type</a>
+            <li><a>Floor insulation</a>
               <input id="sound-floor-glass" type="radio" name="sound-floor" value="glass"
               <?php 
                   if ($kitchen) 
@@ -204,19 +207,19 @@
                     if (isset($_SESSION['kitchen']['sound-floor']) && $_SESSION['kitchen']['sound-floor'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="sound-floor-glass">Glass Insulation</label><br>
+              <label for="sound-floor-glass">Glass</label><br>
               <input id="sound-floor-poly" type="radio" name="sound-floor" value="poly"
               <?php 
                 if (isset($_SESSION['kitchen']['sound-floor']) && $_SESSION['kitchen']['sound-floor'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="sound-floor-poly">Extended Polystyrene</label><br>
+              <label for="sound-floor-poly">Polystyrene</label><br>
               <input id="sound-floor-rock" type="radio" name="sound-floor" value="rock"
               <?php 
                 if (isset($_SESSION['kitchen']['sound-floor']) && $_SESSION['kitchen']['sound-floor'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="sound-floor-rock">Rock Insulation</label><br>
+              <label for="sound-floor-rock">Rock</label><br>
             </li>
             <hr>
             <li><a>Type of sound</a>
@@ -294,7 +297,7 @@
             </li>
           </ul>
         </li>
-        <li><input type="submit" value="Validate my choices"></li>
+        <li><input type="submit" value="Validate"></li>
         <input name="prev" type="hidden" value="kitchen">
       </form>                
     </div>

@@ -80,6 +80,26 @@ body {
 	margin-bottom: 15px;
 }
 
+@media screen and (max-device-width:850px) {
+	.collapsible .dropdown > a {
+		font-size: 100%;
+	}
+
+	.collapsible li ul li {
+		font-size: 80%;
+	}
+}
+
+@media screen and (max-width:850px) {
+	.collapsible .dropdown > a {
+		font-size: 100%;
+	}
+
+	.collapsible li ul li {
+		font-size: 80%;
+	}
+}
+
 /* MENU RADIO */
 input[type="radio"] + label {
     color:#666666;
@@ -115,6 +135,7 @@ span.ui-slider-handle {
 	background: #D3D3D3;
 	text-align: center;
 	margin-bottom: 10px;
+	width: 100%;
 }
 
 /* MENU SUBMIT */
@@ -131,6 +152,18 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
 	background-color: #C9E2CA;
+}
+
+@media screen and (max-device-width:850px) {
+	input[type="submit"] {
+		font-size: 100%;
+	}
+}
+
+@media screen and (max-width:850px) {
+	input[type="submit"] {
+		font-size: 100%;
+	}
 }
 
 /* SCENE */

@@ -1,0 +1,15 @@
+/* BODY */
+body {
+	margin: 0;
+	height:100%;
+	width: 100%;
+	background: #F0F0F0;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* SCENE */
+#scene {
+	float: left;
+	display: block;
+	width: 100%;
+}
