@@ -1562,80 +1562,80 @@
         <!-- VR MENU -->
           <!-- MAIN MENU (bottom to top) -->
         <a-entity class="menu" ui-modal visible="false">
-          <a-plane id="ventilation" width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Ventilation; align: center"></a-entity></a-plane>
+          <a-plane id="ventilation" width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Ventilation; align: center"></a-entity></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.95 0"></a-box>
-          <a-plane id="sound" width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Sound; align: center"></a-entity></a-plane>
+          <a-plane id="sound" width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Sound; align: center"></a-entity></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.45 0"></a-box>
-          <a-plane id="light" width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Light; align: center"></a-entity></a-plane>
+          <a-plane id="light" width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Light; align: center"></a-entity></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -0.95 0"></a-box>
-          <a-plane id="warmth" width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Warmth; align: center"></a-entity></a-plane>
+          <a-plane id="warmth" width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Warmth; align: center"></a-entity></a-plane>
         </a-entity>
 
           <!-- WARMTH SUB MENU (bottom to top) -->
         <a-entity id="submenu-warmth" submenu-warmth visible="false" position="0 0 0">
-          <a-plane id="warmth-back" warmth-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Back; align: center"></a-entity></a-plane>          
+          <a-plane id="warmth-back" warmth-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Back; align: center"></a-entity></a-plane>          
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -2.45 0"></a-box>
-          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0"><a-entity id="warmth-roof" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0"><a-entity id="warmth-roof" scale="3 3 3" text="value: glass; align: center"></a-entity></a-plane>
           <a-plane id="warmth-roof-left" warmth-roof-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -2.2 0.01" data-interactive="true"></a-plane>
           <a-plane id="warmth-roof-right" warmth-roof-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -2.2 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.95 0"></a-box>
-          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0"><a-entity id="warmth-floor" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0"><a-entity id="warmth-floor" scale="3 3 3" text="value: glass; align: center"></a-entity></a-plane>
           <a-plane id="warmth-floor-left" warmth-floor-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.7 0.01" data-interactive="true"></a-plane>
           <a-plane id="warmth-floor-right" warmth-floor-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.7 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.45 0"></a-box>
-          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0"><a-entity id="warmth-wall" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0"><a-entity id="warmth-wall" scale="3 3 3" text="value: glass; align: center"></a-entity></a-plane>
           <a-plane id="warmth-wall-left" warmth-wall-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.2 0.01" data-interactive="true"></a-plane>
           <a-plane id="warmth-wall-right" warmth-wall-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.2 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -0.95 0"></a-box>
-          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0"><a-entity id="warmth-junctions" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0"><a-entity id="warmth-junctions" scale="3 3 3" text="value: glass; align: center"></a-entity></a-plane>
           <a-plane id="warmth-junctions-left" warmth-junctions-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -0.7 0.01" data-interactive="true"></a-plane>
           <a-plane id="warmth-junctions-right" warmth-junctions-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -0.7 0.01" data-interactive="true"></a-plane>
         </a-entity>
 
           <!-- SOUND SUB MENU (bottom to top) -->
         <a-entity id="submenu-sound" submenu-sound visible="false" position="0 0 0">
-          <a-plane id="sound-back" sound-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Back; align: center"></a-entity></a-plane>          
+          <a-plane id="sound-back" sound-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Back; align: center"></a-entity></a-plane>          
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -2.45 0"></a-box>
-          <a-plane id="sound-play" play-sound width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0" data-interactive="true"><a-entity id="play" scale="4 4 4" text="value: Play Sound; align: center"></a-entity></a-plane>
+          <a-plane id="sound-play" play-sound width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0" data-interactive="true"><a-entity id="play" scale="3 3 3" text="value: Play Sound; align: center"></a-entity></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.95 0"></a-box>
-          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0"><a-entity id="sound-type" scale="4 4 4" text="value: steps; align: center"></a-entity></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0"><a-entity id="sound-type" scale="3 3 3" text="value: steps; align: center"></a-entity></a-plane>
           <a-plane id="sound-type-left" sound-type-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.7 0.01" data-interactive="true"></a-plane>
           <a-plane id="sound-type-right" sound-type-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.7 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.45 0"></a-box>
-          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0"><a-entity id="sound-floor" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0"><a-entity id="sound-floor" scale="3 3 3" text="value: glass; align: center"></a-entity></a-plane>
           <a-plane id="sound-floor-left" sound-floor-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.2 0.01" data-interactive="true"></a-plane>
           <a-plane id="sound-floor-right" sound-floor-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.2 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -0.95 0"></a-box>
-          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0"><a-entity id="sound-wall" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0"><a-entity id="sound-wall" scale="3 3 3" text="value: glass; align: center"></a-entity></a-plane>
           <a-plane id="sound-wall-left" sound-wall-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -0.7 0.01" data-interactive="true"></a-plane>
           <a-plane id="sound-wall-right" sound-wall-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -0.7 0.01" data-interactive="true"></a-plane>
         </a-entity>
 
           <!-- LIGHT SUB MENU (bottom to top) -->
         <a-entity id="submenu-light" submenu-light visible="false" position="0 0 0">
-          <a-plane id="light-back" light-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Back; align: center"></a-entity></a-plane>
+          <a-plane id="light-back" light-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Back; align: center"></a-entity></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -2.45 0"></a-box>
           <a-plane width="2" height="2" color="#6d6d6d" position="0 -1.6 0"></a-plane>          
           <a-plane id="light-down-arrow" width="0.3" down-arrow-light height="0.3" material="transparent: true; src: #down-arrow" position="0 -2.2 0.01" data-interactive="true"></a-plane>          
           <a-plane width="1.5" height="0.2" color="#FFFFFF" position="0 -1.6 0.01"></a-plane>
           <a-plane id="light-slider" width="0.75" height="0.2" color="#3DC6FF" position="-0.37 -1.6 0.02"></a-plane>
-          <a-entity id="light-text" scale="4 4 4" text="value: 150 Lux; align: center" position="0 -1.3 0"></a-entity>
+          <a-entity id="light-text" scale="3 3 3" text="value: 150 Lux; align: center" position="0 -1.3 0"></a-entity>
           <a-plane id="light-up-arrow" up-arrow-light width="0.3" height="0.3" material="transparent: true; src: #up-arrow" position="0 -0.8 0.01" data-interactive="true"></a-plane>
         </a-entity>
 
           <!-- VENTILATION SUB MENU (bottom to top) -->
         <a-entity id="submenu-ventilation" submenu-ventilation visible="false" position="0 0 0">
-          <a-plane id="ventilation-back" ventilation-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Back; align: center"></a-entity></a-plane>          
+          <a-plane id="ventilation-back" ventilation-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Back; align: center"></a-entity></a-plane>          
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -2.45 0"></a-box>
-          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0"><a-entity id="ventilation-type" scale="4 4 4" text="value: VOC; align: center"></a-entity></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0"><a-entity id="ventilation-type" scale="3 3 3" text="value: VOC; align: center"></a-entity></a-plane>
           <a-plane id="ventilation-type-left" ventilation-type-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -2.2 0.01" data-interactive="true"></a-plane>
           <a-plane id="ventilation-type-right" ventilation-type-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -2.2 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.95 0"></a-box>
-          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0"><a-entity id="ventilation-floor" scale="4 4 4" text="value: normal-floor; align: center"></a-entity></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0"><a-entity id="ventilation-floor" scale="3 3 3" text="value: normal-floor; align: center"></a-entity></a-plane>
           <a-plane id="ventilation-floor-left" ventilation-floor-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.7 0.01" data-interactive="true"></a-plane>
           <a-plane id="ventilation-floor-right" ventilation-floor-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.7 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.45 0"></a-box>
-          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0"><a-entity id="ventilation-ventilation" scale="4 4 4" text="value: no-ventilation; align: center"></a-entity></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0"><a-entity id="ventilation-ventilation" scale="3 3 3" text="value: no-ventilation; align: center"></a-entity></a-plane>
           <a-plane id="ventilation-ventilation-left" ventilation-ventilation-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.2 0.01" data-interactive="true"></a-plane>
           <a-plane id="ventilation-ventilation-right" ventilation-ventilation-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.2 0.01" data-interactive="true"></a-plane>
         </a-entity>
