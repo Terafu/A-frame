@@ -208,7 +208,7 @@
                 series: [{
                     showInLegend: false,
                     name: 'Percentage of Multi-Comfort experience',
-                    data: [<?php echo $thermalKitchen ?>, <?php echo $luxKitchen ?>, <?php echo $soundKitchen ?>, <?php echo $ventilationKitchen ?>],
+                    data: [<?php if(isset($thermalKitchen)) echo $thermalKitchen ?>, <?php if(isset($luxKitchen)) echo $luxKitchen ?>, <?php if(isset($soundKitchen)) echo $soundKitchen ?>, <?php if(isset($ventilationKitchen)) echo $ventilationKitchen ?>],
                 }],
 
                 credits: {
@@ -248,7 +248,7 @@
                 series: [{
                     showInLegend: false,
                     name: 'Percentage of Multi-Comfort experience',
-                    data: [<?php echo $thermalBedroom ?>, <?php echo $luxBedroom ?>, <?php echo $soundBedroom ?>, <?php echo $ventilationBedroom ?>],
+                    data: [<?php if(isset($thermalBedroom)) echo $thermalBedroom ?>, <?php if(isset($luxBedroom)) echo $luxBedroom ?>, <?php if(isset($soundBedroom)) echo $soundBedroom ?>, <?php if(isset($ventilationBedroom)) echo $ventilationBedroom ?>],
                 }],
 
                 credits: {
@@ -288,7 +288,7 @@
                 series: [{
                     showInLegend: false,
                     name: 'Percentage of Multi-Comfort experience',
-                    data: [<?php echo $thermalLivingroom ?>, <?php echo $luxLivingroom ?>, <?php echo $soundLivingroom ?>, <?php echo $ventilationLivingroom ?>],
+                    data: [<?php if(isset($thermalLivingroom)) echo $thermalLivingroom ?>, <?php if(isset($luxLivingroom)) echo $luxLivingroom ?>, <?php if(isset($soundLivingroom)) echo $soundLivingroom ?>, <?php if(isset($ventilationLivingroom)) echo $ventilationLivingroom ?>],
                 }],
 
                 credits: {
@@ -305,7 +305,6 @@
         $("li").removeClass("active");
 
         $(this).addClass("active");
-
         $(function () {
             if ($(".active").attr("id") == "kitchen") {
                 var myChart = Highcharts.chart('container', {
@@ -338,7 +337,7 @@
                     series: [{
                         showInLegend: false,
                         name: 'Percentage of Multi-Comfort experience',
-                        data: [<?php echo $thermalKitchen ?>, <?php echo $luxKitchen ?>, <?php echo $soundKitchen ?>, <?php echo $ventilationKitchen ?>],
+                        data: [<?php if(isset($thermalKitchen)) echo $thermalKitchen ?>, <?php if(isset($luxKitchen)) echo $luxKitchen ?>, <?php if(isset($soundKitchen)) echo $soundKitchen ?>, <?php if(isset($ventilationKitchen)) echo $ventilationKitchen ?>],
                     }],
 
                     credits: {
@@ -378,7 +377,7 @@
                     series: [{
                         showInLegend: false,
                         name: 'Percentage of Multi-Comfort experience',
-                        data: [<?php echo $thermalBedroom ?>, <?php echo $luxBedroom ?>, <?php echo $soundBedroom ?>, <?php echo $ventilationBedroom ?>],
+                        data: [<?php if(isset($thermalBedroom)) echo $thermalBedroom ?>, <?php if(isset($luxBedroom)) echo $luxBedroom ?>, <?php if(isset($soundBedroom)) echo $soundBedroom ?>, <?php if(isset($ventilationBedroom)) echo $ventilationBedroom ?>],
                     }],
 
                     credits: {
@@ -418,7 +417,7 @@
                     series: [{
                         showInLegend: false,
                         name: 'Percentage of Multi-Comfort experience',
-                        data: [<?php echo $thermalLivingroom ?>, <?php echo $luxLivingroom ?>, <?php echo $soundLivingroom ?>, <?php echo $ventilationLivingroom ?>],
+                        data: [<?php if(isset($thermalLivingroom)) echo $thermalLivingroom ?>, <?php if(isset($luxLivingroom)) echo $luxLivingroom ?>, <?php if(isset($soundLivingroom)) echo $soundLivingroom ?>, <?php if(isset($ventilationLivingroom)) echo $ventilationLivingroom ?>],
                     }],
 
                     credits: {

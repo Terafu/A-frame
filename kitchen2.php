@@ -74,6 +74,26 @@
       var type = "VOC";
       var typeIndex = 0;
 
+      /* VALIDATE BUTTON (onClick simulate by the cursor) */
+      AFRAME.registerComponent('validate-button', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#validate-button',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+                
+                $('.menu').attr('visible', 'true');
+                window.location = 'results.php?warmth-roof='+insulationSwitch[thermalRoofIndex]+'&warmth-floor='+insulationSwitch[thermalFloorIndex]+'&warmth-wall='+insulationSwitch[thermalWallIndex]+'&warmth-junctions='+insulationSwitch[thermalJunctionsIndex]+'&lux='+parseFloat($('#light-slider').attr("width")) * 200+'&sound-wall='+insulationSwitch[soundWallIndex]+'&sound-floor='+insulationSwitch[soundFloorIndex]+'&sound-type='+soundTypeSwitch[soundTypeIndex]+'&ventilation-ventilation='+ventilationVentilationSwitch[ventilationIndex]+'&ventilation-floor='+floorTypeSwitch[floorIndex]+'&ventilation-type='+ventilationTypeSwitch[typeIndex]+'&prev=kitchen';
+          });
+        }
+      });
+
       /* SUBMENU WARMTH (onClick simulate by the cursor) */
       AFRAME.registerComponent('submenu-warmth', {
         schema: {
@@ -1562,6 +1582,8 @@
         <!-- VR MENU -->
           <!-- MAIN MENU (bottom to top) -->
         <a-entity class="menu" ui-modal visible="false">
+          <a-plane id="validate-button" validate-button width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Validate; align: center"></a-entity></a-plane>          
+          <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -2.45 0"></a-box>
           <a-plane id="ventilation" width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Ventilation; align: center"></a-entity></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.95 0"></a-box>
           <a-plane id="sound" width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Sound; align: center"></a-entity></a-plane>
