@@ -26,9 +26,6 @@
     <link rel='stylesheet prefetch' href='http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css'>
     <script src='http://code.jquery.com/ui/1.11.1/jquery-ui.js'></script>
 
-    <!-- AFRAME UI -->
-    <script src="https://rawgit.com/caseyyee/aframe-ui-widgets/master/dist/aframe-ui-widgets.min.js"></script>
-
     <!-- CURSOR FEEDBACK -->
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
     <script src="https://rawgit.com/gmarty/aframe-ui-components/master/dist/aframe-ui-components.min.js"></script>
@@ -43,7 +40,7 @@
 
   <!-- TO PUT IN ANOTHER FILE -->
     <script>
-
+      
       /* VARIABLES */
       var thermalToUse = "thermal-glass-glass-glass-glass";
       var thermalRoof = "glass";
@@ -439,6 +436,58 @@
         }
       });
 
+      /* UP ARROW LIGHT (onClick simulate by the cursor) */
+      AFRAME.registerComponent('up-arrow-light', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#light-up-arrow',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+              var value = parseFloat($('#light-slider').attr("width")) * 200;
+              if (value < 300) 
+                var nextValue = value + 50;
+
+              $('#light-slider').attr('width', nextValue/200);
+              $('#light-slider').attr('position', -((300-nextValue))/400 + ' -1.6 0.02');
+              $('#light-text').attr('text', 'value: ' + nextValue + ' Lux; align: center');
+
+              $("#directional-light").attr("light", "type: directional; color: #FFF; intensity: " + nextValue/300);
+          });
+        }
+      });
+
+      /* DOWN ARROW LIGHT (onClick simulate by the cursor) */
+      AFRAME.registerComponent('down-arrow-light', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#light-down-arrow',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+              var value = parseFloat($('#light-slider').attr("width")) * 200;
+              if (value > 0) 
+                var nextValue = value - 50;
+
+              $('#light-slider').attr('width', nextValue/200);
+              $('#light-slider').attr('position', -((300-nextValue))/400 + ' -1.6 0.02');
+              $('#light-text').attr('text', 'value: ' + nextValue + ' Lux; align: center');
+
+              $("#directional-light").attr("light", "type: directional; color: #FFF; intensity: " + nextValue/300);
+          });
+        }
+      });
+
       /* BACK BUTTON VENTILATION (onClick simulate by the cursor) */
       AFRAME.registerComponent('ventilation-back', {
         schema: {
@@ -698,12 +747,13 @@
           <!-- LIGHT SUB MENU (bottom to top) -->
         <a-entity id="submenu-light" submenu-light visible="false" position="0 0 0">
           <a-plane id="light-back" light-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Back; align: center"></a-entity></a-plane>
-          <a-plane width="2" height="2.3" color="#6d6d6d" position="0 -1.25 0"></a-plane>
-          <a-entity scale="4 4 4" text="value: 150 Lux; align: center" position="0 -0.75 0"></a-entity>            
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -2.45 0"></a-box>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #down-arrow" position="0 -2.2 0.01" data-interactive="true"></a-plane>
-          <a-entity ui-slider="min: 0; max: 300; value: 150" position="0 -1.45 0" rotation="0 90 90" scale="2 2 2"></a-entity>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #up-arrow" position="0 -0.4 0.01" data-interactive="true"></a-plane>
+          <a-plane width="2" height="2" color="#6d6d6d" position="0 -1.6 0"></a-plane>          
+          <a-plane id="light-down-arrow" width="0.3" down-arrow-light height="0.3" material="transparent: true; src: #down-arrow" position="0 -2.2 0.01" data-interactive="true"></a-plane>          
+          <a-plane width="1.5" height="0.2" color="#FFFFFF" position="0 -1.6 0.01"></a-plane>
+          <a-plane id="light-slider" width="0.75" height="0.2" color="#3DC6FF" position="-0.37 -1.6 0.02"></a-plane>
+          <a-entity id="light-text" scale="4 4 4" text="value: 150 Lux; align: center" position="0 -1.3 0"></a-entity>
+          <a-plane id="light-up-arrow" up-arrow-light width="0.3" height="0.3" material="transparent: true; src: #up-arrow" position="0 -0.8 0.01" data-interactive="true"></a-plane>
         </a-entity>
 
           <!-- VENTILATION SUB MENU (bottom to top) -->
