@@ -42,21 +42,37 @@
     <script>
       
       /* VARIABLES */
+      var insulationSwitch = ['glass', 'poly', 'rock'];
+      var soundTypeSwitch = ['steps', 'music', 'voices'];
+      var floorTypeSwitch = ['normal-floor', 'active-floor'];
+      var ventilationTypeSwitch = ['VOC', 'CO2'];
+      var ventilationVentilationSwitch = ['no-ventilation', 'natural-ventilation', 'air-conditioner'];
+
       var thermalToUse = "thermal-glass-glass-glass-glass";
       var thermalRoof = "glass";
+      var thermalRoofIndex = 0;
       var thermalFloor = "glass";
+      var thermalFloorIndex = 0;
       var thermalWall = "glass";
+      var thermalWallIndex = 0;
       var thermalJunctions = "glass";
+      var thermalJunctionsIndex = 0;
 
       var soundToPlay = "sound-steps-glass-glass";
       var soundType = "steps";
+      var soundTypeIndex = 0;
       var soundWall = "glass";
+      var soundWallIndex = 0;
       var soundFloor = "glass";
+      var soundFloorIndex = 0;
 
       var ventilationToShow = "ventilation-no-ventilation-normal-floor-VOC";
-      var ventilation = "no-ventilation"; 
+      var ventilation = "no-ventilation";
+      var ventilationIndex = 0; 
       var floor = "normal-floor";
+      var floorIndex = 0;
       var type = "VOC";
+      var typeIndex = 0;
 
       /* SUBMENU WARMTH (onClick simulate by the cursor) */
       AFRAME.registerComponent('submenu-warmth', {
@@ -293,6 +309,52 @@
 
                 this.el.setAttribute('visible', true);
 
+                ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
+                if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
+                $("#particles").removeAttr("particle-system")
+                $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+              }
+              else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
+                $("#particles").removeAttr("particle-system")
+                $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+              }
+              else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
+                $("#particles").removeAttr("particle-system")
+                $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+              }
+              else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
+                $("#particles").removeAttr("particle-system")
+                $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              }
+              else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
+                $("#particles").removeAttr("particle-system")
+                $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+              }
+              else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
+                $("#particles").removeAttr("particle-system")
+              }
+              else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
+                $("#particles").removeAttr("particle-system")
+                $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              }
+              else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
+                $("#particles").removeAttr("particle-system")
+                $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              }
+              else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
+                $("#particles").removeAttr("particle-system")
+              }
+              else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
+                $("#particles").removeAttr("particle-system")
+                $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              }
+              else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
+                $("#particles").removeAttr("particle-system")
+                $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              }
+              else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
+                $("#particles").removeAttr("particle-system")
+              }
             } 
 
             else if (this.el.getAttribute('visible') === true) {
@@ -396,6 +458,247 @@
         }
       });
 
+      /* WARMTH ROOF LEFT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('warmth-roof-left', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#warmth-roof-left',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (thermalRoofIndex > 0)
+              thermalRoofIndex --;
+            else
+              thermalRoofIndex = 2;
+
+            $('#warmth-roof').attr('text', 'value: ' + insulationSwitch[thermalRoofIndex] + '; align: center');
+            thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+            $("#bottom").attr("material", "src: #" + thermalToUse);
+            $("#top").attr("material", "src: #" + thermalToUse);
+            $("#left").attr("material", "src: #" + thermalToUse);
+            $("#right").attr("material", "src: #" + thermalToUse);
+            $("#front").attr("material", "src: #" + thermalToUse);
+            $("#back").attr("material", "src: #" + thermalToUse);
+          });
+        }
+      });
+
+      /* WARMTH ROOF RIGHT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('warmth-roof-right', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#warmth-roof-right',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (thermalRoofIndex < 2)
+              thermalRoofIndex ++;
+            else
+              thermalRoofIndex = 0;
+
+            $('#warmth-roof').attr('text', 'value: ' + insulationSwitch[thermalRoofIndex] + '; align: center');
+            thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+            $("#bottom").attr("material", "src: #" + thermalToUse);
+            $("#top").attr("material", "src: #" + thermalToUse);
+            $("#left").attr("material", "src: #" + thermalToUse);
+            $("#right").attr("material", "src: #" + thermalToUse);
+            $("#front").attr("material", "src: #" + thermalToUse);
+            $("#back").attr("material", "src: #" + thermalToUse);
+          });
+        }
+      });
+
+      /* WARMTH WALL LEFT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('warmth-wall-left', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#warmth-wall-left',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (thermalWallIndex > 0)
+              thermalWallIndex --;
+            else
+              thermalWallIndex = 2;
+
+            $('#warmth-wall').attr('text', 'value: ' + insulationSwitch[thermalWallIndex] + '; align: center');
+            thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+            $("#bottom").attr("material", "src: #" + thermalToUse);
+            $("#top").attr("material", "src: #" + thermalToUse);
+            $("#left").attr("material", "src: #" + thermalToUse);
+            $("#right").attr("material", "src: #" + thermalToUse);
+            $("#front").attr("material", "src: #" + thermalToUse);
+            $("#back").attr("material", "src: #" + thermalToUse);
+          });
+        }
+      });
+
+      /* WARMTH WALL RIGHT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('warmth-wall-right', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#warmth-wall-right',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (thermalWallIndex < 2)
+              thermalWallIndex ++;
+            else
+              thermalWallIndex = 0;
+
+            $('#warmth-wall').attr('text', 'value: ' + insulationSwitch[thermalWallIndex] + '; align: center');
+            thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+            $("#bottom").attr("material", "src: #" + thermalToUse);
+            $("#top").attr("material", "src: #" + thermalToUse);
+            $("#left").attr("material", "src: #" + thermalToUse);
+            $("#right").attr("material", "src: #" + thermalToUse);
+            $("#front").attr("material", "src: #" + thermalToUse);
+            $("#back").attr("material", "src: #" + thermalToUse);
+          });
+        }
+      });
+
+      /* WARMTH FLOOR LEFT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('warmth-floor-left', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#warmth-floor-left',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (thermalFloorIndex > 0)
+              thermalFloorIndex --;
+            else
+              thermalFloorIndex = 2;
+
+            $('#warmth-floor').attr('text', 'value: ' + insulationSwitch[thermalFloorIndex] + '; align: center');
+            thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+            $("#bottom").attr("material", "src: #" + thermalToUse);
+            $("#top").attr("material", "src: #" + thermalToUse);
+            $("#left").attr("material", "src: #" + thermalToUse);
+            $("#right").attr("material", "src: #" + thermalToUse);
+            $("#front").attr("material", "src: #" + thermalToUse);
+            $("#back").attr("material", "src: #" + thermalToUse);
+          });
+        }
+      });
+
+      /* WARMTH FLOOR RIGHT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('warmth-floor-right', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#warmth-floor-right',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (thermalFloorIndex < 2)
+              thermalFloorIndex ++;
+            else
+              thermalFloorIndex = 0;
+
+            $('#warmth-floor').attr('text', 'value: ' + insulationSwitch[thermalFloorIndex] + '; align: center');
+            thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+            $("#bottom").attr("material", "src: #" + thermalToUse);
+            $("#top").attr("material", "src: #" + thermalToUse);
+            $("#left").attr("material", "src: #" + thermalToUse);
+            $("#right").attr("material", "src: #" + thermalToUse);
+            $("#front").attr("material", "src: #" + thermalToUse);
+            $("#back").attr("material", "src: #" + thermalToUse);
+          });
+        }
+      });
+
+      /* WARMTH JUNCTIONS LEFT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('warmth-junctions-left', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#warmth-junctions-left',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (thermalJunctionsIndex > 0)
+              thermalJunctionsIndex --;
+            else
+              thermalJunctionsIndex = 2;
+
+            $('#warmth-junctions').attr('text', 'value: ' + insulationSwitch[thermalJunctionsIndex] + '; align: center');
+            thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+            $("#bottom").attr("material", "src: #" + thermalToUse);
+            $("#top").attr("material", "src: #" + thermalToUse);
+            $("#left").attr("material", "src: #" + thermalToUse);
+            $("#right").attr("material", "src: #" + thermalToUse);
+            $("#front").attr("material", "src: #" + thermalToUse);
+            $("#back").attr("material", "src: #" + thermalToUse);
+          });
+        }
+      });
+
+      /* WARMTH JUNCTIONS RIGHT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('warmth-junctions-right', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#warmth-junctions-right',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (thermalJunctionsIndex < 2)
+              thermalJunctionsIndex ++;
+            else
+              thermalJunctionsIndex = 0;
+
+            $('#warmth-junctions').attr('text', 'value: ' + insulationSwitch[thermalJunctionsIndex] + '; align: center');
+            thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+            $("#bottom").attr("material", "src: #" + thermalToUse);
+            $("#top").attr("material", "src: #" + thermalToUse);
+            $("#left").attr("material", "src: #" + thermalToUse);
+            $("#right").attr("material", "src: #" + thermalToUse);
+            $("#front").attr("material", "src: #" + thermalToUse);
+            $("#back").attr("material", "src: #" + thermalToUse);
+          });
+        }
+      });
+
+
       /* BACK BUTTON SOUND (onClick simulate by the cursor) */
       AFRAME.registerComponent('sound-back', {
         schema: {
@@ -413,6 +716,177 @@
               $('.menu').attr('visible', 'false');
 
               $("#steps").removeAttr("sound");
+          });
+        }
+      });
+
+      /* SOUND FLOOR LEFT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('sound-floor-left', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#sound-floor-left',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (soundFloorIndex > 0)
+              soundFloorIndex --;
+            else
+              soundFloorIndex = 2;
+
+            $('#sound-floor').attr('text', 'value: ' + insulationSwitch[soundFloorIndex] + '; align: center');
+            soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+            $("#steps").attr("sound", "src: #"+soundToPlay);
+          });
+        }
+      });
+
+      /* SOUND FLOOR RIGHT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('sound-floor-right', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#sound-floor-right',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (soundFloorIndex < 2)
+              soundFloorIndex ++;
+            else
+              soundFloorIndex = 0;
+
+            $('#sound-floor').attr('text', 'value: ' + insulationSwitch[soundFloorIndex] + '; align: center');
+            soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+            $("#steps").attr("sound", "src: #"+soundToPlay);
+          });
+        }
+      });
+
+      /* SOUND WALL LEFT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('sound-wall-left', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#sound-wall-left',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (soundWallIndex > 0)
+              soundWallIndex --;
+            else
+              soundWallIndex = 2;
+
+            $('#sound-wall').attr('text', 'value: ' + insulationSwitch[soundWallIndex] + '; align: center');
+            soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+            $("#steps").attr("sound", "src: #"+soundToPlay);
+          });
+        }
+      });
+
+      /* SOUND WALL RIGHT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('sound-wall-right', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#sound-wall-right',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (soundWallIndex < 2)
+              soundWallIndex ++;
+            else
+              soundWallIndex = 0;
+
+            $('#sound-wall').attr('text', 'value: ' + insulationSwitch[soundWallIndex] + '; align: center');
+            soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+            $("#steps").attr("sound", "src: #"+soundToPlay);
+          });
+        }
+      });
+
+      /* SOUND TYPE LEFT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('sound-type-left', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#sound-type-left',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (soundTypeIndex > 0)
+              soundTypeIndex --;
+            else
+              soundTypeIndex = 2;
+
+            $('#sound-type').attr('text', 'value: ' + soundTypeSwitch[soundTypeIndex] + '; align: center');
+            soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+            $("#steps").attr("sound", "src: #"+soundToPlay);
+          });
+        }
+      });
+
+      /* SOUND TYPE RIGHT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('sound-type-right', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#sound-type-right',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (soundTypeIndex < 2)
+              soundTypeIndex ++;
+            else
+              soundTypeIndex = 0;
+
+            $('#sound-type').attr('text', 'value: ' + soundTypeSwitch[soundTypeIndex] + '; align: center');
+            soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+            $("#steps").attr("sound", "src: #"+soundToPlay);
+          });
+        }
+      });
+
+      /* PLAY SOUND BUTTON (onClick simulate by the cursor) */
+      AFRAME.registerComponent('play-sound', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#sound-play',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+              var entity = document.querySelector('[sound]');
+              $(entity).attr("sound", "src: #"+soundToPlay+"; autoplay: true");
+              console.log(soundToPlay);
+              entity.components.sound.playSound();
           });
         }
       });
@@ -509,23 +983,416 @@
         }
       });
 
-      /* PLAY SOUND BUTTON (onClick simulate by the cursor) */
-      AFRAME.registerComponent('play-sound', {
+      /* VENTILATION TYPE LEFT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('ventilation-type-left', {
         schema: {
             trigger: {
                 default: 'click'
             },
             triggerElement: {
-              default: '#sound-play',
+              default: '#ventilation-type-left',
             }
         },
 
         init: function() {
           document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
-              var entity = document.querySelector('[sound]');
-              $(entity).attr("sound", "src: #"+soundToPlay+"; autoplay: true");
-              console.log(soundToPlay);
-              entity.components.sound.playSound();
+            if (typeIndex > 0)
+              typeIndex --;
+            else
+              typeIndex = 1;
+
+            $('#ventilation-type').attr('text', 'value: ' + ventilationTypeSwitch[typeIndex] + '; align: center');
+                        ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
+            if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+          });
+        }
+      });
+
+      /* SOUND TYPE RIGHT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('ventilation-type-right', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#ventilation-type-right',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (typeIndex < 1)
+              typeIndex ++;
+            else
+              typeIndex = 0;
+
+            $('#ventilation-type').attr('text', 'value: ' + ventilationTypeSwitch[typeIndex] + '; align: center');
+            ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
+            if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+          });
+        }
+      });
+
+      /* VENTILATION FLOOR LEFT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('ventilation-floor-left', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#ventilation-floor-left',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (floorIndex > 0)
+              floorIndex --;
+            else
+              floorIndex = 1;
+
+            $('#ventilation-floor').attr('text', 'value: ' + floorTypeSwitch[floorIndex] + '; align: center');
+            ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
+            if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+          });
+        }
+      });
+
+      /* VENTILATION FLOOR RIGHT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('ventilation-floor-right', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#ventilation-floor-right',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (floorIndex < 1)
+              floorIndex ++;
+            else
+              floorIndex = 0;
+
+            $('#ventilation-floor').attr('text', 'value: ' + floorTypeSwitch[floorIndex] + '; align: center');
+            ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
+            if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+          });
+        }
+      });
+
+      /* VENTILATION VENTILATION LEFT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('ventilation-ventilation-left', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#ventilation-ventilation-left',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (ventilationIndex > 0)
+              ventilationIndex --;
+            else
+              ventilationIndex = 2;
+
+            $('#ventilation-ventilation').attr('text', 'value: ' + ventilationVentilationSwitch[ventilationIndex] + '; align: center');
+            sventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
+            if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+          });
+        }
+      });
+
+      /* VENTILATION VENTILATION RIGHT ARROW (onClick simulate by the cursor) */
+      AFRAME.registerComponent('ventilation-ventilation-right', {
+        schema: {
+            trigger: {
+                default: 'click'
+            },
+            triggerElement: {
+              default: '#ventilation-ventilation-right',
+            }
+        },
+
+        init: function() {
+          document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+            if (ventilationIndex < 2)
+              ventilationIndex ++;
+            else
+              ventilationIndex = 0;
+
+            $('#ventilation-ventilation').attr('text', 'value: ' + ventilationVentilationSwitch[ventilationIndex] + '; align: center');
+            ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
+            if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
+            else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+            }
+            else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
+              $("#particles").removeAttr("particle-system")
+            }
           });
         }
       });
@@ -667,7 +1534,7 @@
         <!--<a-camera wasd-controls-enabled="false"></a-camera>-->
 
         <!-- LIGHTS -->
-        <a-entity light="type: ambient; color: #BBB"></a-entity>
+        <a-entity light="type: ambient; color: #BBBBBB"></a-entity>
         <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
 
         <!-- ADD A CURSOR (timeout in ms) -->
@@ -709,20 +1576,20 @@
           <a-plane id="warmth-back" warmth-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Back; align: center"></a-entity></a-plane>          
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -2.45 0"></a-box>
           <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0"><a-entity id="warmth-roof" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -2.2 0.01" data-interactive="true"></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -2.2 0.01" data-interactive="true"></a-plane>
+          <a-plane id="warmth-roof-left" warmth-roof-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -2.2 0.01" data-interactive="true"></a-plane>
+          <a-plane id="warmth-roof-right" warmth-roof-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -2.2 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.95 0"></a-box>
           <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0"><a-entity id="warmth-floor" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.7 0.01" data-interactive="true"></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.7 0.01" data-interactive="true"></a-plane>
+          <a-plane id="warmth-floor-left" warmth-floor-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.7 0.01" data-interactive="true"></a-plane>
+          <a-plane id="warmth-floor-right" warmth-floor-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.7 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.45 0"></a-box>
           <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0"><a-entity id="warmth-wall" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.2 0.01" data-interactive="true"></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.2 0.01" data-interactive="true"></a-plane>
+          <a-plane id="warmth-wall-left" warmth-wall-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.2 0.01" data-interactive="true"></a-plane>
+          <a-plane id="warmth-wall-right" warmth-wall-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.2 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -0.95 0"></a-box>
           <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0"><a-entity id="warmth-junctions" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -0.7 0.01" data-interactive="true"></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -0.7 0.01" data-interactive="true"></a-plane>
+          <a-plane id="warmth-junctions-left" warmth-junctions-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -0.7 0.01" data-interactive="true"></a-plane>
+          <a-plane id="warmth-junctions-right" warmth-junctions-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -0.7 0.01" data-interactive="true"></a-plane>
         </a-entity>
 
           <!-- SOUND SUB MENU (bottom to top) -->
@@ -732,16 +1599,16 @@
           <a-plane id="sound-play" play-sound width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0" data-interactive="true"><a-entity id="play" scale="4 4 4" text="value: Play Sound; align: center"></a-entity></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.95 0"></a-box>
           <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0"><a-entity id="sound-type" scale="4 4 4" text="value: steps; align: center"></a-entity></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.7 0.01" data-interactive="true"></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.7 0.01" data-interactive="true"></a-plane>
+          <a-plane id="sound-type-left" sound-type-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.7 0.01" data-interactive="true"></a-plane>
+          <a-plane id="sound-type-right" sound-type-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.7 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.45 0"></a-box>
           <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0"><a-entity id="sound-floor" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.2 0.01" data-interactive="true"></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.2 0.01" data-interactive="true"></a-plane>
+          <a-plane id="sound-floor-left" sound-floor-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.2 0.01" data-interactive="true"></a-plane>
+          <a-plane id="sound-floor-right" sound-floor-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.2 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -0.95 0"></a-box>
           <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0"><a-entity id="sound-wall" scale="4 4 4" text="value: glass; align: center"></a-entity></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -0.7 0.01" data-interactive="true"></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -0.7 0.01" data-interactive="true"></a-plane>
+          <a-plane id="sound-wall-left" sound-wall-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -0.7 0.01" data-interactive="true"></a-plane>
+          <a-plane id="sound-wall-right" sound-wall-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -0.7 0.01" data-interactive="true"></a-plane>
         </a-entity>
 
           <!-- LIGHT SUB MENU (bottom to top) -->
@@ -760,17 +1627,17 @@
         <a-entity id="submenu-ventilation" submenu-ventilation visible="false" position="0 0 0">
           <a-plane id="ventilation-back" ventilation-back width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="4 4 4" text="value: Back; align: center"></a-entity></a-plane>          
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -2.45 0"></a-box>
-          <a-plane id="ventilation1" width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0"><a-entity scale="4 4 4" text="value: VOC; align: center"></a-entity></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -2.2 0.01" data-interactive="true"></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -2.2 0.01" data-interactive="true"></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0"><a-entity id="ventilation-type" scale="4 4 4" text="value: VOC; align: center"></a-entity></a-plane>
+          <a-plane id="ventilation-type-left" ventilation-type-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -2.2 0.01" data-interactive="true"></a-plane>
+          <a-plane id="ventilation-type-right" ventilation-type-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -2.2 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.95 0"></a-box>
-          <a-plane id="ventilation2" width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0"><a-entity scale="4 4 4" text="value: normal-floor; align: center"></a-entity></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.7 0.01" data-interactive="true"></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.7 0.01" data-interactive="true"></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.7 0"><a-entity id="ventilation-floor" scale="4 4 4" text="value: normal-floor; align: center"></a-entity></a-plane>
+          <a-plane id="ventilation-floor-left" ventilation-floor-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.7 0.01" data-interactive="true"></a-plane>
+          <a-plane id="ventilation-floor-right" ventilation-floor-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.7 0.01" data-interactive="true"></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.45 0"></a-box>
-          <a-plane id="ventilation3" width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0"><a-entity scale="4 4 4" text="value: no-ventilation; align: center"></a-entity></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.2 0.01" data-interactive="true"></a-plane>
-          <a-plane width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.2 0.01" data-interactive="true"></a-plane>
+          <a-plane width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0"><a-entity id="ventilation-ventilation" scale="4 4 4" text="value: no-ventilation; align: center"></a-entity></a-plane>
+          <a-plane id="ventilation-ventilation-left" ventilation-ventilation-left width="0.3" height="0.3" material="transparent: true; src: #left-arrow" position="-0.7 -1.2 0.01" data-interactive="true"></a-plane>
+          <a-plane id="ventilation-ventilation-right" ventilation-ventilation-right width="0.3" height="0.3" material="transparent: true; src: #right-arrow" position="0.7 -1.2 0.01" data-interactive="true"></a-plane>
         </a-entity>
 
 
