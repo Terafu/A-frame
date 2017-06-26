@@ -40,17 +40,8 @@
 
   <!-- TO PUT IN ANOTHER FILE -->
     <script>
-      AFRAME.registerComponent('set-position', {
-        schema: {default: ''},
-
-        init() {
-          const camera = document.querySelector('a-camera');
-
-          this.el.addEventListener('click', () => {
-            camera.setAttribute('position', this.data);
-          });
-        }
-      });
+      if (screen.width < 1000)
+          window.location.replace("bedroom2.php");
     </script>
 
     <!-- MENU -->
