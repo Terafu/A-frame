@@ -292,6 +292,7 @@
 
     <!-- 3D SCENE -->
     <div id="scene">
+      <!-- A-SCENE WITH FOG -->
       <a-scene embedded>
         <a-assets>
           <!-- DEFINITION OF THE ASSETS -->
