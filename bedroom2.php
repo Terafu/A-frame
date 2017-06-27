@@ -1670,6 +1670,7 @@
 
         <!-- IMPORT AN OBJ -->
         <!--<a-obj-model id="test_model" obj-model="obj:test2.obj;mtl:test2.mtl"></a-obj-model>-->
+        <a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:bed/bed.obj;mtl:bed/bed.mtl"></a-obj-model>
 
         <!-- DEFINE THE BACKGROUND IMAGE OF THE SCENE -->
         <!--<a-sky src="#sky"></a-sky>-->
