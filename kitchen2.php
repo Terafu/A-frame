@@ -28,7 +28,7 @@
 
     <!-- CURSOR FEEDBACK -->
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
-    <script src="https://rawgit.com/gmarty/aframe-ui-components/master/dist/aframe-ui-components.min.js"></script>
+    <!--<script src="https://rawgit.com/gmarty/aframe-ui-components/master/dist/aframe-ui-components.min.js"></script>-->
 
     <!-- PARTICLES -->
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
@@ -38,8 +38,89 @@
   </head>
   <body>
 
+    <!-- CURSOR FEEDBACK -->
+    <script type="text/javascript">
+      AFRAME.registerComponent('cursor-feedback', {
+        schema: {
+          property: { default: 'scale' },
+          dur: { default: '1200' },
+          to: { default: '0.1 0.1 0.1' },
+        },
+
+        multiple: false,
+
+        init: function() {
+          this.mouseenter = this.mouseenter.bind(this);
+          this.mouseleave = this.mouseleave.bind(this);
+
+          this.el.addEventListener('mouseenter', this.mouseenter);
+          this.el.addEventListener('mouseleave', this.mouseleave);
+        },
+
+        mouseenter: function(evt) {
+          const data = this.data;
+
+          const states = evt.target.states;
+          const index = states.indexOf('interactive');
+          const target = evt.detail.intersectedEl;
+          const isInteractive = !!target.dataset.interactive;
+
+          if (index === -1 && isInteractive) {
+            states.push('interactive');
+            evt.target.removeAttribute('animation');
+            evt.target.setAttribute('scale', '1.5 1.5 1.5');
+
+            const animation = {
+              property: data.property,
+              dur: data.dur,
+              to: data.to,
+            };
+            evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
+          } 
+
+          else if (index >= 0 && !isInteractive) {
+            states.splice(index, 1);
+            evt.target.removeAttribute('animation');
+
+            const animation = {
+              property: data.property,
+              dur: '1',
+              to: '1.5 1.5 1.5',
+            };
+            evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
+          }
+        },
+
+        mouseleave: function(evt) {
+          const data = this.data;
+
+          const states = evt.target.states;
+          const index = states.indexOf('interactive');
+
+          if (index >= 0) {
+            states.splice(index, 1);
+            evt.target.removeAttribute('animation');
+            const animation = {
+              property: data.property,
+              dur: '1',
+              to: '1.5 1.5 1.5',
+            };
+            evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
+          }
+        },
+
+        remove: function() {
+          this.el.removeAttribute('animation');
+          this.el.removeEventListener('mouseenter', this.mouseenter);
+          this.el.removeEventListener('mouseleave', this.mouseleave);
+        },
+      });
+    </script>
+
   <!-- TO PUT IN ANOTHER FILE -->
     <script>
+
+
       
       /* VARIABLES */
       var insulationSwitch = ['glass', 'poly', 'rock'];
@@ -1495,7 +1576,7 @@
         <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
 
         <!-- ADD A CURSOR (timeout in ms) -->
-        <a-camera><a-cursor color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>
+        <a-camera><a-cursor scale="1.5 1.5 1.5" color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>
 
         <!-- Bottom -->
         <a-plane id="bottom" height="8" width="8" position="0 0 0" rotation="-90 0 0" material="src: #parquet"></a-plane>
