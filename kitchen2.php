@@ -1070,7 +1070,7 @@
               $('#submenu-ventilation').attr('visible', 'false');
               $('.menu').attr('visible', 'false');
 
-              $("#particles").removeAttr("particle-system");
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
           });
         }
       });
