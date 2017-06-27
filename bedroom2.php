@@ -28,7 +28,7 @@
 
     <!-- CURSOR FEEDBACK -->
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
-    <script src="https://rawgit.com/gmarty/aframe-ui-components/master/dist/aframe-ui-components.min.js"></script>
+    <!--<script src="https://rawgit.com/gmarty/aframe-ui-components/master/dist/aframe-ui-components.min.js"></script>-->
 
     <!-- PARTICLES -->
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
@@ -38,8 +38,89 @@
   </head>
   <body>
 
+    <!-- CURSOR FEEDBACK -->
+    <script type="text/javascript">
+      AFRAME.registerComponent('cursor-feedback', {
+        schema: {
+          property: { default: 'scale' },
+          dur: { default: '1200' },
+          to: { default: '0.1 0.1 0.1' },
+        },
+
+        multiple: false,
+
+        init: function() {
+          this.mouseenter = this.mouseenter.bind(this);
+          this.mouseleave = this.mouseleave.bind(this);
+
+          this.el.addEventListener('mouseenter', this.mouseenter);
+          this.el.addEventListener('mouseleave', this.mouseleave);
+        },
+
+        mouseenter: function(evt) {
+          const data = this.data;
+
+          const states = evt.target.states;
+          const index = states.indexOf('interactive');
+          const target = evt.detail.intersectedEl;
+          const isInteractive = !!target.dataset.interactive;
+
+          if (index === -1 && isInteractive) {
+            states.push('interactive');
+            evt.target.removeAttribute('animation');
+            evt.target.setAttribute('scale', '1.5 1.5 1.5');
+
+            const animation = {
+              property: data.property,
+              dur: data.dur,
+              to: data.to,
+            };
+            evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
+          } 
+
+          else if (index >= 0 && !isInteractive) {
+            states.splice(index, 1);
+            evt.target.removeAttribute('animation');
+
+            const animation = {
+              property: data.property,
+              dur: '1',
+              to: '1.5 1.5 1.5',
+            };
+            evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
+          }
+        },
+
+        mouseleave: function(evt) {
+          const data = this.data;
+
+          const states = evt.target.states;
+          const index = states.indexOf('interactive');
+
+          if (index >= 0) {
+            states.splice(index, 1);
+            evt.target.removeAttribute('animation');
+            const animation = {
+              property: data.property,
+              dur: '1',
+              to: '1.5 1.5 1.5',
+            };
+            evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
+          }
+        },
+
+        remove: function() {
+          this.el.removeAttribute('animation');
+          this.el.removeEventListener('mouseenter', this.mouseenter);
+          this.el.removeEventListener('mouseleave', this.mouseleave);
+        },
+      });
+    </script>
+
   <!-- TO PUT IN ANOTHER FILE -->
     <script>
+
+
       
       /* VARIABLES */
       var insulationSwitch = ['glass', 'poly', 'rock'];
@@ -331,50 +412,41 @@
 
                 ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
                 if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-                $("#particles").removeAttr("particle-system")
-                $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
-              }
-              else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-                $("#particles").removeAttr("particle-system")
-                $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
-              }
-              else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-                $("#particles").removeAttr("particle-system")
-                $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
-              }
-              else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-                $("#particles").removeAttr("particle-system")
-                $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
-              }
-              else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-                $("#particles").removeAttr("particle-system")
-                $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
-              }
-              else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-                $("#particles").removeAttr("particle-system")
-              }
-              else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-                $("#particles").removeAttr("particle-system")
-                $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
-              }
-              else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-                $("#particles").removeAttr("particle-system")
-                $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
-              }
-              else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-                $("#particles").removeAttr("particle-system")
-              }
-              else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-                $("#particles").removeAttr("particle-system")
-                $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
-              }
-              else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-                $("#particles").removeAttr("particle-system")
-                $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
-              }
-              else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-                $("#particles").removeAttr("particle-system")
-              }
+                  $("a-scene").attr("fog", 'type: linear; color: red; far: 10; near: 0');
+                }
+                else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
+                  $("a-scene").attr("fog", 'type: linear; color: red; far: 12; near: 0');
+                }
+                else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
+                  $("a-scene").attr("fog", 'type: linear; color: red; far: 15; near: 0');
+                }
+                else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
+                  $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 0');
+                }
+                else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
+                  $("a-scene").attr("fog", 'type: linear; color: red; far: 13; near: 0');
+                }
+                else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
+                  $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 11');
+                }
+                else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
+                  $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
+                }
+                else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
+                  $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
+                }
+                else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
+                  $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
+                }
+                else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
+                  $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
+                }
+                else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
+                  $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
+                }
+                else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
+                  $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
+                }
             } 
 
             else if (this.el.getAttribute('visible') === true) {
@@ -998,7 +1070,7 @@
               $('#submenu-ventilation').attr('visible', 'false');
               $('.menu').attr('visible', 'false');
 
-              $("#particles").removeAttr("particle-system");
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
           });
         }
       });
@@ -1024,49 +1096,40 @@
             $('#ventilation-type').attr('text', 'value: ' + ventilationTypeSwitch[typeIndex] + '; align: center');
                         ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
             if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 10; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 15; near: 0');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 13; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
           });
         }
@@ -1093,49 +1156,40 @@
             $('#ventilation-type').attr('text', 'value: ' + ventilationTypeSwitch[typeIndex] + '; align: center');
             ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
             if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 10; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 15; near: 0');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 13; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
           });
         }
@@ -1162,49 +1216,40 @@
             $('#ventilation-floor').attr('text', 'value: ' + floorTypeSwitch[floorIndex] + '; align: center');
             ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
             if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 10; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 15; near: 0');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 13; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
           });
         }
@@ -1231,49 +1276,40 @@
             $('#ventilation-floor').attr('text', 'value: ' + floorTypeSwitch[floorIndex] + '; align: center');
             ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
             if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 10; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 15; near: 0');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 13; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
           });
         }
@@ -1298,51 +1334,42 @@
               ventilationIndex = 2;
 
             $('#ventilation-ventilation').attr('text', 'value: ' + ventilationVentilationSwitch[ventilationIndex] + '; align: center');
-            sventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
+            ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
             if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 10; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 15; near: 0');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 13; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
           });
         }
@@ -1369,49 +1396,40 @@
             $('#ventilation-ventilation').attr('text', 'value: ' + ventilationVentilationSwitch[ventilationIndex] + '; align: center');
             ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
             if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 3000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 10; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 1000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 15; near: 0');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #EF0000; particleCount: 500; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 13; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: red; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
             else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 2000; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 9; near: 0');
             }
             else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
-              $("#particles").attr("particle-system", "preset: dust; color: #FFFFFF; particleCount: 600; size: 0.2; opacity: 1; maxAge: 3")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 12; near: 0');
             }
             else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-              $("#particles").removeAttr("particle-system")
+              $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
             }
           });
         }
@@ -1420,7 +1438,7 @@
 
     <!-- 3D SCENE -->
     <div id="scene">
-      <a-scene embedded>
+      <a-scene embedded fog='type: linear; color: white; far: 11; near: 11'>
         <a-assets>
           <!-- DEFINITION OF THE ASSETS -->
 
@@ -1558,7 +1576,7 @@
         <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
 
         <!-- ADD A CURSOR (timeout in ms) -->
-        <a-camera><a-cursor color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>
+        <a-camera><a-cursor scale="1.5 1.5 1.5" color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>
 
         <!-- Bottom -->
         <a-plane id="bottom" height="8" width="8" position="0 0 0" rotation="-90 0 0" material="src: #parquet"></a-plane>
@@ -1669,7 +1687,7 @@
         <a-circle id = "teleport2" set-position="0 1 0" color="blue" radius="0.15" position="0 0.050 0" rotation="-90 0 0" data-interactive="true"></a-circle>-->
 
         <!-- IMPORT AN OBJ -->
-        <!--<a-obj-model id="test_model" obj-model="obj:test2.obj;mtl:test2.mtl"></a-obj-model>-->
+        <!--<a-obj-model scale="1.2 1.2 1.2" id="test_model" obj-model="obj:bed/bed.obj"></a-obj-model>-->
         <a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:bed/bed.obj;mtl:bed/bed.mtl"></a-obj-model>
 
         <!-- DEFINE THE BACKGROUND IMAGE OF THE SCENE -->

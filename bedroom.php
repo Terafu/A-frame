@@ -28,7 +28,7 @@
 
     <!-- CURSOR FEEDBACK -->
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
-    <script src="https://rawgit.com/gmarty/aframe-ui-components/master/dist/aframe-ui-components.min.js"></script>
+    <!--<script src="https://rawgit.com/gmarty/aframe-ui-components/master/dist/aframe-ui-components.min.js"></script>-->
 
     <!-- PARTICLES -->
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
@@ -49,7 +49,7 @@
       <form action="results.php" method="get">
         <li class="dropdown"><a id="warmth">Warmth</a>
           <ul>
-            <li><a>Roof insulation type</a>
+            <li><a>Roof insulation</a>
               <input id="warmth-roof-glass" type="radio" name="warmth-roof" value="glass" 
               <?php 
                   if ($bedroom) 
@@ -58,22 +58,22 @@
                     if (isset($_SESSION['bedroom']['warmth-roof']) && $_SESSION['bedroom']['warmth-roof'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="warmth-roof-glass">Glass Insulation</label><br>
+              <label for="warmth-roof-glass">Glass</label><br>
               <input id="warmth-roof-poly" type="radio" name="warmth-roof" value="poly"
               <?php 
                 if (isset($_SESSION['bedroom']['warmth-roof']) && $_SESSION['bedroom']['warmth-roof'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-roof-poly">Extended Polystyrene</label><br>
+              <label for="warmth-roof-poly">Polystyrene</label><br>
               <input id="warmth-roof-rock" type="radio" name="warmth-roof" value="rock"
               <?php 
                 if (isset($_SESSION['bedroom']['warmth-roof']) && $_SESSION['bedroom']['warmth-roof'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-roof-rock">Rock Insulation</label><br>
+              <label for="warmth-roof-rock">Rock</label><br>
             </li>
             <hr>
-            <li><a>Floor insulation type</a>
+            <li><a>Floor insulation</a>
               <input id="warmth-floor-glass" type="radio" name="warmth-floor" value="glass"
               <?php 
                   if ($bedroom) 
@@ -82,22 +82,22 @@
                     if (isset($_SESSION['bedroom']['warmth-floor']) && $_SESSION['bedroom']['warmth-floor'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="warmth-floor-glass">Glass Insulation</label><br>
+              <label for="warmth-floor-glass">Glass</label><br>
               <input id="warmth-floor-poly" type="radio" name="warmth-floor" value="poly"
               <?php 
                 if (isset($_SESSION['bedroom']['warmth-floor']) && $_SESSION['bedroom']['warmth-floor'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-floor-poly">Extended Polystyrene</label><br>
+              <label for="warmth-floor-poly">Polystyrene</label><br>
               <input id="warmth-floor-rock" type="radio" name="warmth-floor" value="rock"
               <?php 
                 if (isset($_SESSION['bedroom']['warmth-floor']) && $_SESSION['bedroom']['warmth-floor'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-floor-rock">Rock Insulation</label><br>
+              <label for="warmth-floor-rock">Rock</label><br>
             </li>
             <hr>
-            <li><a>Wall insulation type</a>
+            <li><a>Wall insulation</a>
               <input id="warmth-wall-glass" type="radio" name="warmth-wall" value="glass"
               <?php 
                   if ($bedroom) 
@@ -106,19 +106,19 @@
                     if (isset($_SESSION['bedroom']['warmth-wall']) && $_SESSION['bedroom']['warmth-wall'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="warmth-wall-glass">Glass Insulation</label><br>
+              <label for="warmth-wall-glass">Glass</label><br>
               <input id="warmth-wall-poly" type="radio" name="warmth-wall" value="poly"
               <?php 
                 if (isset($_SESSION['bedroom']['warmth-wall']) && $_SESSION['bedroom']['warmth-wall'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-wall-poly">Extended Polystyrene</label><br>
+              <label for="warmth-wall-poly">Polystyrene</label><br>
               <input id="warmth-wall-rock" type="radio" name="warmth-wall" value="rock"
               <?php 
                 if (isset($_SESSION['bedroom']['warmth-wall']) && $_SESSION['bedroom']['warmth-wall'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-wall-rock">Rock Insulation</label><br>
+              <label for="warmth-wall-rock">Rock</label><br>
             </li>
             <hr>
             <li><a>Junctions</a>
@@ -130,19 +130,19 @@
                     if (isset($_SESSION['bedroom']['warmth-junctions']) && $_SESSION['bedroom']['warmth-junctions'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="warmth-junctions-glass">Glass Insulation</label><br>
+              <label for="warmth-junctions-glass">Glass</label><br>
               <input id="warmth-junctions-poly" type="radio" name="warmth-junctions" value="poly"
               <?php 
                 if (isset($_SESSION['bedroom']['warmth-junctions']) && $_SESSION['bedroom']['warmth-junctions'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-junctions-poly">Extended Polystyrene</label><br>
+              <label for="warmth-junctions-poly">Polystyrene</label><br>
               <input id="warmth-junctions-rock" type="radio" name="warmth-junctions" value="rock"
               <?php 
                 if (isset($_SESSION['bedroom']['warmth-junctions']) && $_SESSION['bedroom']['warmth-junctions'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="warmth-junctions-rock">Rock Insulation</label><br>
+              <label for="warmth-junctions-rock">Rock</label><br>
             </li>
           </ul>
         </li>
@@ -162,7 +162,7 @@
         </li>
         <li class="dropdown"><a id="sound">Sound</a>
           <ul>
-            <li><a>Wall insulation type</a>
+            <li><a>Wall insulation</a>
               <input id="sound-wall-glass" type="radio" name="sound-wall" value="glass"
               <?php 
                   if ($bedroom) 
@@ -171,22 +171,22 @@
                     if (isset($_SESSION['bedroom']['sound-wall']) && $_SESSION['bedroom']['sound-wall'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="sound-wall-glass">Glass Insulation</label><br>
+              <label for="sound-wall-glass">Glass</label><br>
               <input id="sound-wall-poly" type="radio" name="sound-wall" value="poly"
               <?php 
                 if (isset($_SESSION['bedroom']['sound-wall']) && $_SESSION['bedroom']['sound-wall'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="sound-wall-poly">Extended Polystyrene</label><br>
+              <label for="sound-wall-poly">Polystyrene</label><br>
               <input id="sound-wall-rock" type="radio" name="sound-wall" value="rock"
               <?php 
                 if (isset($_SESSION['bedroom']['sound-wall']) && $_SESSION['bedroom']['sound-wall'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="sound-wall-rock">Rock Insulation</label><br>
+              <label for="sound-wall-rock">Rock</label><br>
             </li>
             <hr>
-            <li><a>Floor insulation type</a>
+            <li><a>Floor insulation</a>
               <input id="sound-floor-glass" type="radio" name="sound-floor" value="glass"
               <?php 
                   if ($bedroom) 
@@ -195,19 +195,19 @@
                     if (isset($_SESSION['bedroom']['sound-floor']) && $_SESSION['bedroom']['sound-floor'] == "glass")
                       echo 'checked="checked"';                
               }?>>
-              <label for="sound-floor-glass">Glass Insulation</label><br>
+              <label for="sound-floor-glass">Glass</label><br>
               <input id="sound-floor-poly" type="radio" name="sound-floor" value="poly"
               <?php 
                 if (isset($_SESSION['bedroom']['sound-floor']) && $_SESSION['bedroom']['sound-floor'] == "poly")
                   echo 'checked="checked"';                
               ?>>
-              <label for="sound-floor-poly">Extended Polystyrene</label><br>
+              <label for="sound-floor-poly">Polystyrene</label><br>
               <input id="sound-floor-rock" type="radio" name="sound-floor" value="rock"
               <?php 
                 if (isset($_SESSION['bedroom']['sound-floor']) && $_SESSION['bedroom']['sound-floor'] == "rock")
                   echo 'checked="checked"';                
               ?>>
-              <label for="sound-floor-rock">Rock Insulation</label><br>
+              <label for="sound-floor-rock">Rock</label><br>
             </li>
             <hr>
             <li><a>Type of sound</a>
@@ -292,6 +292,7 @@
 
     <!-- 3D SCENE -->
     <div id="scene">
+      <!-- A-SCENE WITH FOG -->
       <a-scene embedded>
         <a-assets>
           <!-- DEFINITION OF THE ASSETS -->
@@ -301,8 +302,11 @@
 
           <!-- TEXTURES -->
           <img id="parquet" src="images/parquet.jpg">
+          <img id="parquet-normalMap" src="images/parquet-normalMap.jpg">
           <img id="mur" src="images/mur.jpg">
           <img id="mur-poster" src="images/mur-poster.jpg">
+          <img id="mur-normalMap" src="images/mur-normalMap.jpg">
+          <img id="mur-poster-normalMap" src="images/mur-poster-normalMap.jpg">
 
           <!-- THERMAL TEXTURES -->
           <img id="thermal-glass-glass-glass-glass" src="images/thermal.jpg">
@@ -422,24 +426,24 @@
         <!--<a-camera wasd-controls-enabled="false"></a-camera>-->
 
         <!-- LIGHTS -->
-        <a-entity light="type: ambient; color: #BBB"></a-entity>
-        <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
+        <a-entity light="type: ambient; color: #BBBBBB"></a-entity>
+        <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="0 6 0"></a-entity>
 
         <!-- ADD A CURSOR (timeout in ms) -->
         <a-camera rotation="0 180 0"><a-cursor color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>
 
         <!-- Bottom -->
-        <a-plane id="bottom" height="8" width="8" position="0 0 0" rotation="-90 0 0" material="src: #parquet"></a-plane>
+        <a-plane id="bottom" height="8" width="8" position="0 0 0" rotation="-90 0 0" material="src: #parquet; normal-map: #parquet-normalMap; roughness: 0.2"></a-plane>
         <!-- Front-->
-        <a-plane id="front" height="6" width="8" position="0 3 -4" rotation="0 0 0" material="src: #mur"></a-plane>
+        <a-plane id="front" height="6" width="8" position="0 3 -4" rotation="0 0 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
         <!--Back -->
-        <a-plane id="back" height="6" width="8" position="0 3 4" rotation="180 0 0" material="src: #mur-poster"></a-plane>
+        <a-plane id="back" height="6" width="8" position="0 3 4" rotation="180 0 0" material="src: #mur-poster; normal-map: #mur-poster-normalMap"></a-plane>
         <!-- Left-->
-        <a-plane id="left" height="6" width="8" position="-4 3 0" rotation="0 90 0" material="src: #mur"></a-plane>
+        <a-plane id="left" height="6" width="8" position="-4 3 0" rotation="0 90 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
         <!-- Right-->
-        <a-plane id="right" height="6" width="8" position="4 3 0" rotation="0 -90 0" material="src: #mur"></a-plane>
+        <a-plane id="right" height="6" width="8" position="4 3 0" rotation="0 -90 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
         <!-- Top -->
-        <a-plane id="top" height="8" width="8" position="0 6 0" rotation="90 0 0" material="src: #mur"></a-plane>
+        <a-plane id="top" height="8" width="8" position="0 6 0" rotation="90 0 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
 
         <!-- SOUND -->
         <a-entity id="steps"></a-entity>
@@ -452,7 +456,7 @@
         <a-circle id = "teleport2" set-position="0 1 0" color="blue" radius="0.15" position="0 0.050 0" rotation="-90 0 0" data-interactive="true"></a-circle>-->
 
         <!-- IMPORT AN OBJ -->
-        <!--<a-obj-model id="test_model" obj-model="obj:test2.obj;mtl:test2.mtl"></a-obj-model>-->
+        <!--<a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:bed/bed.obj;mtl:bed/bed.mtl"></a-obj-model>-->
         <a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:bed/bed.obj;mtl:bed/bed.mtl"></a-obj-model>
 
         <!-- DEFINE THE BACKGROUND IMAGE OF THE SCENE -->

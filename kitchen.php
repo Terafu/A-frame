@@ -302,8 +302,11 @@
 
           <!-- TEXTURES -->
           <img id="parquet" src="images/parquet.jpg">
+          <img id="parquet-normalMap" src="images/parquet-normalMap.jpg">
           <img id="mur" src="images/mur.jpg">
           <img id="mur-poster" src="images/mur-poster.jpg">
+          <img id="mur-normalMap" src="images/mur-normalMap.jpg">
+          <img id="mur-poster-normalMap" src="images/mur-poster-normalMap.jpg">
 
           <!-- THERMAL TEXTURES -->
           <img id="thermal-glass-glass-glass-glass" src="images/thermal.jpg">
@@ -423,24 +426,24 @@
         <!--<a-camera wasd-controls-enabled="false"></a-camera>-->
 
         <!-- LIGHTS -->
-        <a-entity light="type: ambient; color: #BBB"></a-entity>
-        <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
+        <a-entity light="type: ambient; color: #BBBBBB"></a-entity>
+        <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="0 6 0"></a-entity>
 
         <!-- ADD A CURSOR (timeout in ms) -->
         <a-camera rotation="0 180 0"><a-cursor color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>
 
         <!-- Bottom -->
-        <a-plane id="bottom" height="8" width="8" position="0 0 0" rotation="-90 0 0" material="src: #parquet"></a-plane>
+        <a-plane id="bottom" height="8" width="8" position="0 0 0" rotation="-90 0 0" material="src: #parquet; normal-map: #parquet-normalMap; roughness: 0.2"></a-plane>
         <!-- Front-->
-        <a-plane id="front" height="6" width="8" position="0 3 -4" rotation="0 0 0" material="src: #mur"></a-plane>
+        <a-plane id="front" height="6" width="8" position="0 3 -4" rotation="0 0 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
         <!--Back -->
-        <a-plane id="back" height="6" width="8" position="0 3 4" rotation="180 0 0" material="src: #mur-poster"></a-plane>
+        <a-plane id="back" height="6" width="8" position="0 3 4" rotation="180 0 0" material="src: #mur-poster; normal-map: #mur-poster-normalMap"></a-plane>
         <!-- Left-->
-        <a-plane id="left" height="6" width="8" position="-4 3 0" rotation="0 90 0" material="src: #mur"></a-plane>
+        <a-plane id="left" height="6" width="8" position="-4 3 0" rotation="0 90 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
         <!-- Right-->
-        <a-plane id="right" height="6" width="8" position="4 3 0" rotation="0 -90 0" material="src: #mur"></a-plane>
+        <a-plane id="right" height="6" width="8" position="4 3 0" rotation="0 -90 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
         <!-- Top -->
-        <a-plane id="top" height="8" width="8" position="0 6 0" rotation="90 0 0" material="src: #mur"></a-plane>
+        <a-plane id="top" height="8" width="8" position="0 6 0" rotation="90 0 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
 
         <!-- SOUND -->
         <a-entity id="steps"></a-entity>
