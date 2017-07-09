@@ -65,5 +65,44 @@
 		</form>
 
 		<?php include 'results-chart.php'; ?>
+
+		<table>
+			<colgroup>
+				<col class="warmthColor"/>
+				<col class="luxColor"/>
+				<col class="soundColor"/>
+				<col class="ventilationColor"/>
+			</colgroup>
+			<tr>
+				<td>WARMTH</td>
+				<td>LUX</td>
+				<td>SOUND</td>
+				<td>VENTILATION</td>
+			</tr>
+			<tr>
+				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+			</tr>
+			<tr>
+				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td></td>
+				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+			</tr>
+			<tr>
+				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td></td>
+				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
 	</body>
 </html>

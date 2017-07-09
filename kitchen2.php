@@ -1595,7 +1595,9 @@
         <a-entity id="steps"></a-entity>
 
         <!-- PARTICLES -->
-        <a-entity id="particles" position="0 3.5 0" scale="0.1 0.1 0.1"></a-entity>
+        <!--<a-entity id="particles" position="0 3.5 0" scale="0.1 0.1 0.1"></a-entity>-->
+
+        <a-plane id="welcomeText" width="3.5" height="1.5" color="#6d6d6d" position="0 2 -3"><a-entity scale="3.5 3.5 3.5" text="value: Welcome to the Multi-Comfort Experience! To show the main menu you have to click, after that you can select the different options just by hover it!; align: center"></a-entity></a-plane>  
 
         <!-- VR MENU -->
           <!-- MAIN MENU (bottom to top) -->

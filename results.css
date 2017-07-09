@@ -72,3 +72,34 @@ input[type="submit"] {
 input[type="submit"]:hover {
 	background-color: #8BB98C;
 }
+
+table {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.warmthColor {
+	background: #e95b52;
+}
+
+.luxColor {
+	background: #f0b911;
+}
+
+.soundColor {
+	background: #8987c0;
+}
+
+.ventilationColor {
+	background: #63bc9b;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: grey;
+}
