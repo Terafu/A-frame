@@ -26,7 +26,7 @@
 	    <!-- JQUERY -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-	    <link rel="stylesheet" href="results.css" />
+	    <link rel="stylesheet" href="css/results.css" />
 
 	    <!-- CHARTS -->
 		<script src="https://code.highcharts.com/highcharts.js"></script>
@@ -57,10 +57,7 @@
 			</ul>
 		</div>
 
-		<div id="resume"></div>
-		<div id="container"></div>
-
-
+		<div id="chartContainer"></div>
 
 		<table>
 			<colgroup>
@@ -76,25 +73,25 @@
 				<th>VENTILATION</th>
 			</tr>
 			<tr>
-				<td><a href="test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
-				<td><a href="test.pdf" target="_blank" class="luxColorHover">test.pdf</a></td>
-				<td><a href="test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td>
-				<td><a href="test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td>
+				<td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
+				<td><a href="pdf/test.pdf" target="_blank" class="luxColorHover">test.pdf</a></td>
+				<td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td>
+				<td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td>
 			</tr>
 			<tr>
-				<td><a href="test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
+				<td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
 				<td></td>
-				<td><a href="test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td>
-				<td><a href="test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td>
+				<td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td>
+				<td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td>
 			</tr>
 			<tr>
-				<td><a href="test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
+				<td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
 				<td></td>
 				<td></td>
 				<td></td>
 			</tr>
 			<tr>
-				<td><a href="test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
+				<td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
 				<td></td>
 				<td></td>
 				<td></td>

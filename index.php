@@ -30,7 +30,7 @@
 	    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
 
 		<!-- CSS -->
-    	<link rel="stylesheet" href="index.css" />
+    	<link rel="stylesheet" href="css/index.css" />
 	</head>
 	<body>
 
@@ -144,6 +144,6 @@
 		</svg>
 
     	<!-- LOCAL JQUERY -->
-    	<script src="index.js"></script> 	
+    	<script src="js/index.js"></script> 	
 	</body>
 </html>

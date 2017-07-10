@@ -34,7 +34,7 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="room.css" />
+    <link rel="stylesheet" href="css/room.css" />
   </head>
   <body>
 
@@ -392,33 +392,33 @@
           <img id="thermal-rock-rock-rock-rock" src="images/thermal2.jpg">
 
           <!-- SOUNDS -->
-          <audio id="sound-steps-glass-glass" src="steps.mp3" preload="true"></audio>
-          <audio id="sound-steps-poly-glass" src="steps2.mp3" preload="true"></audio>
-          <audio id="sound-steps-rock-glass" src="steps3.mp3" preload="true"></audio>
-          <audio id="sound-steps-glass-poly" src="steps.mp3" preload="true"></audio>
-          <audio id="sound-steps-poly-poly" src="steps2.mp3" preload="true"></audio>
-          <audio id="sound-steps-rock-poly" src="steps3.mp3" preload="true"></audio>
-          <audio id="sound-steps-glass-rock" src="steps.mp3" preload="true"></audio>
-          <audio id="sound-steps-poly-rock" src="steps2.mp3" preload="true"></audio>
-          <audio id="sound-steps-rock-rock" src="steps3.mp3" preload="true"></audio>
-          <audio id="sound-music-glass-glass" src="music.mp3" preload="true"></audio>
-          <audio id="sound-music-poly-glass" src="music2.mp3" preload="true"></audio>
-          <audio id="sound-music-rock-glass" src="music3.mp3" preload="true"></audio>
-          <audio id="sound-music-glass-poly" src="music.mp3" preload="true"></audio>
-          <audio id="sound-music-poly-poly" src="music2.mp3" preload="true"></audio>
-          <audio id="sound-music-rock-poly" src="music3.mp3" preload="true"></audio>
-          <audio id="sound-music-glass-rock" src="music.mp3" preload="true"></audio>
-          <audio id="sound-music-poly-rock" src="music2.mp3" preload="true"></audio>
-          <audio id="sound-music-rock-rock" src="music3.mp3" preload="true"></audio>
-          <audio id="sound-voices-glass-glass" src="voices.mp3" preload="true"></audio>
-          <audio id="sound-voices-poly-glass" src="voices2.mp3" preload="true"></audio>
-          <audio id="sound-voices-rock-glass" src="voices3.mp3" preload="true"></audio>
-          <audio id="sound-voices-glass-poly" src="voices.mp3" preload="true"></audio>
-          <audio id="sound-voices-poly-poly" src="voices2.mp3" preload="true"></audio>
-          <audio id="sound-voices-rock-poly" src="voices3.mp3" preload="true"></audio>
-          <audio id="sound-voices-glass-rock" src="voices.mp3" preload="true"></audio>
-          <audio id="sound-voices-poly-rock" src="voices2.mp3" preload="true"></audio>
-          <audio id="sound-voices-rock-rock" src="voices3.mp3" preload="true"></audio>
+          <audio id="sound-steps-glass-glass" src="sounds/steps.mp3" preload="true"></audio>
+          <audio id="sound-steps-poly-glass" src="sounds/steps2.mp3" preload="true"></audio>
+          <audio id="sound-steps-rock-glass" src="sounds/steps3.mp3" preload="true"></audio>
+          <audio id="sound-steps-glass-poly" src="sounds/steps.mp3" preload="true"></audio>
+          <audio id="sound-steps-poly-poly" src="sounds/steps2.mp3" preload="true"></audio>
+          <audio id="sound-steps-rock-poly" src="sounds/steps3.mp3" preload="true"></audio>
+          <audio id="sound-steps-glass-rock" src="sounds/steps.mp3" preload="true"></audio>
+          <audio id="sound-steps-poly-rock" src="sounds/steps2.mp3" preload="true"></audio>
+          <audio id="sound-steps-rock-rock" src="sounds/steps3.mp3" preload="true"></audio>
+          <audio id="sound-music-glass-glass" src="sounds/music.mp3" preload="true"></audio>
+          <audio id="sound-music-poly-glass" src="sounds/music2.mp3" preload="true"></audio>
+          <audio id="sound-music-rock-glass" src="sounds/music3.mp3" preload="true"></audio>
+          <audio id="sound-music-glass-poly" src="sounds/music.mp3" preload="true"></audio>
+          <audio id="sound-music-poly-poly" src="sounds/music2.mp3" preload="true"></audio>
+          <audio id="sound-music-rock-poly" src="sounds/music3.mp3" preload="true"></audio>
+          <audio id="sound-music-glass-rock" src="sounds/music.mp3" preload="true"></audio>
+          <audio id="sound-music-poly-rock" src="sounds/music2.mp3" preload="true"></audio>
+          <audio id="sound-music-rock-rock" src="sounds/music3.mp3" preload="true"></audio>
+          <audio id="sound-voices-glass-glass" src="sounds/voices.mp3" preload="true"></audio>
+          <audio id="sound-voices-poly-glass" src="sounds/voices2.mp3" preload="true"></audio>
+          <audio id="sound-voices-rock-glass" src="sounds/voices3.mp3" preload="true"></audio>
+          <audio id="sound-voices-glass-poly" src="sounds/voices.mp3" preload="true"></audio>
+          <audio id="sound-voices-poly-poly" src="sounds/voices2.mp3" preload="true"></audio>
+          <audio id="sound-voices-rock-poly" src="sounds/voices3.mp3" preload="true"></audio>
+          <audio id="sound-voices-glass-rock" src="sounds/voices.mp3" preload="true"></audio>
+          <audio id="sound-voices-poly-rock" src="sounds/voices2.mp3" preload="true"></audio>
+          <audio id="sound-voices-rock-rock" src="sounds/voices3.mp3" preload="true"></audio>
 
         </a-assets>
 
@@ -468,6 +468,6 @@
     </div>
 
     <!-- LOCAL JQUERY -->
-    <script src="room.js"></script>
+    <script src="js/room.js"></script>
   </body>
 </html>

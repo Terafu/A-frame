@@ -178,7 +178,7 @@
 <script>
     $(function () {
         if ($(".active").attr("id") == "kitchen") {
-            var myChart = Highcharts.chart('container', {
+            var myChart = Highcharts.chart('chartContainer', {
                 chart: {
                     type: 'bar',
                 },
@@ -218,7 +218,7 @@
         }
 
         else if ($(".active").attr("id") == "bedroom") {
-            var myChart = Highcharts.chart('container', {
+            var myChart = Highcharts.chart('chartContainer', {
                 chart: {
                     type: 'bar',
                 },
@@ -258,7 +258,7 @@
         }
 
         else if ($(".active").attr("id") == "livingroom") {
-            var myChart = Highcharts.chart('container', {
+            var myChart = Highcharts.chart('chartContainer', {
                 chart: {
                     type: 'bar',
                 },
@@ -307,7 +307,7 @@
         $(this).addClass("active");
         $(function () {
             if ($(".active").attr("id") == "kitchen") {
-                var myChart = Highcharts.chart('container', {
+                var myChart = Highcharts.chart('chartContainer', {
                     chart: {
                         type: 'bar',
                     },
@@ -347,7 +347,7 @@
             }
 
             else if ($(".active").attr("id") == "bedroom") {
-                var myChart = Highcharts.chart('container', {
+                var myChart = Highcharts.chart('chartContainer', {
                     chart: {
                         type: 'bar',
                     },
@@ -387,7 +387,7 @@
             }
 
             else if ($(".active").attr("id") == "livingroom") {
-                var myChart = Highcharts.chart('container', {
+                var myChart = Highcharts.chart('chartContainer', {
                     chart: {
                         type: 'bar',
                     },
