@@ -60,11 +60,7 @@
 		<div id="resume"></div>
 		<div id="container"></div>
 
-		<form action="index.php">
-			<input type="submit" value="Configure another room">
-		</form>
 
-		<?php include 'results-chart.php'; ?>
 
 		<table>
 			<colgroup>
@@ -74,10 +70,10 @@
 				<col class="ventilationColor"/>
 			</colgroup>
 			<tr>
-				<td>WARMTH</td>
-				<td>LUX</td>
-				<td>SOUND</td>
-				<td>VENTILATION</td>
+				<th>WARMTH</th>
+				<th>LUX</th>
+				<th>SOUND</th>
+				<th>VENTILATION</th>
 			</tr>
 			<tr>
 				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
@@ -104,5 +100,11 @@
 				<td></td>
 			</tr>
 		</table>
+
+		<form action="index.php">
+			<input type="submit" value="Configure another room">
+		</form>
+
+		<?php include 'results-chart.php'; ?>
 	</body>
 </html>
