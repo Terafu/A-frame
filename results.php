@@ -76,25 +76,25 @@
 				<th>VENTILATION</th>
 			</tr>
 			<tr>
-				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
-				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
-				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
-				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td><a href="test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
+				<td><a href="test.pdf" target="_blank" class="luxColorHover">test.pdf</a></td>
+				<td><a href="test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td>
+				<td><a href="test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td>
 			</tr>
 			<tr>
-				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td><a href="test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
 				<td></td>
-				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
-				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td><a href="test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td>
+				<td><a href="test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td>
 			</tr>
 			<tr>
-				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td><a href="test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
 				<td></td>
-				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td></td>
 				<td></td>
 			</tr>
 			<tr>
-				<td><a href="test.pdf " target="_blank">test.pdf</a></td>
+				<td><a href="test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
 				<td></td>
 				<td></td>
 				<td></td>

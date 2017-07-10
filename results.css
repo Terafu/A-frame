@@ -99,10 +99,11 @@ table {
 a {
 	color: white;
 	text-decoration: none;
-}
-
-a:hover {
-	color: grey;
+	display: inline-block;
+	width: 100%;
+	height: 100%;	
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 th {
@@ -115,4 +116,20 @@ th {
 	border-left: 0;
 	border-right: 0;
 	border-style: solid;
+}
+
+.warmthColorHover:hover {
+	background-color: #bd514a;
+}
+
+.luxColorHover:hover {
+	background-color: #c59810;
+}
+
+.soundColorHover:hover {
+	background-color: #626089;
+}
+
+.ventilationColorHover:hover {
+	background-color: #407a65;
 }
