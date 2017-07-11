@@ -182,7 +182,7 @@
         <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
 
         <!-- ADD A CURSOR (timeout in ms) -->
-        <a-camera rotation="0 180 0"><a-cursor scale="1.5 1.5 1.5" color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>
+        <a-camera><a-cursor scale="1.5 1.5 1.5" color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>
 
         <!-- Bottom -->
         <a-plane id="bottom" height="8" width="8" position="0 0 0" rotation="-90 0 0" material="src: #parquet"></a-plane>
@@ -203,8 +203,8 @@
         <!-- PARTICLES -->
         <a-entity id="particles" position="0 3.5 0" scale="0.1 0.1 0.1"></a-entity>
 
-        <a-plane id="welcomeText" width="3.5" height="2" color="#6d6d6d" position="0 1 2.5" visible="true" rotation="0 180 0"><a-entity scale="3.5 3.5 3.5" position="0 0.7 0" text="value: To show the main menu you have to click on the menu logo.; align: center; baseline: top"></a-entity></a-plane>
-        <a-image id="showMenu" data-interactive="true" visible="true" src="#menu-button" position="0 0.7 2.49"></a-image>
+        <a-plane id="welcomeText" width="2.5" height="2" color="#6d6d6d" position="0 1 -2.5" visible="true" rotation="0 0 0"><a-entity scale="2.5 2.5 2.5" position="0 0.7 0" text="value: To show the main menu you have to click on the menu logo.; align: center; baseline: top"></a-entity></a-plane>
+        <a-image id="showMenu" data-interactive="true" visible="true" src="#menu-button" position="0 0.7 -2.49"></a-image>
 
         <!-- VR MENU -->
           <!-- MAIN MENU (bottom to top) -->
