@@ -101,12 +101,12 @@ a {
 	display: inline-block;
 	width: 100%;
 	height: 100%;	
-	padding-top: 7px;
-	padding-bottom: 7px;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 
 th {
-	font-size: 150%;
+	font-size: 120%;
 	text-decoration: none;
 	font-style: normal;
 	font-weight: normal;
