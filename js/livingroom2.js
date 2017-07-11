@@ -1,3 +1,79 @@
+AFRAME.registerComponent('cursor-feedback', {
+  schema: {
+    property: { default: 'scale' },
+    dur: { default: '1200' },
+    to: { default: '0.1 0.1 0.1' },
+  },
+
+  multiple: false,
+
+  init: function() {
+    this.mouseenter = this.mouseenter.bind(this);
+    this.mouseleave = this.mouseleave.bind(this);
+
+    this.el.addEventListener('mouseenter', this.mouseenter);
+    this.el.addEventListener('mouseleave', this.mouseleave);
+  },
+
+  mouseenter: function(evt) {
+    const data = this.data;
+
+    const states = evt.target.states;
+    const index = states.indexOf('interactive');
+    const target = evt.detail.intersectedEl;
+    const isInteractive = !!target.dataset.interactive;
+
+    if (index === -1 && isInteractive) {
+      states.push('interactive');
+      evt.target.removeAttribute('animation');
+      evt.target.setAttribute('scale', '1.5 1.5 1.5');
+
+      const animation = {
+        property: data.property,
+        dur: data.dur,
+        to: data.to,
+      };
+      evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
+    } 
+
+    else if (index >= 0 && !isInteractive) {
+      states.splice(index, 1);
+      evt.target.removeAttribute('animation');
+
+      const animation = {
+        property: data.property,
+        dur: '1',
+        to: '1.5 1.5 1.5',
+      };
+      evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
+    }
+  },
+
+  mouseleave: function(evt) {
+    const data = this.data;
+
+    const states = evt.target.states;
+    const index = states.indexOf('interactive');
+
+    if (index >= 0) {
+      states.splice(index, 1);
+      evt.target.removeAttribute('animation');
+      const animation = {
+        property: data.property,
+        dur: '1',
+        to: '1.5 1.5 1.5',
+      };
+      evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
+    }
+  },
+
+  remove: function() {
+    this.el.removeAttribute('animation');
+    this.el.removeEventListener('mouseenter', this.mouseenter);
+    this.el.removeEventListener('mouseleave', this.mouseleave);
+  },
+});
+
 /* VARIABLES */
 var insulationSwitch = ['glass', 'poly', 'rock'];
 var soundTypeSwitch = ['steps', 'music', 'voices'];
@@ -84,7 +160,7 @@ AFRAME.registerComponent('submenu-warmth', {
 
       if (this.el.getAttribute('visible') === false) {
 
-          $('.menu').attr('visible', 'true');
+          $('.menu').attr('visible', 'false');
 
           thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
           $("#bottom").attr("material", "src: #" + thermalToUse);
@@ -151,7 +227,7 @@ AFRAME.registerComponent('submenu-sound', {
 
       if (this.el.getAttribute('visible') === false) {
 
-          $('.menu').attr('visible', 'true');
+          $('.menu').attr('visible', 'false');
 
           var direction = this.zaxis.clone();
           direction.applyQuaternion(this.cameraEl.object3D.quaternion);
@@ -213,7 +289,7 @@ AFRAME.registerComponent('submenu-light', {
 
       if (this.el.getAttribute('visible') === false) {
 
-          $('.menu').attr('visible', 'true');
+          $('.menu').attr('visible', 'false');
 
           var direction = this.zaxis.clone();
           direction.applyQuaternion(this.cameraEl.object3D.quaternion);
@@ -273,7 +349,7 @@ AFRAME.registerComponent('submenu-ventilation', {
 
       if (this.el.getAttribute('visible') === false) {
 
-          $('.menu').attr('visible', 'true');
+          $('.menu').attr('visible', 'false');
 
           var direction = this.zaxis.clone();
           direction.applyQuaternion(this.cameraEl.object3D.quaternion);
@@ -345,7 +421,7 @@ AFRAME.registerComponent('ui-modal', {
           default: 'click'
       },
       triggerElement: {
-        default: 'a-scene',
+        default: '#showMenu',
       },
       zpos: {
           default: -3
@@ -374,6 +450,9 @@ AFRAME.registerComponent('ui-modal', {
 
       if (this.el.getAttribute('visible') === false) {
 
+          $('#welcomeText').attr('visible', 'false');
+          $('#showMenu').attr('visible', 'false');
+
           var direction = this.zaxis.clone();
           direction.applyQuaternion(this.cameraEl.object3D.quaternion);
           var ycomponent = this.yaxis.clone().multiplyScalar(direction.dot(this.yaxis));
@@ -389,6 +468,8 @@ AFRAME.registerComponent('ui-modal', {
 
       else if (this.el.getAttribute('visible') === true) {
 
+        $('#welcomeText').attr('visible', 'true');
+
           this.el.setAttribute('visible', false);
       }
 
@@ -397,6 +478,27 @@ AFRAME.registerComponent('ui-modal', {
   update: function (oldData) {},
 
   remove: function() {}
+});
+
+/* CLOSE BUTTON MAIN MENU (onClick simulate by the cursor) */
+AFRAME.registerComponent('menu-close', {
+  schema: {
+      trigger: {
+          default: 'click'
+      },
+      triggerElement: {
+        default: '#menu-close',
+      }
+  },
+
+  init: function() {
+    document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+        $('.menu').attr('visible', 'false');
+
+        $('#showMenu').attr('visible', 'true');
+
+    });
+  }
 });
 
 /* BACK BUTTON WARMTH (onClick simulate by the cursor) */
@@ -413,7 +515,7 @@ AFRAME.registerComponent('warmth-back', {
   init: function() {
     document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
         $('#submenu-warmth').attr('visible', 'false');
-        $('.menu').attr('visible', 'false');
+        $('.menu').attr('visible', 'true');
 
         $("#bottom").attr("material", "src: #parquet");
         $("#top").attr("material", "src: #mur");
@@ -681,7 +783,7 @@ AFRAME.registerComponent('sound-back', {
   init: function() {
     document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
         $('#submenu-sound').attr('visible', 'false');
-        $('.menu').attr('visible', 'false');
+        $('.menu').attr('visible', 'true');
 
         $("#steps").removeAttr("sound");
     });
@@ -873,7 +975,7 @@ AFRAME.registerComponent('light-back', {
   init: function() {
     document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
         $('#submenu-light').attr('visible', 'false');
-        $('.menu').attr('visible', 'false');
+        $('.menu').attr('visible', 'true');
     });
   }
 });
@@ -944,7 +1046,7 @@ AFRAME.registerComponent('ventilation-back', {
   init: function() {
     document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
         $('#submenu-ventilation').attr('visible', 'false');
-        $('.menu').attr('visible', 'false');
+        $('.menu').attr('visible', 'true');
 
         $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
     });
@@ -1309,80 +1411,4 @@ AFRAME.registerComponent('ventilation-ventilation-right', {
       }
     });
   }
-});
-
-AFRAME.registerComponent('cursor-feedback', {
-  schema: {
-    property: { default: 'scale' },
-    dur: { default: '1200' },
-    to: { default: '0.1 0.1 0.1' },
-  },
-
-  multiple: false,
-
-  init: function() {
-    this.mouseenter = this.mouseenter.bind(this);
-    this.mouseleave = this.mouseleave.bind(this);
-
-    this.el.addEventListener('mouseenter', this.mouseenter);
-    this.el.addEventListener('mouseleave', this.mouseleave);
-  },
-
-  mouseenter: function(evt) {
-    const data = this.data;
-
-    const states = evt.target.states;
-    const index = states.indexOf('interactive');
-    const target = evt.detail.intersectedEl;
-    const isInteractive = !!target.dataset.interactive;
-
-    if (index === -1 && isInteractive) {
-      states.push('interactive');
-      evt.target.removeAttribute('animation');
-      evt.target.setAttribute('scale', '1.5 1.5 1.5');
-
-      const animation = {
-        property: data.property,
-        dur: data.dur,
-        to: data.to,
-      };
-      evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
-    } 
-
-    else if (index >= 0 && !isInteractive) {
-      states.splice(index, 1);
-      evt.target.removeAttribute('animation');
-
-      const animation = {
-        property: data.property,
-        dur: '1',
-        to: '1.5 1.5 1.5',
-      };
-      evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
-    }
-  },
-
-  mouseleave: function(evt) {
-    const data = this.data;
-
-    const states = evt.target.states;
-    const index = states.indexOf('interactive');
-
-    if (index >= 0) {
-      states.splice(index, 1);
-      evt.target.removeAttribute('animation');
-      const animation = {
-        property: data.property,
-        dur: '1',
-        to: '1.5 1.5 1.5',
-      };
-      evt.target.setAttribute('animation', AFRAME.utils.styleParser.stringify(animation));
-    }
-  },
-
-  remove: function() {
-    this.el.removeAttribute('animation');
-    this.el.removeEventListener('mouseenter', this.mouseenter);
-    this.el.removeEventListener('mouseleave', this.mouseleave);
-  },
 });

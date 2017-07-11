@@ -57,6 +57,7 @@
           <img id="right-arrow" src="images/right-arrow.png">
           <img id="up-arrow" src="images/up-arrow.png">
           <img id="down-arrow" src="images/down-arrow.png">
+          <imd id="menu-button" src="images/menu-button.png">
 
           <!-- THERMAL TEXTURES -->
           <img id="thermal-glass-glass-glass-glass" src="images/thermal.jpg">
@@ -201,6 +202,9 @@
         <!-- PARTICLES -->
         <a-entity id="particles" position="0 3.5 0" scale="0.1 0.1 0.1"></a-entity>
 
+        <a-plane id="welcomeText" width="3.5" height="2" color="#6d6d6d" position="0 1 2.5" visible="true" rotation="0 180 0"><a-entity scale="3.5 3.5 3.5" position="0 0.7 0" text="value: To show the main menu you have to click on the menu logo.; align: center; baseline: top"></a-entity></a-plane>
+        <a-image id="showMenu" data-interactive="true" visible="true" src="#menu-button" position="0 0.7 2.49"></a-image>
+
         <!-- VR MENU -->
           <!-- MAIN MENU (bottom to top) -->
         <a-entity class="menu" ui-modal visible="false">
@@ -212,7 +216,9 @@
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.45 0"></a-box>
           <a-plane id="light" width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Light; align: center"></a-entity></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -0.95 0"></a-box>
-          <a-plane id="warmth" width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Warmth; align: center"></a-entity></a-plane>
+          <a-plane id="warmth" width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Warmth; align: center"></a-entity></a-plane>                   
+          <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -0.45 0"></a-box>                   
+          <a-plane id="menu-close" menu-close width="2" height="0.5" color="#6d6d6d" position="0 -0.2 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Close; align: center"></a-entity></a-plane>
         </a-entity>
 
           <!-- WARMTH SUB MENU (bottom to top) -->

@@ -160,7 +160,7 @@ AFRAME.registerComponent('submenu-warmth', {
 
       if (this.el.getAttribute('visible') === false) {
 
-          $('.menu').attr('visible', 'true');
+          $('.menu').attr('visible', 'false');
 
           thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
           $("#bottom").attr("material", "src: #" + thermalToUse);
@@ -227,7 +227,7 @@ AFRAME.registerComponent('submenu-sound', {
 
       if (this.el.getAttribute('visible') === false) {
 
-          $('.menu').attr('visible', 'true');
+          $('.menu').attr('visible', 'false');
 
           var direction = this.zaxis.clone();
           direction.applyQuaternion(this.cameraEl.object3D.quaternion);
@@ -289,7 +289,7 @@ AFRAME.registerComponent('submenu-light', {
 
       if (this.el.getAttribute('visible') === false) {
 
-          $('.menu').attr('visible', 'true');
+          $('.menu').attr('visible', 'false');
 
           var direction = this.zaxis.clone();
           direction.applyQuaternion(this.cameraEl.object3D.quaternion);
@@ -349,7 +349,7 @@ AFRAME.registerComponent('submenu-ventilation', {
 
       if (this.el.getAttribute('visible') === false) {
 
-          $('.menu').attr('visible', 'true');
+          $('.menu').attr('visible', 'false');
 
           var direction = this.zaxis.clone();
           direction.applyQuaternion(this.cameraEl.object3D.quaternion);
@@ -421,7 +421,7 @@ AFRAME.registerComponent('ui-modal', {
           default: 'click'
       },
       triggerElement: {
-        default: 'a-scene',
+        default: '#showMenu',
       },
       zpos: {
           default: -3
@@ -450,6 +450,9 @@ AFRAME.registerComponent('ui-modal', {
 
       if (this.el.getAttribute('visible') === false) {
 
+          $('#welcomeText').attr('visible', 'false');
+          $('#showMenu').attr('visible', 'false');
+
           var direction = this.zaxis.clone();
           direction.applyQuaternion(this.cameraEl.object3D.quaternion);
           var ycomponent = this.yaxis.clone().multiplyScalar(direction.dot(this.yaxis));
@@ -465,6 +468,8 @@ AFRAME.registerComponent('ui-modal', {
 
       else if (this.el.getAttribute('visible') === true) {
 
+        $('#welcomeText').attr('visible', 'true');
+
           this.el.setAttribute('visible', false);
       }
 
@@ -473,6 +478,27 @@ AFRAME.registerComponent('ui-modal', {
   update: function (oldData) {},
 
   remove: function() {}
+});
+
+/* CLOSE BUTTON MAIN MENU (onClick simulate by the cursor) */
+AFRAME.registerComponent('menu-close', {
+  schema: {
+      trigger: {
+          default: 'click'
+      },
+      triggerElement: {
+        default: '#menu-close',
+      }
+  },
+
+  init: function() {
+    document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
+        $('.menu').attr('visible', 'false');
+
+        $('#showMenu').attr('visible', 'true');
+
+    });
+  }
 });
 
 /* BACK BUTTON WARMTH (onClick simulate by the cursor) */
@@ -489,7 +515,7 @@ AFRAME.registerComponent('warmth-back', {
   init: function() {
     document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
         $('#submenu-warmth').attr('visible', 'false');
-        $('.menu').attr('visible', 'false');
+        $('.menu').attr('visible', 'true');
 
         $("#bottom").attr("material", "src: #parquet");
         $("#top").attr("material", "src: #mur");
@@ -757,7 +783,7 @@ AFRAME.registerComponent('sound-back', {
   init: function() {
     document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
         $('#submenu-sound').attr('visible', 'false');
-        $('.menu').attr('visible', 'false');
+        $('.menu').attr('visible', 'true');
 
         $("#steps").removeAttr("sound");
     });
@@ -949,7 +975,7 @@ AFRAME.registerComponent('light-back', {
   init: function() {
     document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
         $('#submenu-light').attr('visible', 'false');
-        $('.menu').attr('visible', 'false');
+        $('.menu').attr('visible', 'true');
     });
   }
 });
@@ -1020,7 +1046,7 @@ AFRAME.registerComponent('ventilation-back', {
   init: function() {
     document.querySelector(this.data.triggerElement).addEventListener(this.data.trigger, () => {
         $('#submenu-ventilation').attr('visible', 'false');
-        $('.menu').attr('visible', 'false');
+        $('.menu').attr('visible', 'true');
 
         $("a-scene").attr("fog", 'type: linear; color: white; far: 11; near: 11');
     });
