@@ -15,7 +15,10 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.1 r15371"
-   sodipodi:docname="menuButton.svg">
+   sodipodi:docname="menuButton.svg"
+   inkscape:export-filename="C:\wamp64\www\aframe\images\menu-button.png"
+   inkscape:export-xdpi="158"
+   inkscape:export-ydpi="158">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -26,15 +29,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="414.37416"
-     inkscape:cy="602.8018"
+     inkscape:cx="448.78974"
+     inkscape:cy="610.43239"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="962"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1366"
+     inkscape:window-height="746"
+     inkscape:window-x="1272"
+     inkscape:window-y="526"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -44,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -63,67 +66,73 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="ronds">
-    <circle
-       style="fill:#808080;stroke:none;stroke-width:0.2448478;stroke-opacity:1"
+    <ellipse
+       style="fill:#808080;stroke:none;stroke-width:0.31358373;stroke-opacity:1"
        id="path4514"
        cx="99.27491"
        cy="133.34143"
-       r="1.3282678" />
-    <circle
-       style="fill:#808080;stroke:none;stroke-width:0.2448478;stroke-opacity:1"
+       rx="1.3282678"
+       ry="2.178714" />
+    <ellipse
+       style="fill:#808080;stroke:none;stroke-width:0.31358373;stroke-opacity:1"
        id="path4514-7"
        cx="99.27491"
        cy="157.58537"
-       r="1.3282679" />
-    <circle
-       style="fill:#808080;stroke:none;stroke-width:0.2448478;stroke-opacity:1"
+       rx="1.3282679"
+       ry="2.1787143" />
+    <ellipse
+       style="fill:#808080;stroke:none;stroke-width:0.31358373;stroke-opacity:1"
        id="path4514-0"
        cx="99.27491"
        cy="145.46378"
-       r="1.3282679" />
-    <circle
-       style="fill:#808080;stroke:none;stroke-width:0.2448478;stroke-opacity:1"
+       rx="1.3282679"
+       ry="2.1787143" />
+    <ellipse
+       style="fill:#808080;stroke:none;stroke-width:0.31358373;stroke-opacity:1"
        id="path4514-7-4"
        cx="133.7684"
        cy="157.58537"
-       r="1.3282681" />
-    <circle
-       style="fill:#808080;stroke:none;stroke-width:0.2448478;stroke-opacity:1"
+       rx="1.3282681"
+       ry="2.1787145" />
+    <ellipse
+       style="fill:#808080;stroke:none;stroke-width:0.31358373;stroke-opacity:1"
        id="path4514-7-3"
        cx="133.76839"
        cy="145.46378"
-       r="1.3282681" />
-    <circle
-       style="fill:#808080;stroke:none;stroke-width:0.2448478;stroke-opacity:1"
+       rx="1.3282681"
+       ry="2.1787145" />
+    <ellipse
+       style="fill:#808080;stroke:none;stroke-width:0.31358373;stroke-opacity:1"
        id="path4514-7-0"
        cx="133.7684"
        cy="133.34143"
-       r="1.3282681" />
+       rx="1.3282681"
+       ry="2.1787145" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="barres">
     <rect
-       style="fill:#808080;stroke:none;stroke-width:0.31197318;stroke-opacity:1"
+       style="fill:#808080;stroke:none;stroke-width:0.39955315;stroke-opacity:1"
        id="rect4491"
        width="34.557472"
-       height="2.6058779"
+       height="4.2743359"
        x="99.107025"
-       y="144.16083" />
+       y="143.3266" />
     <rect
-       style="fill:#808080;stroke:none;stroke-width:0.31197318;stroke-opacity:1"
+       style="fill:#808080;stroke:none;stroke-width:0.39955315;stroke-opacity:1"
        id="rect4491-0"
        width="34.557472"
-       height="2.6058779"
+       height="4.2743359"
        x="99.107025"
-       y="156.28244" />
+       y="155.44821" />
     <rect
-       style="fill:#808080;stroke:none;stroke-width:0.31197318;stroke-opacity:1"
+       style="fill:#808080;stroke:none;stroke-width:0.39955315;stroke-opacity:1"
        id="rect4491-3"
        width="34.557472"
-       height="2.6058779"
+       height="4.2743359"
        x="99.107025"
-       y="132.03848" />
+       y="131.20425" />
   </g>
 </svg>
