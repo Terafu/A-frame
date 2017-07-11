@@ -182,7 +182,7 @@
         <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
 
         <!-- ADD A CURSOR (timeout in ms) -->
-        <a-camera><a-cursor scale="1.5 1.5 1.5" color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>
+        <a-camera rotation="0 180 0"><a-cursor scale="1.5 1.5 1.5" color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>
 
         <!-- Bottom -->
         <a-plane id="bottom" height="8" width="8" position="0 0 0" rotation="-90 0 0" material="src: #parquet"></a-plane>
