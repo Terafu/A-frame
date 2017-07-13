@@ -117,7 +117,7 @@
 		  <g
 		     inkscape:groupmode="layer"
 		     id="layer2"
-		     inkscape:label="bedroom"
+		     inkscape:label="bedroom-desktop"
 		     <?php if ($bedroom) echo 'class="bedroom"';
 		     		else echo 'class="bedroom inactive"'; ?>
 		     transform="translate(-0.02737844,-0.17495792)">

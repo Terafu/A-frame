@@ -1,10 +1,10 @@
 <?php
   session_start();
 
-  $kitchen = true;
+  $bedroom = true;
 
-  if(isset($_SESSION["kitchen"])) {
-    $kitchen = false;  
+  if(isset($_SESSION["bedroom"])) {
+    $bedroom = false;  
   }
 ?>
 
@@ -34,12 +34,12 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/room2.css" />
+    <link rel="stylesheet" href="css/room-mobile.css" />
   </head>
   <body>
 
-    <!-- CURSOR FEEDBACK -->
-    <script src="js/kitchen2.js"></script>
+    <!-- JS -->
+    <script src="js/bedroom-mobile.js"></script>
 
     <!-- 3D SCENE -->
     <div id="scene">
@@ -201,15 +201,14 @@
         <a-entity id="steps"></a-entity>
 
         <!-- PARTICLES -->
-        <!--<a-entity id="particles" position="0 3.5 0" scale="0.1 0.1 0.1"></a-entity>-->
+        <a-entity id="particles" position="0 3.5 0" scale="0.1 0.1 0.1"></a-entity>
 
         <a-plane id="welcomeText" width="2.5" height="2" color="#6d6d6d" position="0 1 -2.5" visible="true" rotation="0 0 0"><a-entity scale="2.5 2.5 2.5" position="0 0.7 0" text="value: To show the main menu you have to click on the menu logo.; align: center; baseline: top"></a-entity></a-plane>
         <a-image id="showMenu" data-interactive="true" visible="true" src="#menu-button" position="0 0.7 -2.49"></a-image>
 
-
         <!-- VR MENU -->
           <!-- MAIN MENU (bottom to top) -->
-        <a-entity class="menu" ui-modal visible="false"> 
+        <a-entity class="menu" ui-modal visible="false">
           <a-plane id="validate-button" validate-button width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Validate; align: center"></a-entity></a-plane>          
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -2.45 0"></a-box>
           <a-plane id="ventilation" width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Ventilation; align: center"></a-entity></a-plane>
@@ -218,7 +217,7 @@
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -1.45 0"></a-box>
           <a-plane id="light" width="2" height="0.5" color="#6d6d6d" position="0 -1.2 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Light; align: center"></a-entity></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -0.95 0"></a-box>
-          <a-plane id="warmth" width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Warmth; align: center"></a-entity></a-plane>                   
+          <a-plane id="warmth" width="2" height="0.5" color="#6d6d6d" position="0 -0.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Warmth; align: center"></a-entity></a-plane>
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -0.45 0"></a-box>                   
           <a-plane id="menu-close" menu-close width="2" height="0.5" color="#6d6d6d" position="0 -0.2 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Close; align: center"></a-entity></a-plane>
         </a-entity>
@@ -300,6 +299,7 @@
 
         <!-- IMPORT AN OBJ -->
         <!--<a-obj-model scale="1.2 1.2 1.2" id="test_model" obj-model="obj:bed/bed.obj"></a-obj-model>-->
+        <a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:bed/bed.obj;mtl:bed/bed.mtl"></a-obj-model>
 
         <!-- DEFINE THE BACKGROUND IMAGE OF THE SCENE -->
         <!--<a-sky src="#sky"></a-sky>-->

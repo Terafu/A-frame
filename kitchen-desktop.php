@@ -1,10 +1,10 @@
 <?php
   session_start();
 
-  $bedroom = true;
+  $kitchen = true;
 
-  if(isset($_SESSION["bedroom"])) {
-    $bedroom = false;  
+  if(isset($_SESSION["kitchen"])) {
+    $kitchen = false;  
   }
 ?>
 
@@ -41,7 +41,7 @@
   <!-- TO PUT IN ANOTHER FILE -->
     <script>
       if (screen.width < 1000)
-          window.location.replace("bedroom2.php");
+          window.location.replace("kitchen-mobile.php");
     </script>
 
     <!-- MENU -->
@@ -52,22 +52,22 @@
             <li><a>Roof insulation</a>
               <input id="warmth-roof-glass" type="radio" name="warmth-roof" value="glass" 
               <?php 
-                  if ($bedroom) 
+                  if ($kitchen) 
                     echo 'checked="checked"';
                   else {
-                    if (isset($_SESSION['bedroom']['warmth-roof']) && $_SESSION['bedroom']['warmth-roof'] == "glass")
+                    if (isset($_SESSION['kitchen']['warmth-roof']) && $_SESSION['kitchen']['warmth-roof'] == "glass")
                       echo 'checked="checked"';                
               }?>>
               <label for="warmth-roof-glass">Glass</label><br>
               <input id="warmth-roof-poly" type="radio" name="warmth-roof" value="poly"
               <?php 
-                if (isset($_SESSION['bedroom']['warmth-roof']) && $_SESSION['bedroom']['warmth-roof'] == "poly")
+                if (isset($_SESSION['kitchen']['warmth-roof']) && $_SESSION['kitchen']['warmth-roof'] == "poly")
                   echo 'checked="checked"';                
               ?>>
               <label for="warmth-roof-poly">Polystyrene</label><br>
               <input id="warmth-roof-rock" type="radio" name="warmth-roof" value="rock"
               <?php 
-                if (isset($_SESSION['bedroom']['warmth-roof']) && $_SESSION['bedroom']['warmth-roof'] == "rock")
+                if (isset($_SESSION['kitchen']['warmth-roof']) && $_SESSION['kitchen']['warmth-roof'] == "rock")
                   echo 'checked="checked"';                
               ?>>
               <label for="warmth-roof-rock">Rock</label><br>
@@ -76,22 +76,22 @@
             <li><a>Floor insulation</a>
               <input id="warmth-floor-glass" type="radio" name="warmth-floor" value="glass"
               <?php 
-                  if ($bedroom) 
+                  if ($kitchen) 
                     echo 'checked="checked"';
                   else {
-                    if (isset($_SESSION['bedroom']['warmth-floor']) && $_SESSION['bedroom']['warmth-floor'] == "glass")
+                    if (isset($_SESSION['kitchen']['warmth-floor']) && $_SESSION['kitchen']['warmth-floor'] == "glass")
                       echo 'checked="checked"';                
               }?>>
               <label for="warmth-floor-glass">Glass</label><br>
               <input id="warmth-floor-poly" type="radio" name="warmth-floor" value="poly"
               <?php 
-                if (isset($_SESSION['bedroom']['warmth-floor']) && $_SESSION['bedroom']['warmth-floor'] == "poly")
+                if (isset($_SESSION['kitchen']['warmth-floor']) && $_SESSION['kitchen']['warmth-floor'] == "poly")
                   echo 'checked="checked"';                
               ?>>
               <label for="warmth-floor-poly">Polystyrene</label><br>
               <input id="warmth-floor-rock" type="radio" name="warmth-floor" value="rock"
               <?php 
-                if (isset($_SESSION['bedroom']['warmth-floor']) && $_SESSION['bedroom']['warmth-floor'] == "rock")
+                if (isset($_SESSION['kitchen']['warmth-floor']) && $_SESSION['kitchen']['warmth-floor'] == "rock")
                   echo 'checked="checked"';                
               ?>>
               <label for="warmth-floor-rock">Rock</label><br>
@@ -100,22 +100,22 @@
             <li><a>Wall insulation</a>
               <input id="warmth-wall-glass" type="radio" name="warmth-wall" value="glass"
               <?php 
-                  if ($bedroom) 
+                  if ($kitchen) 
                     echo 'checked="checked"';
                   else {
-                    if (isset($_SESSION['bedroom']['warmth-wall']) && $_SESSION['bedroom']['warmth-wall'] == "glass")
+                    if (isset($_SESSION['kitchen']['warmth-wall']) && $_SESSION['kitchen']['warmth-wall'] == "glass")
                       echo 'checked="checked"';                
               }?>>
               <label for="warmth-wall-glass">Glass</label><br>
               <input id="warmth-wall-poly" type="radio" name="warmth-wall" value="poly"
               <?php 
-                if (isset($_SESSION['bedroom']['warmth-wall']) && $_SESSION['bedroom']['warmth-wall'] == "poly")
+                if (isset($_SESSION['kitchen']['warmth-wall']) && $_SESSION['kitchen']['warmth-wall'] == "poly")
                   echo 'checked="checked"';                
               ?>>
               <label for="warmth-wall-poly">Polystyrene</label><br>
               <input id="warmth-wall-rock" type="radio" name="warmth-wall" value="rock"
               <?php 
-                if (isset($_SESSION['bedroom']['warmth-wall']) && $_SESSION['bedroom']['warmth-wall'] == "rock")
+                if (isset($_SESSION['kitchen']['warmth-wall']) && $_SESSION['kitchen']['warmth-wall'] == "rock")
                   echo 'checked="checked"';                
               ?>>
               <label for="warmth-wall-rock">Rock</label><br>
@@ -124,22 +124,22 @@
             <li><a>Junctions</a>
               <input id="warmth-junctions-glass" type="radio" name="warmth-junctions" value="glass"
               <?php 
-                  if ($bedroom) 
+                  if ($kitchen) 
                     echo 'checked="checked"';
                   else {
-                    if (isset($_SESSION['bedroom']['warmth-junctions']) && $_SESSION['bedroom']['warmth-junctions'] == "glass")
+                    if (isset($_SESSION['kitchen']['warmth-junctions']) && $_SESSION['kitchen']['warmth-junctions'] == "glass")
                       echo 'checked="checked"';                
               }?>>
               <label for="warmth-junctions-glass">Glass</label><br>
               <input id="warmth-junctions-poly" type="radio" name="warmth-junctions" value="poly"
               <?php 
-                if (isset($_SESSION['bedroom']['warmth-junctions']) && $_SESSION['bedroom']['warmth-junctions'] == "poly")
+                if (isset($_SESSION['kitchen']['warmth-junctions']) && $_SESSION['kitchen']['warmth-junctions'] == "poly")
                   echo 'checked="checked"';                
               ?>>
               <label for="warmth-junctions-poly">Polystyrene</label><br>
               <input id="warmth-junctions-rock" type="radio" name="warmth-junctions" value="rock"
               <?php 
-                if (isset($_SESSION['bedroom']['warmth-junctions']) && $_SESSION['bedroom']['warmth-junctions'] == "rock")
+                if (isset($_SESSION['kitchen']['warmth-junctions']) && $_SESSION['kitchen']['warmth-junctions'] == "rock")
                   echo 'checked="checked"';                
               ?>>
               <label for="warmth-junctions-rock">Rock</label><br>
@@ -151,8 +151,8 @@
             <li><a>Lux</a>
               <input id="lux" type="text" name="lux" value=
               <?php 
-                if (isset($_SESSION['bedroom']))
-                  echo $_SESSION['bedroom']['lux'];
+                if (isset($_SESSION['kitchen']))
+                  echo $_SESSION['kitchen']['lux'];
                 else 
                   echo "150";                
               ?>>
@@ -165,22 +165,22 @@
             <li><a>Wall insulation</a>
               <input id="sound-wall-glass" type="radio" name="sound-wall" value="glass"
               <?php 
-                  if ($bedroom) 
+                  if ($kitchen) 
                     echo 'checked="checked"';
                   else {
-                    if (isset($_SESSION['bedroom']['sound-wall']) && $_SESSION['bedroom']['sound-wall'] == "glass")
+                    if (isset($_SESSION['kitchen']['sound-wall']) && $_SESSION['kitchen']['sound-wall'] == "glass")
                       echo 'checked="checked"';                
               }?>>
               <label for="sound-wall-glass">Glass</label><br>
               <input id="sound-wall-poly" type="radio" name="sound-wall" value="poly"
               <?php 
-                if (isset($_SESSION['bedroom']['sound-wall']) && $_SESSION['bedroom']['sound-wall'] == "poly")
+                if (isset($_SESSION['kitchen']['sound-wall']) && $_SESSION['kitchen']['sound-wall'] == "poly")
                   echo 'checked="checked"';                
               ?>>
               <label for="sound-wall-poly">Polystyrene</label><br>
               <input id="sound-wall-rock" type="radio" name="sound-wall" value="rock"
               <?php 
-                if (isset($_SESSION['bedroom']['sound-wall']) && $_SESSION['bedroom']['sound-wall'] == "rock")
+                if (isset($_SESSION['kitchen']['sound-wall']) && $_SESSION['kitchen']['sound-wall'] == "rock")
                   echo 'checked="checked"';                
               ?>>
               <label for="sound-wall-rock">Rock</label><br>
@@ -189,22 +189,22 @@
             <li><a>Floor insulation</a>
               <input id="sound-floor-glass" type="radio" name="sound-floor" value="glass"
               <?php 
-                  if ($bedroom) 
+                  if ($kitchen) 
                     echo 'checked="checked"';
                   else {
-                    if (isset($_SESSION['bedroom']['sound-floor']) && $_SESSION['bedroom']['sound-floor'] == "glass")
+                    if (isset($_SESSION['kitchen']['sound-floor']) && $_SESSION['kitchen']['sound-floor'] == "glass")
                       echo 'checked="checked"';                
               }?>>
               <label for="sound-floor-glass">Glass</label><br>
               <input id="sound-floor-poly" type="radio" name="sound-floor" value="poly"
               <?php 
-                if (isset($_SESSION['bedroom']['sound-floor']) && $_SESSION['bedroom']['sound-floor'] == "poly")
+                if (isset($_SESSION['kitchen']['sound-floor']) && $_SESSION['kitchen']['sound-floor'] == "poly")
                   echo 'checked="checked"';                
               ?>>
               <label for="sound-floor-poly">Polystyrene</label><br>
               <input id="sound-floor-rock" type="radio" name="sound-floor" value="rock"
               <?php 
-                if (isset($_SESSION['bedroom']['sound-floor']) && $_SESSION['bedroom']['sound-floor'] == "rock")
+                if (isset($_SESSION['kitchen']['sound-floor']) && $_SESSION['kitchen']['sound-floor'] == "rock")
                   echo 'checked="checked"';                
               ?>>
               <label for="sound-floor-rock">Rock</label><br>
@@ -227,22 +227,22 @@
             <li><a>Ventilation System</a>
               <input id="ventilation-ventilation-no-ventilation" type="radio" name="ventilation-ventilation" value="no-ventilation"
               <?php 
-                  if ($bedroom) 
+                  if ($kitchen) 
                     echo 'checked="checked"';
                   else {
-                    if (isset($_SESSION['bedroom']['ventilation-ventilation']) && $_SESSION['bedroom']['ventilation-ventilation'] == "no-ventilation")
+                    if (isset($_SESSION['kitchen']['ventilation-ventilation']) && $_SESSION['kitchen']['ventilation-ventilation'] == "no-ventilation")
                       echo 'checked="checked"';                
               }?>>
               <label for="ventilation-ventilation-no-ventilation">No Ventilation</label><br>
               <input id="ventilation-ventilation-natural-ventilation" type="radio" name="ventilation-ventilation" value="natural-ventilation"
               <?php 
-                if (isset($_SESSION['bedroom']['ventilation-ventilation']) && $_SESSION['bedroom']['ventilation-ventilation'] == "natural-ventilation")
+                if (isset($_SESSION['kitchen']['ventilation-ventilation']) && $_SESSION['kitchen']['ventilation-ventilation'] == "natural-ventilation")
                   echo 'checked="checked"';                
               ?>>
               <label for="ventilation-ventilation-natural-ventilation">Natural Ventilation</label><br>
               <input id="ventilation-ventilation-air-conditioner" type="radio" name="ventilation-ventilation" value="air-conditioner"
               <?php 
-                if (isset($_SESSION['bedroom']['ventilation-ventilation']) && $_SESSION['bedroom']['ventilation-ventilation'] == "air-conditioner")
+                if (isset($_SESSION['kitchen']['ventilation-ventilation']) && $_SESSION['kitchen']['ventilation-ventilation'] == "air-conditioner")
                   echo 'checked="checked"';                
               ?>>
               <label for="ventilation-ventilation-air-conditioner">Air Conditioner</label><br>
@@ -251,16 +251,16 @@
             <li><a>Floor</a>
             <input id="ventilation-floor-normal-floor" type="radio" name="ventilation-floor" value="normal-floor"
               <?php 
-                  if ($bedroom) 
+                  if ($kitchen) 
                     echo 'checked="checked"';
                   else {
-                    if (isset($_SESSION['bedroom']['ventilation-floor']) && $_SESSION['bedroom']['ventilation-floor'] == "normal-floor")
+                    if (isset($_SESSION['kitchen']['ventilation-floor']) && $_SESSION['kitchen']['ventilation-floor'] == "normal-floor")
                       echo 'checked="checked"';                
               }?>>
               <label for="ventilation-floor-normal-floor">Normal Floor</label><br>
               <input id="ventilation-floor-active-floor" type="radio" name="ventilation-floor" value="active-floor"
               <?php 
-                if (isset($_SESSION['bedroom']['ventilation-floor']) && $_SESSION['bedroom']['ventilation-floor'] == "active-floor")
+                if (isset($_SESSION['kitchen']['ventilation-floor']) && $_SESSION['kitchen']['ventilation-floor'] == "active-floor")
                   echo 'checked="checked"';                
               ?>>
               <label for="ventilation-floor-active-floor">Active Floor</label><br>
@@ -269,16 +269,16 @@
             <li><a>Type</a>
             <input id="ventilation-type-VOC" type="radio" name="ventilation-type" value="VOC"
               <?php 
-                  if ($bedroom) 
+                  if ($kitchen) 
                     echo 'checked="checked"';
                   else {
-                    if (isset($_SESSION['bedroom']['ventilation-type']) && $_SESSION['bedroom']['ventilation-type'] == "VOC")
+                    if (isset($_SESSION['kitchen']['ventilation-type']) && $_SESSION['kitchen']['ventilation-type'] == "VOC")
                       echo 'checked="checked"';                
               }?>>
               <label for="ventilation-type-VOC">VOC</label><br>
               <input id="ventilation-type-CO2" type="radio" name="ventilation-type" value="CO2"
               <?php 
-                if (isset($_SESSION['bedroom']['ventilation-type']) && $_SESSION['bedroom']['ventilation-type'] == "CO2")
+                if (isset($_SESSION['kitchen']['ventilation-type']) && $_SESSION['kitchen']['ventilation-type'] == "CO2")
                   echo 'checked="checked"';                
               ?>>
               <label for="ventilation-type-CO2">CO2</label><br>
@@ -286,7 +286,7 @@
           </ul>
         </li>
         <li><input type="submit" value="Validate"></li>
-        <input name="prev" type="hidden" value="bedroom">
+        <input name="prev" type="hidden" value="kitchen">
       </form>                
     </div>
 
@@ -457,7 +457,6 @@
 
         <!-- IMPORT AN OBJ -->
         <!--<a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:bed/bed.obj;mtl:bed/bed.mtl"></a-obj-model>-->
-        <a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:bed/bed.obj;mtl:bed/bed.mtl"></a-obj-model>
 
         <!-- DEFINE THE BACKGROUND IMAGE OF THE SCENE -->
         <!--<a-sky src="#sky"></a-sky>-->

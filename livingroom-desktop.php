@@ -41,7 +41,7 @@
   <!-- TO PUT IN ANOTHER FILE -->
     <script>
       if (screen.width < 1000)
-          window.location.replace("livingroom2.php");
+          window.location.replace("livingroom-mobile.php");
     </script>
 
     <!-- MENU -->

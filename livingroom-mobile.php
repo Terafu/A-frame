@@ -34,11 +34,11 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/room2.css" />
+    <link rel="stylesheet" href="css/room-mobile.css" />
   </head>
   <body>
 
-    <script src="js/livingRoom2.js"></script>    
+    <script src="js/livingroom-mobile.js"></script>    
 
     <!-- 3D SCENE -->
     <div id="scene">
