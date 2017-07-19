@@ -38,11 +38,12 @@
   </head>
   <body>
 
-    <script src="js/livingroom-mobile.js"></script>    
+    <!-- CURSOR FEEDBACK -->
+    <script src="js/livingroom-mobile.js"></script>
 
     <!-- 3D SCENE -->
     <div id="scene">
-      <a-scene embedded fog='type: linear; color: white; far: 11; near: 11'>
+      <a-scene embedded>
         <a-assets>
           <!-- DEFINITION OF THE ASSETS -->
 
@@ -53,6 +54,8 @@
           <img id="parquet" src="images/parquet.jpg">
           <img id="mur" src="images/mur.jpg">
           <img id="mur-poster" src="images/mur-poster.jpg">
+          <img id="mur-normalMap" src="images/mur-normalMap.jpg">
+          <img id="mur-poster-normalMap" src="images/mur-poster-normalMap.jpg">
           <img id="left-arrow" src="images/left-arrow.png">
           <img id="right-arrow" src="images/right-arrow.png">
           <img id="up-arrow" src="images/up-arrow.png">
@@ -178,36 +181,44 @@
 
         <!-- LIGHTS -->
         <a-entity light="type: ambient; color: #BBBBBB"></a-entity>
-        <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
+        <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="0 6 0"></a-entity>
 
         <!-- ADD A CURSOR (timeout in ms) -->
         <a-camera><a-cursor scale="1.5 1.5 1.5" color="#4CC3D9" fuse="true" timeout="1500" cursor-feedback></a-cursor></a-camera>
 
         <!-- Bottom -->
-        <a-plane id="bottom" height="8" width="8" position="0 0 0" rotation="-90 0 0" material="src: #parquet"></a-plane>
+        <a-plane id="bottom" height="8" width="8" position="0 0 0" rotation="-90 0 0" material="src: #parquet; normal-map: #parquet-normalMap; roughness: 0.2"></a-plane>
+        <a-plane id="fog-bottom" height="8" width="8" position="0 0.01 0" rotation="-90 0 0" material="opacity: 0"></a-plane>
         <!-- Front-->
-        <a-plane id="front" height="6" width="8" position="0 3 -4" rotation="0 0 0" material="src: #mur"></a-plane>
+        <a-plane id="front" height="6" width="8" position="0 3 -4" rotation="0 0 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
+        <a-plane id="fog-front" height="6" width="8" position="0 3 -3.99" rotation="0 0 0" material="opacity: 0"></a-plane>
         <!--Back -->
-        <a-plane id="back" height="6" width="8" position="0 3 4" rotation="180 0 0" material="src: #mur-poster"></a-plane>
+        <a-plane id="back" height="6" width="8" position="0 3 4" rotation="180 0 0" material="src: #mur-poster; normal-map: #mur-poster-normalMap"></a-plane>
+        <a-plane id="fog-back" height="6" width="8" position="0 3 3.99" rotation="180 0 0" material="opacity: 0"></a-plane>
         <!-- Left-->
-        <a-plane id="left" height="6" width="8" position="-4 3 0" rotation="0 90 0" material="src: #mur"></a-plane>
+        <a-plane id="left" height="6" width="8" position="-4 3 0" rotation="0 90 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
+        <a-plane id="fog-left" height="6" width="8" position="-3.99 3 0" rotation="0 90 0" material="opacity: 0"></a-plane>
         <!-- Right-->
-        <a-plane id="right" height="6" width="8" position="4 3 0" rotation="0 -90 0" material="src: #mur"></a-plane>
+        <a-plane id="right" height="6" width="8" position="3.99 3 0" rotation="0 -90 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
+        <a-plane id="fog-right" height="6" width="8" position="3.99 3 0" rotation="0 -90 0" material="opacity: 0"></a-plane>
         <!-- Top -->
-        <a-plane id="top" height="8" width="8" position="0 6 0" rotation="90 0 0" material="src: #mur"></a-plane>
+        <a-plane id="top" height="8" width="8" position="0 5.99 0" rotation="90 0 0" material="src: #mur; normal-map: #mur-normalMap"></a-plane>
+        <a-plane id="fog-top" height="8" width="8" position="0 5.99 0" rotation="90 0 0" material="opacity: 0"></a-plane>
 
         <!-- SOUND -->
         <a-entity id="steps"></a-entity>
 
         <!-- PARTICLES -->
-        <a-entity id="particles" position="0 3.5 0" scale="0.1 0.1 0.1"></a-entity>
+        <!--<a-entity id="particles" scale="0.08 0.05 0.08" position="0 3.5 0" particle-system="preset: dust; color: #EF0000; particleCount: 200; size: 0.2; opacity: 1; maxAge: 3"></a-entity>-->
 
-        <a-plane id="welcomeText" width="2.5" height="2" color="#6d6d6d" position="0 1 -2.5" visible="true" rotation="0 0 0"><a-entity scale="2.5 2.5 2.5" position="0 0.7 0" text="value: To show the main menu you have to click on the menu logo.; align: center; baseline: top"></a-entity></a-plane>
-        <a-image id="showMenu" data-interactive="true" visible="true" src="#menu-button" position="0 0.7 -2.49"></a-image>
+
+        <a-plane id="welcomeText" width="2.5" height="2" color="#6d6d6d" position="0 1.1 -2.5" visible="true" rotation="0 0 0"><a-entity scale="2.5 2.5 2.5" position="0 0.7 0" text="value: To show the main menu you have to click on the menu logo.; align: center; baseline: top"></a-entity></a-plane>
+        <a-image id="showMenu" data-interactive="true" visible="true" src="#menu-button" position="0 0.8 -2.49"></a-image>
+
 
         <!-- VR MENU -->
           <!-- MAIN MENU (bottom to top) -->
-        <a-entity class="menu" ui-modal visible="false">
+        <a-entity class="menu" ui-modal visible="false"> 
           <a-plane id="validate-button" validate-button width="2" height="0.5" color="#6d6d6d" position="0 -2.7 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Validate; align: center"></a-entity></a-plane>          
           <a-box width="2" height="0.05" depth="0.01" color="#FFFFFF" position="0 -2.45 0"></a-box>
           <a-plane id="ventilation" width="2" height="0.5" color="#6d6d6d" position="0 -2.2 0" data-interactive="true"><a-entity scale="3 3 3" text="value: Ventilation; align: center"></a-entity></a-plane>

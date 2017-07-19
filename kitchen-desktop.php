@@ -39,6 +39,10 @@
   <body>
 
   <!-- TO PUT IN ANOTHER FILE -->
+    <script>
+      if (screen.width < 1000)
+          window.location.replace("kitchen-mobile.php");
+    </script>
 
     <!-- MENU -->
     <div class="collapsible">
