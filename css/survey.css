@@ -1,0 +1,182 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Indie Flower', cursive;
+	font-size: 250%;
+	color: #18428C;
+}
+
+.slides {
+    padding: 0;
+    width: 100%;
+    height: 70%;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    background-color: white;
+}
+
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.slides .radio-btn { 
+	display: none; 
+}
+
+.slide-container { 
+	display: block; 
+}
+
+.slide {
+    top: 0;
+    opacity: 0;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    transform: scale(0);
+    transition: height .7s ease-in-out;
+    background: #cdcdcd;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.question {
+	margin: auto;
+}
+
+.nav label {
+    width: 15%;
+    height: 100%;
+    display: none;
+    position: absolute;
+
+	opacity: 0.1;
+
+    transition: opacity .2s;
+
+    color: #FFF;
+    font-size: 1000%;
+    text-align: center;
+    font-family: "Varela Round", sans-serif;
+    background-color: #000000;
+}
+
+.center-text {
+
+    position: absolute;
+    top: 50%; /* poussé de la moitié de hauteur du référent */
+  	transform: translateY(-65%); /* tiré de la moitié de sa propre hauteur */
+}
+
+.slide:hover + .nav label { 
+	opacity: 0.1; 
+}
+
+.nav label:hover { 
+	opacity: 0.4; 
+}
+
+.nav .next { 
+	right: 0; 
+}
+
+.nav .next .center-text {
+	right: 50%;
+}
+
+.nav .next #validate {
+	right: 30%;
+}
+
+input:checked + .slide-container  .slide {
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container .nav label { 
+	display: block; 
+}
+
+.nav-dots {
+	width: 100%;
+	bottom: 9px;
+	height: 11px;
+	display: block;
+	position: absolute;
+	text-align: center;
+}
+
+.nav-dots .nav-dot {
+	top: -5px;
+	width: 11px;
+	height: 11px;
+	margin: 0 4px;
+	position: relative;
+	border-radius: 100%;
+	display: inline-block;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-dots .nav-dot:hover {
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+input#slide-1:checked ~ .nav-dots label#slide-dot-1,
+input#slide-2:checked ~ .nav-dots label#slide-dot-2,
+input#slide-3:checked ~ .nav-dots label#slide-dot-3,
+input#slide-4:checked ~ .nav-dots label#slide-dot-4,
+input#slide-5:checked ~ .nav-dots label#slide-dot-5,
+input#slide-6:checked ~ .nav-dots label#slide-dot-6 {
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.slide .question {	
+	color: #18428C;
+	font-family: 'Indie Flower', cursive;
+	font-size: 200%;
+}
+
+.slide .question-title {
+	font-size: 100%;
+}
+
+.slide .answer {
+	visibility: hidden;
+}
+
+.slide .answer + label {
+	padding-left: 35px;
+	background: transparent url('../images/radioButtonUnchecked.png') no-repeat left;
+}
+
+.slide .answer:checked + label {
+	padding-left: 35px;
+	background: transparent url('../images/radioButtonChecked.png') no-repeat left;
+}
+
+.nav #validate {
+	background-color: #C9E2CA;
+	opacity: 0.5;
+	color: #666666;
+}
+
+.nav #validate:hover {
+	opacity: 1;
+}
