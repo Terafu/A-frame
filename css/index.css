@@ -9,7 +9,7 @@ html, body {
 
 .title {
 	display: flex;
-	height: 10%;
+	height: 15%;
 }
 
 h1 {
@@ -53,14 +53,17 @@ a {
 	text-decoration: none;
 }
 
+.main {
+	height: 85%;
+}
+
 .client {
 	display: table;
 	bottom: 0;
 	width: 50%;
 	background-color: #e95b52;
 	color: white;
-	margin-top: 7%;
-	height: 80%;
+	height: 100%;
 	margin-left: 0;
 	margin-right: 0;
 	float: left;
@@ -72,8 +75,7 @@ a {
 	width: 50%;
 	background-color: #63bc9b;
 	color: white;
-	margin-top: 7%;
-	height: 80%;
+	height: 100%;
 	margin-left: 50%;
 	margin-right: 0;
 }

@@ -23,12 +23,14 @@
 			<h1>The Multi-Comfort Experience</h1>
 		</div>
 
-		<a href="menu.php"><div class="client">
-			<h2 class="subtitle">Client</h2>
-		</div></a>
+		<div class="main"> 
+			<a href="menu.php"><div class="client">
+				<h2 class="subtitle">Client</h2>
+			</div></a>
 
-		<a href="#"><div class="professional">
-			<h2 class="subtitle">Professional</h2>
-		</div></a>	
+			<a href="#"><div class="professional">
+				<h2 class="subtitle">Professional</h2>
+			</div></a>
+		</div>
 	</body>
 </html>

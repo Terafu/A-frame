@@ -9,7 +9,11 @@ html, body {
 
 .title {
 	display: flex;
-	height: 10%;
+	height: 15%;
+}
+
+.svg {
+	height: 85%;
 }
 
 h1 {
