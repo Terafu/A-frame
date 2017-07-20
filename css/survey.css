@@ -150,7 +150,7 @@ input#slide-6:checked ~ .nav-dots label#slide-dot-6 {
 .slide .question {	
 	color: #18428C;
 	font-family: 'Indie Flower', cursive;
-	font-size: 200%;
+	font-size: 150%;
 }
 
 .slide .question-title {
