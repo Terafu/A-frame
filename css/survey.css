@@ -151,6 +151,7 @@ input#slide-6:checked ~ .nav-dots label#slide-dot-6 {
 	color: #18428C;
 	font-family: 'Indie Flower', cursive;
 	font-size: 200%;
+	line-height: 200%;
 }
 
 .slide .question-title {
