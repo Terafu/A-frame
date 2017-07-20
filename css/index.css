@@ -1,6 +1,6 @@
 /* BODY */
 html, body {
-	max-height: 100%;
+	height: 100%;
 	width: 100%;
   	margin: 0;
   	padding: 0;
@@ -13,10 +13,11 @@ html, body {
 }
 
 h1 {
-	margin: auto;
 	font-family: 'Indie Flower', cursive;
 	font-size: 250%;
+	margin: auto;
 	color: #18428C;
+	padding-top: 10px;
 }
 
 @media screen and (max-device-width:850px) {
@@ -39,31 +40,42 @@ h1 {
 
 
 h2 {
+	display: table-cell;
 	font-family: 'Indie Flower', cursive;
 	font-size: 200%;
 	margin: auto;
+	text-decoration: none;
+	font-style: none;
+	vertical-align: middle;
+}
+
+a {
+	text-decoration: none;
 }
 
 .client {
-	display: flex;
+	display: table;
 	bottom: 0;
-	float: left;
 	width: 50%;
 	background-color: #e95b52;
 	color: white;
 	margin-top: 7%;
 	height: 80%;
+	margin-left: 0;
+	margin-right: 0;
+	float: left;
 }
 
 .professional {
-	display: flex;
+	display: table;
 	bottom: 0;
-	float: right;
 	width: 50%;
 	background-color: #63bc9b;
 	color: white;
 	margin-top: 7%;
 	height: 80%;
+	margin-left: 50%;
+	margin-right: 0;
 }
 
 .client:hover {
