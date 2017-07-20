@@ -180,3 +180,14 @@ input#slide-6:checked ~ .nav-dots label#slide-dot-6 {
 .nav #validate:hover {
 	opacity: 1;
 }
+
+.button-validate {
+	border:none;
+	outline:none;
+	background:none;
+	cursor:pointer;
+	padding:0;
+	width: 100%;
+	height: 100%;
+	font-size: 100%;
+}

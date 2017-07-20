@@ -20,17 +20,17 @@
 	<body>
 		<h1>Here are some questions to determine your ideal confort</h1>
 
-		<form id="survey">
+		<form id="survey" action="<?php echo $room; ?>-desktop.php" method="get">
 		  <ul class="slides">
 		    <input type="radio" name="radio-btn" id="slide-1" class="radio-btn" checked />
 		    <li class="slide-container">
 				<div class="slide">
 					<div class="question">
 						<h2 class="question-title">Are you sensitive to heat?</h2>
-						<input type="radio" class="answer" name="answer-slide-1" id="slide-1-answer-1" checked /><label for="slide-1-answer-1">Not at all</label><br/>
-						<input type="radio" class="answer" name="answer-slide-1" id="slide-1-answer-2" /><label for="slide-1-answer-2">A little</label><br/>
-						<input type="radio" class="answer" name="answer-slide-1" id="slide-1-answer-3" /><label for="slide-1-answer-3">Reasonably</label><br/>
-						<input type="radio" class="answer" name="answer-slide-1" id="slide-1-answer-4" /><label for="slide-1-answer-4">A lot</label>
+						<input type="radio" class="answer" name="answer-slide-1" id="slide-1-answer-1" value="0" checked /><label for="slide-1-answer-1">Not at all</label><br/>
+						<input type="radio" class="answer" name="answer-slide-1" id="slide-1-answer-2" value="1" /><label for="slide-1-answer-2">A little</label><br/>
+						<input type="radio" class="answer" name="answer-slide-1" id="slide-1-answer-3" value="2" /><label for="slide-1-answer-3">Reasonably</label><br/>
+						<input type="radio" class="answer" name="answer-slide-1" id="slide-1-answer-4" value="3" /><label for="slide-1-answer-4">A lot</label>
 						</input>
 					</div>
 		        </div>
@@ -45,10 +45,10 @@
 		        <div class="slide">
 		        	<div class="question">
 		        		<h2 class="question-title">Are you sensitive to cold?</h2>
-						<input type="radio" class="answer" name="answer-slide-2" id="slide-2-answer-1" checked /><label for="slide-2-answer-1">Not at all</label><br/>
-						<input type="radio" class="answer" name="answer-slide-2" id="slide-2-answer-2" /><label for="slide-2-answer-2">A little</label><br/>
-						<input type="radio" class="answer" name="answer-slide-2" id="slide-2-answer-3" /><label for="slide-2-answer-3">Reasonably</label><br/>
-						<input type="radio" class="answer" name="answer-slide-2" id="slide-2-answer-4" /><label for="slide-2-answer-4">A lot</label>
+						<input type="radio" class="answer" name="answer-slide-2" id="slide-2-answer-1" value="0" checked /><label for="slide-2-answer-1">Not at all</label><br/>
+						<input type="radio" class="answer" name="answer-slide-2" id="slide-2-answer-2" value="1" /><label for="slide-2-answer-2">A little</label><br/>
+						<input type="radio" class="answer" name="answer-slide-2" id="slide-2-answer-3" value="2" /><label for="slide-2-answer-3">Reasonably</label><br/>
+						<input type="radio" class="answer" name="answer-slide-2" id="slide-2-answer-4" value="3" /><label for="slide-2-answer-4">A lot</label>
 						</input>
 		        	</div>
 		        </div>
@@ -63,10 +63,10 @@
 		        <div class="slide">
 		        	<div class="question">
 		        		<h2 class="question-title">Are you sensitive to temperature difference in your house?</h2>
-						<input type="radio" class="answer" name="answer-slide-3" id="slide-3-answer-1" checked /><label for="slide-3-answer-1">Not at all</label><br/>
-						<input type="radio" class="answer" name="answer-slide-3" id="slide-3-answer-2" /><label for="slide-3-answer-2">A little</label><br/>
-						<input type="radio" class="answer" name="answer-slide-3" id="slide-3-answer-3" /><label for="slide-3-answer-3">Reasonably</label><br/>
-						<input type="radio" class="answer" name="answer-slide-3" id="slide-3-answer-4" /><label for="slide-3-answer-4">A lot</label>
+						<input type="radio" class="answer" name="answer-slide-3" id="slide-3-answer-1" value="0" checked /><label for="slide-3-answer-1">Not at all</label><br/>
+						<input type="radio" class="answer" name="answer-slide-3" id="slide-3-answer-2" value="1" /><label for="slide-3-answer-2">A little</label><br/>
+						<input type="radio" class="answer" name="answer-slide-3" id="slide-3-answer-3" value="2" /><label for="slide-3-answer-3">Reasonably</label><br/>
+						<input type="radio" class="answer" name="answer-slide-3" id="slide-3-answer-4" value="3" /><label for="slide-3-answer-4">A lot</label>
 		        	</div>
 		        </div>
 				<div class="nav">
@@ -80,10 +80,10 @@
 		        <div class="slide">
 		        	<div class="question">
 		        		<h2 class="question-title">Are you sensitive to the sound?</h2>
-						<input type="radio" class="answer" name="answer-slide-4" id="slide-4-answer-1" checked /><label for="slide-4-answer-1">Not at all</label><br/>
-						<input type="radio" class="answer" name="answer-slide-4" id="slide-4-answer-2" /><label for="slide-4-answer-2">A little</label><br/>
-						<input type="radio" class="answer" name="answer-slide-4" id="slide-4-answer-3" /><label for="slide-4-answer-3">Reasonably</label><br/>
-						<input type="radio" class="answer" name="answer-slide-4" id="slide-4-answer-4" /><label for="slide-4-answer-4">A lot</label>
+						<input type="radio" class="answer" name="answer-slide-4" id="slide-4-answer-1" value="0" checked /><label for="slide-4-answer-1">Not at all</label><br/>
+						<input type="radio" class="answer" name="answer-slide-4" id="slide-4-answer-2" value="1" /><label for="slide-4-answer-2">A little</label><br/>
+						<input type="radio" class="answer" name="answer-slide-4" id="slide-4-answer-3" value="2" /><label for="slide-4-answer-3">Reasonably</label><br/>
+						<input type="radio" class="answer" name="answer-slide-4" id="slide-4-answer-4" value="3" /><label for="slide-4-answer-4">A lot</label>
 						</input>
 		        	</div>
 		        </div>
@@ -98,10 +98,10 @@
 		        <div class="slide">
 		        	<div class="question">
 		        		<h2 class="question-title">Do you have some problems to breathe?</h2>
-						<input type="radio" class="answer" name="answer-slide-5" id="slide-5-answer-1" checked /><label for="slide-5-answer-1">Not at all</label><br/>
-						<input type="radio" class="answer" name="answer-slide-5" id="slide-5-answer-2" /><label for="slide-5-answer-2">A little</label><br/>
-						<input type="radio" class="answer" name="answer-slide-5" id="slide-5-answer-3" /><label for="slide-5-answer-3">Reasonably</label><br/>
-						<input type="radio" class="answer" name="answer-slide-5" id="slide-5-answer-4" /><label for="slide-5-answer-4">A lot</label>
+						<input type="radio" class="answer" name="answer-slide-5" id="slide-5-answer-1" value="0" checked /><label for="slide-5-answer-1">Not at all</label><br/>
+						<input type="radio" class="answer" name="answer-slide-5" id="slide-5-answer-2" value="1" /><label for="slide-5-answer-2">A little</label><br/>
+						<input type="radio" class="answer" name="answer-slide-5" id="slide-5-answer-3" value="2" /><label for="slide-5-answer-3">Reasonably</label><br/>
+						<input type="radio" class="answer" name="answer-slide-5" id="slide-5-answer-4" value="3" /><label for="slide-5-answer-4">A lot</label>
 		        	</div>
 		        </div>
 				<div class="nav">
@@ -115,14 +115,14 @@
 		        <div class="slide">
 		        	<div class="question">
 		        		<h2 class="question-title">Do you need to do some precision work?</h2>
-						<input type="radio" class="answer" name="answer-slide-6" id="slide-6-answer-1" checked /><label for="slide-6-answer-1">Never</label><br/>
-						<input type="radio" class="answer" name="answer-slide-6" id="slide-6-answer-2" /><label for="slide-6-answer-2">Sometime</label><br/>
-						<input type="radio" class="answer" name="answer-slide-6" id="slide-6-answer-3" /><label for="slide-6-answer-3">Often</label>
+						<input type="radio" class="answer" name="answer-slide-6" id="slide-6-answer-1" value="0" checked /><label for="slide-6-answer-1">Never</label><br/>
+						<input type="radio" class="answer" name="answer-slide-6" id="slide-6-answer-2" value="1" /><label for="slide-6-answer-2">Sometime</label><br/>
+						<input type="radio" class="answer" name="answer-slide-6" id="slide-6-answer-3" value="2" /><label for="slide-6-answer-3">Often</label>
 		        	</div>
 		        </div>
 				<div class="nav">
 					<label for="slide-5" class="prev"><span class="center-text">&#x2039;</span></label>
-					<a href="<?php echo $room; ?>-desktop.php"><label class="next" id="validate"><span class="center-text">&#x203a;</span></label></a>
+					<label class="next" id="validate"><button type="submit" name="validate" value="" class="button-validate"><span class="center-text">&#x203a;</span></button></label>
 				</div>
 		    </li>
 
