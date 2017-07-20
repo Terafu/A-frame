@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	$room = $_GET['room'];
 ?>
 
 <html>
@@ -121,7 +122,7 @@
 		        </div>
 				<div class="nav">
 					<label for="slide-5" class="prev"><span class="center-text">&#x2039;</span></label>
-					<label for="slide-1" class="next" id="validate"><span class="center-text">&#x203a;</span></label>
+					<a href="<?php echo $room; ?>-desktop.php"><label class="next" id="validate"><span class="center-text">&#x203a;</span></label></a>
 				</div>
 		    </li>
 
