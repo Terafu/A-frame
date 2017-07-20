@@ -150,11 +150,35 @@ input#slide-6:checked ~ .nav-dots label#slide-dot-6 {
 .slide .question {	
 	color: #18428C;
 	font-family: 'Indie Flower', cursive;
-	font-size: 150%;
+	font-size: 200%;
 }
 
 .slide .question-title {
-	font-size: 100%;
+	font-size: 150%;
+}
+
+@media screen and (max-device-width:850px) {
+	.slide .question {	
+		color: #18428C;
+		font-family: 'Indie Flower', cursive;
+		font-size: 150%;
+	}
+
+	.slide .question-title {
+		font-size: 100%;
+	}
+}
+
+@media screen and (max-width:850px) {
+	.slide .question {	
+		color: #18428C;
+		font-family: 'Indie Flower', cursive;
+		font-size: 150%;
+	}
+
+	.slide .question-title {
+		font-size: 100%;
+	}
 }
 
 .slide .answer {
