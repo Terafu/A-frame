@@ -98,7 +98,7 @@
 			</tr>
 		</table>
 
-		<form action="index.php">
+		<form action="menu.php">
 			<input type="submit" value="Configure another room">
 		</form>
 
