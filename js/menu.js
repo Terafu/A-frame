@@ -26,14 +26,14 @@ jQuery(document).ready(function(){
 	});
 
 	$(".kitchen").click(function () {
-		window.location.replace("kitchen-desktop.php");
+		window.location.replace("menu.php?room=kitchen");
 	});
 
 	$(".bedroom").click(function () {
-		window.location.replace("bedroom-desktop.php");
+		window.location.replace("menu.php?room=bedroom");
 	});
 
 	$(".livingroom").click(function () {
-		window.location.replace("livingroom-desktop.php");
+		window.location.replace("menu.php?room=livingroom");
 	});
 });

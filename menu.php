@@ -16,6 +16,11 @@
 	if(isset($_SESSION["kitchen"])) {
 		$kitchen = false;
 	}
+
+	if(isset($_GET["room"])) {
+		$_SESSION["room"] = $_GET["room"];
+		header('Location: room-desktop.php');
+	}
 ?>
 
 <html>

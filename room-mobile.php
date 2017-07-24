@@ -1,10 +1,11 @@
 <?php
   session_start();
 
-  $livingroom = true;
+  $room = $_SESSION["room"];
+  $notConfigure = true;
 
-  if(isset($_SESSION["livingroom"])) {
-    $livingroom = false;  
+  if(isset($_SESSION[$room])) {
+    $room = false;  
   }
 ?>
 
@@ -39,7 +40,7 @@
   <body>
 
     <!-- CURSOR FEEDBACK -->
-    <script src="js/livingroom-mobile.js"></script>
+    <?php include "js/room-mobile.php" ?>
 
     <!-- 3D SCENE -->
     <div id="scene">
