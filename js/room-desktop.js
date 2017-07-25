@@ -358,7 +358,7 @@ jQuery(document).ready(function(){
 		  min: 0,
 		  max: 300,
 		  step: 50,
-		  value: 150,
+		  value: $('input[type=text][name=lux]').val(),
 		  slide: function( event, ui ) {
 		    $('input[type=text][name=lux]').val(ui.value);
 		    $("#directional-light").attr("light", "type: directional; color: #FFF; intensity: "+ui.value/300);

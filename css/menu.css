@@ -7,6 +7,13 @@ html, body {
   	text-align: center;
 }
 
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 .title {
 	display: flex;
 	height: 15%;
@@ -49,6 +56,18 @@ svg {
 	width: 70%;
 	height: 70%;
 	margin: 0 auto 0 auto;
+}
+
+.kitchen {
+	cursor: pointer;
+}
+
+.bedroom {
+	cursor: pointer;
+}
+
+.livingroom {
+	cursor: pointer;
 }
 
 .kitchen path {
@@ -148,4 +167,269 @@ svg {
 
 .inactive.roomHover text {
   fill: #ff5959;
+}
+
+.cover {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.blur-in {
+    -webkit-animation: blur 2s forwards;
+    -moz-animation: blur 2s forwards;
+    -o-animation: blur 2s forwards;
+    animation: blur 2s forwards;
+}
+
+.blur-out {
+    -webkit-animation: blur-out 2s forwards;
+    -moz-animation: blur-out 2s forwards;
+    -o-animation: blur-out 2s forwards;
+    animation: blur-out 2s forwards;
+}
+
+@-webkit-keyframes blur {
+    0% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+
+    100% {
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);
+    }
+}
+
+@-moz-keyframes blur {
+    0% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+
+    100% {
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);
+    }
+}
+
+@-o-keyframes blur {
+    0% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+
+    100% {
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);
+    }
+}
+
+@keyframes blur {
+    0% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+
+    100% {
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);
+    }
+}
+
+@-webkit-keyframes blur-out {
+    0% {
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+}
+
+@-moz-keyframes blur-out {
+    0% {
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+}
+
+@-o-keyframes blur-out {
+    0% {
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+}
+
+@keyframes blur-out {
+    0% {
+        -webkit-filter: blur(4px);
+        -moz-filter: blur(4px);
+        -o-filter: blur(4px);
+        -ms-filter: blur(4px);
+        filter: blur(4px);
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+}
+
+.pop-up {
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    width: 50%;
+    height: 70%;
+}
+
+.box {
+    background-color: whitesmoke;
+    padding-bottom: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    position: relative;
+    -webkit-box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.1);
+}
+
+.button {
+    margin 0 auto;
+  background-color: #FF8566;
+    margin-bottom: 33px;
+}
+
+.button:hover {
+    background-color: #7CCF29;
+    -webkit-box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.1);
+}
+
+.close-button {
+    transition: all 0.5s ease;
+    position: absolute;
+    background-color: #FF9980;
+    padding: 1.5px 7px;
+    right: 0;
+    margin-right: -10px;
+    margin-top: -9px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    color: white;
+    -webkit-box-shadow: -4px -2px 6px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: -4px -2px 6px 0px rgba(0,0,0,0.1);
+    box-shadow: -3px 1px 6px 0px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: tomato;
+    color: #fff;
+}
+
+h3 {
+	font-family: 'Indie Flower', cursive;
+	font-size: 200%;
+	margin: auto;
+	color: #18428C;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+input {
+	background-color: whitesmoke;
+	font-size: 150%;
+	padding:10px 10px 10px 10px;
+	width: 70%;
+	border: none;
+	border-bottom: 1px solid #757575;
+}
+
+button {
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+	color: #666666;
+	background-color: #ADDBAE;
+	font-size: 130%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 70%;
+	pointer-events: none;
+}
+
+button.active {
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+button.active:hover {
+	background-color: #C9E2CA;
 }

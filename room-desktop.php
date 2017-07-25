@@ -4,9 +4,89 @@
   $room = $_SESSION["room"];
   $notConfigure = true;
 
-  if(isset($_SESSION[$room])) {
-    $room = false;  
+  if (isset($_POST["warmth"])) {
+    $_SESSION[$room] = array();
+    switch ($_POST["warmth"]) {
+      case "0":
+          $_SESSION[$room]['warmth-roof'] = 'glass';
+          $_SESSION[$room]['warmth-floor'] = 'glass';
+          $_SESSION[$room]['warmth-wall'] = 'glass';
+          $_SESSION[$room]['warmth-junctions'] = 'glass';
+          break;
+      case "1":
+          $_SESSION[$room]['warmth-roof'] = 'poly';
+          $_SESSION[$room]['warmth-floor'] = 'poly';
+          $_SESSION[$room]['warmth-wall'] = 'poly';
+          $_SESSION[$room]['warmth-junctions'] = 'poly';
+          break;
+      case "2":
+          $_SESSION[$room]['warmth-roof'] = 'rock';
+          $_SESSION[$room]['warmth-floor'] = 'rock';
+          $_SESSION[$room]['warmth-wall'] = 'rock';
+          $_SESSION[$room]['warmth-junctions'] = 'rock';
+          break;
+    }
   }
+
+  if (isset($_POST["sound"])) {
+    switch ($_POST["sound"]) {
+      case "0":
+          $_SESSION[$room]['sound-wall'] = 'glass';
+          $_SESSION[$room]['sound-floor'] = 'glass';
+          $_SESSION[$room]['sound-type'] = 'steps';
+          break;
+      case "1":
+          $_SESSION[$room]['sound-wall'] = 'poly';
+          $_SESSION[$room]['sound-floor'] = 'poly';
+          $_SESSION[$room]['sound-type'] = 'steps';
+          break;
+      case "2":
+          $_SESSION[$room]['sound-wall'] = 'rock';
+          $_SESSION[$room]['sound-floor'] = 'rock';
+          $_SESSION[$room]['sound-type'] = 'steps';
+          break;
+    }
+  }
+
+  if (isset($_POST["ventilation"])) {
+    switch ($_POST["ventilation"]) {
+      case "0":
+          $_SESSION[$room]['ventilation-ventilation'] = 'no-ventilation';
+          $_SESSION[$room]['ventilation-floor'] = 'normal-floor';
+          $_SESSION[$room]['ventilation-type'] = 'VOC';
+          break;
+      case "1":
+          $_SESSION[$room]['ventilation-ventilation'] = 'natural-ventilation';
+          $_SESSION[$room]['ventilation-floor'] = 'active-floor';
+          $_SESSION[$room]['ventilation-type'] = 'VOC';
+          break;
+      case "2":
+          $_SESSION[$room]['ventilation-ventilation'] = 'air-conditioner';
+          $_SESSION[$room]['ventilation-floor'] = 'active-floor';
+          $_SESSION[$room]['ventilation-type'] = 'VOC';
+          break;
+    }
+  }
+
+  if (isset($_POST["light"])) {
+    switch ($_POST["light"]) {
+      case "0":
+          $_SESSION[$room]['lux'] = '100';
+          break;
+      case "1":
+          $_SESSION[$room]['lux'] = '150';
+          break;
+      case "2":
+          $_SESSION[$room]['lux'] = '200';
+          break;
+    }
+  }
+
+  if(isset($_SESSION[$room])) {
+    $notConfigure = false;  
+  }
+
+
 ?>
 
 <html>

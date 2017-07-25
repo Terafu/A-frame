@@ -141,9 +141,7 @@ input:checked + .slide-container .nav label {
 input#slide-1:checked ~ .nav-dots label#slide-dot-1,
 input#slide-2:checked ~ .nav-dots label#slide-dot-2,
 input#slide-3:checked ~ .nav-dots label#slide-dot-3,
-input#slide-4:checked ~ .nav-dots label#slide-dot-4,
-input#slide-5:checked ~ .nav-dots label#slide-dot-5,
-input#slide-6:checked ~ .nav-dots label#slide-dot-6 {
+input#slide-4:checked ~ .nav-dots label#slide-dot-4 {
 	background: rgba(255, 255, 255, 0.8);
 }
 
