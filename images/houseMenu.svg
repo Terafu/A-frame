@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="88.927361mm"
+   height="82.351067mm"
+   viewBox="0 0 88.927361 82.351067"
    version="1.1"
    id="svg3697"
    inkscape:version="0.92.0 r15299"
-   sodipodi:docname="houseMenu.svg"
+   sodipodi:docname="houseMenu2.svg"
    class="house">
   <defs
      id="defs3691" />
@@ -26,17 +26,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="431.95904"
-     inkscape:cy="847.10169"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="330.3435"
+     inkscape:cy="-28.23143"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="746"
-     inkscape:window-x="1272"
-     inkscape:window-y="526"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1280"
+     inkscape:window-height="962"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:snap-page="false" />
   <metadata
      id="metadata3694">
     <rdf:RDF>
@@ -54,9 +55,11 @@
      inkscape:groupmode="layer"
      id="layer1"
      style="display:inline"
-     class="kitchen">
+     class="kitchen"
+     transform="translate(-0.02737844,-0.17495792)">
     <g
-       id="g3768">
+       id="g3768"
+       transform="translate(-59.795865,-33.866682)">
       <path
          sodipodi:nodetypes="ccccccc"
          inkscape:connector-curvature="0"
@@ -69,7 +72,7 @@
          x="72.964577"
          style="font-style:normal;font-weight:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:7.05555534px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666667px;font-family:'Indie Flower';-inkscape-font-specification:'Indie Flower Bold';stroke-width:0.26458332"
            y="98.017838"
            x="72.964577"
            id="tspan3725"
@@ -80,24 +83,26 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="livingroom"
-     class="livingroom">
+     class="livingroom"
+     transform="translate(-0.02737844,-0.17495792)">
     <g
-       id="g3763">
+       id="g3763"
+       transform="translate(-59.795865,-33.866682)">
       <text
          id="text3731"
          y="93.875153"
-         x="120.6457"
+         x="121.70404"
          style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:7.05555534px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:'Indie Flower';-inkscape-font-specification:'Indie Flower Bold';text-align:center;text-anchor:middle;stroke-width:0.26458332"
            y="93.875153"
-           x="120.6457"
+           x="121.70404"
            id="tspan3729"
            sodipodi:role="line">LIVING</tspan><tspan
            id="tspan3733"
-           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:7.05555534px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';text-align:center;text-anchor:middle;stroke-width:0.26458332"
-           y="101.58504"
-           x="120.6457"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:'Indie Flower';-inkscape-font-specification:'Indie Flower Bold';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+           y="102.13087"
+           x="121.70404"
            sodipodi:role="line">ROOM</tspan></text>
       <path
          sodipodi:nodetypes="ccccccc"
@@ -111,18 +116,20 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="bedroom"
-     class="bedroom">
+     class="bedroom"
+     transform="translate(-0.02737844,-0.17495792)">
     <g
-       id="g3775">
+       id="g3775"
+       transform="translate(-59.795865,-33.866682)">
       <text
          id="text3723"
          y="65.210503"
-         x="86.996223"
-         style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="85.408722"
+         style="font-style:normal;font-weight:normal;font-size:8.46666622px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:7.05555534px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';stroke-width:0.26458332"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:'Indie Flower';-inkscape-font-specification:'Indie Flower Bold';stroke-width:0.26458332"
            y="65.210503"
-           x="86.996223"
+           x="85.408722"
            id="tspan3721"
            sodipodi:role="line">BEDROOM</tspan></text>
       <path
