@@ -102,6 +102,6 @@
 			<input type="submit" value="Configure another room">
 		</form>
 
-		<?php include 'results-chart-normalUser.php'; ?>
+		<?php include 'results-chart-connectedUser.php'; ?>
 	</body>
 </html>
