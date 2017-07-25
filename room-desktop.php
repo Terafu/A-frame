@@ -83,7 +83,10 @@
   }
 
   if(isset($_SESSION[$room])) {
-    $notConfigure = false;
+    $notConfigure = false; 
+  }
+
+  if(isset($_SESSION[$room]) && isset($_SESSION['user'])) {
     $_SESSION["advice-".$room] = $_SESSION[$room]; 
   }
 ?>
