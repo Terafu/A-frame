@@ -362,6 +362,10 @@
                     text:''
                 },
 
+                tooltip: { 
+                        enabled: false 
+                    },
+
                 xAxis: {
                     categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
                 },        
@@ -426,6 +430,10 @@
                     text:''
                 },
 
+                tooltip: { 
+                        enabled: false 
+                    },
+
                 xAxis: {
                     categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
                 },        
@@ -489,6 +497,10 @@
                 title:{
                     text:''
                 },
+
+                tooltip: { 
+                        enabled: false 
+                    },
 
                 xAxis: {
                     categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
@@ -563,6 +575,10 @@
                         text:''
                     },
 
+                    tooltip: { 
+                        enabled: false 
+                    },
+
                     xAxis: {
                         categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
                     },        
@@ -627,6 +643,10 @@
                         text:''
                     },
 
+                    tooltip: { 
+                        enabled: false 
+                    },
+
                     xAxis: {
                         categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
                     },        
@@ -685,6 +705,10 @@
                 var myChart = Highcharts.chart('chartContainer', {
                     chart: {
                         type: 'bar',
+                    },
+
+                    tooltip: { 
+                        enabled: false 
                     },
 
                     title:{
