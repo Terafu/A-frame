@@ -457,7 +457,11 @@
         <a-circle id = "teleport2" set-position="0 1 0" color="blue" radius="0.15" position="0 0.050 0" rotation="-90 0 0" data-interactive="true"></a-circle>-->
 
         <!-- IMPORT AN OBJ -->
-        <!--<a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:bed/bed.obj;mtl:bed/bed.mtl"></a-obj-model>-->
+        <?php 
+          if ($_SESSION["room"] == "bedroom") {
+            echo '<a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:bed/bed.obj;mtl:bed/bed.mtl"></a-obj-model>';
+          }
+        ?>
 
         <!-- DEFINE THE BACKGROUND IMAGE OF THE SCENE -->
         <!--<a-sky src="#sky"></a-sky>-->

@@ -108,6 +108,106 @@
   var type = "VOC";
   var typeIndex = 0;
 
+  function showVentilation(ventilationToShow) {
+
+    if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
+      $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.45');
+      $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.45'); 
+      $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.45'); 
+      $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.45'); 
+      $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.45');
+      $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.45'); 
+    }
+    else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
+      $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.25');
+      $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.25'); 
+      $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.25'); 
+      $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.25'); 
+      $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.25');
+      $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.25'); 
+    }
+    else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
+      $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.05');
+      $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.05'); 
+      $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.05'); 
+      $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.05'); 
+      $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.05');
+      $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.05'); 
+    }
+    else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
+      $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.4');
+      $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.4'); 
+      $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.4'); 
+      $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.4'); 
+      $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.4');
+      $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.4'); 
+    }
+    else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
+      $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.2');
+      $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.2'); 
+      $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.2'); 
+      $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.2'); 
+      $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.2');
+      $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.2'); 
+    }
+    else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
+      $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0');
+      $("#fog-top").attr('material', 'color: #EF0000; opacity: 0'); 
+      $("#fog-left").attr('material', 'color: #EF0000; opacity: 0'); 
+      $("#fog-right").attr('material', 'color: #EF0000; opacity: 0'); 
+      $("#fog-front").attr('material', 'color: #EF0000; opacity: 0');
+      $("#fog-back").attr('material', 'color: #EF0000; opacity: 0'); 
+    }
+    else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
+      $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
+      $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
+      $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
+      $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
+      $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
+      $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
+    }
+    else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
+      $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
+      $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
+      $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
+      $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
+      $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
+      $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
+    }
+    else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
+      $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
+      $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
+      $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
+      $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
+      $("#fog-front").attr('material', 'color: #404040; opacity: 0');
+      $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
+    }
+    else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
+      $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
+      $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
+      $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
+      $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
+      $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
+      $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
+    }
+    else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
+      $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
+      $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
+      $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
+      $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
+      $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
+      $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
+    }
+    else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
+      $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
+      $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
+      $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
+      $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
+      $("#fog-front").attr('material', 'color: #404040; opacity: 0');
+      $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
+    }
+  }
+
   /* VALIDATE BUTTON (onClick simulate by the cursor) */
   AFRAME.registerComponent('validate-button', {
     schema: {
@@ -364,102 +464,7 @@
           this.el.setAttribute('visible', true);
 
           ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
-          if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-            $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.45');
-            $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.45'); 
-            $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.45'); 
-            $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.45'); 
-            $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.45');
-            $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          }
-          else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-            $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.25');
-            $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.25'); 
-            $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.25'); 
-            $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.25'); 
-            $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.25');
-            $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          }
-          else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-            $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.05');
-            $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.05'); 
-            $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.05'); 
-            $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.05'); 
-            $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.05');
-            $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          }
-          else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-            $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.4');
-            $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.4'); 
-            $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.4'); 
-            $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.4'); 
-            $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.4');
-            $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          }
-          else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-            $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.2');
-            $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.2'); 
-            $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.2'); 
-            $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.2'); 
-            $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.2');
-            $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          }
-          else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-            $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0');
-            $("#fog-top").attr('material', 'color: #EF0000; opacity: 0'); 
-            $("#fog-left").attr('material', 'color: #EF0000; opacity: 0'); 
-            $("#fog-right").attr('material', 'color: #EF0000; opacity: 0'); 
-            $("#fog-front").attr('material', 'color: #EF0000; opacity: 0');
-            $("#fog-back").attr('material', 'color: #EF0000; opacity: 0'); 
-          }
-          else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-            $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-            $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-            $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-            $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-            $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-            $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-          }
-          else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-            $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-            $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-            $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-            $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-            $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-            $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-          }
-          else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-            $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-            $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-            $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-            $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-            $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-            $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-          }
-          else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-            $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-            $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-            $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-            $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-            $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-            $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-          }
-          else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-            $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-            $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-            $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-            $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-            $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-            $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-          }
-          else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-            $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-            $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-            $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-            $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-            $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-            $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-          }
+          showVentilation(ventilationToShow);
         } 
 
         else if (this.el.getAttribute('visible') === true) {
@@ -1138,102 +1143,7 @@
 
         $('#ventilation-type').attr('text', 'value: ' + ventilationTypeSwitch[typeIndex] + '; align: center');
         ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
-        if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.45'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.25'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.05'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.2'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
+        showVentilation(ventilationToShow);
       });
     }
   });
@@ -1258,102 +1168,7 @@
 
         $('#ventilation-type').attr('text', 'value: ' + ventilationTypeSwitch[typeIndex] + '; align: center');
         ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
-        if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.45'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.25'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.05'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.2'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
+        showVentilation(ventilationToShow);
       });
     }
   });
@@ -1378,102 +1193,7 @@
 
         $('#ventilation-floor').attr('text', 'value: ' + floorTypeSwitch[floorIndex] + '; align: center');
         ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
-        if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.45'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.25'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.05'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.2'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
+        showVentilation(ventilationToShow);
       });
     }
   });
@@ -1498,102 +1218,7 @@
 
         $('#ventilation-floor').attr('text', 'value: ' + floorTypeSwitch[floorIndex] + '; align: center');
         ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
-        if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.45'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.25'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.05'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.2'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
+        showVentilation(ventilationToShow);
       });
     }
   });
@@ -1618,102 +1243,7 @@
 
         $('#ventilation-ventilation').attr('text', 'value: ' + ventilationVentilationSwitch[ventilationIndex] + '; align: center');
         ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
-        if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.45'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.25'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.05'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.2'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
+        showVentilation(ventilationToShow);
       });
     }
   });
@@ -1738,102 +1268,7 @@
 
         $('#ventilation-ventilation').attr('text', 'value: ' + ventilationVentilationSwitch[ventilationIndex] + '; align: center');
         ventilationToShow = 'ventilation-' + $('#ventilation-ventilation').attr('text').value + '-' + $('#ventilation-floor').attr('text').value + '-' + $('#ventilation-type').attr('text').value;
-        if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.45'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.45');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.45'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.25'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.25');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.25'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.05'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.05');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.05'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0.2'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0.2');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0.2'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-VOC") {
-          $("#fog-bottom").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-top").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #EF0000; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #EF0000; opacity: 0');
-          $("#fog-back").attr('material', 'color: #EF0000; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-normal-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
-        else if (ventilationToShow == "ventilation-no-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.6'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.6');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.6'); 
-        }
-        else if (ventilationToShow == "ventilation-natural-ventilation-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0.4'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0.4');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0.4'); 
-        }
-        else if (ventilationToShow == "ventilation-air-conditioner-active-floor-CO2") {
-          $("#fog-bottom").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-top").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-left").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-right").attr('material', 'color: #404040; opacity: 0'); 
-          $("#fog-front").attr('material', 'color: #404040; opacity: 0');
-          $("#fog-back").attr('material', 'color: #404040; opacity: 0'); 
-        }
+        showVentilation(ventilationToShow);
       });
     }
   });
