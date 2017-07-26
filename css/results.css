@@ -72,6 +72,22 @@ input[type="submit"]:hover {
 	background-color: #8BB98C;
 }
 
+button {
+	border: 0;
+	color: #666666;
+	width: 100%;
+	height: 10%;
+	background-color: #ADDBAE;
+	font-size: 130%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+button:hover {
+	background-color: #8BB98C;
+}
+
 table {
 	width: 100%;
 	text-align: center;

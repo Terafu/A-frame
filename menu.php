@@ -9,7 +9,7 @@
 		$_SESSION["user"] = $_GET["user"];
 	}
 
-	if(isset($_GET["email"])) {
+	if(isset($_GET["email"]) && !empty($_GET["email"])) {
 		$_SESSION["email"] = $_GET["email"];
 	}
 
@@ -48,7 +48,7 @@
 	<body>
 
 		<div id="overlay" class="cover <?php
-											if(isset($_SESSION["user"]) && !isset($_SESSION["email"])) {
+											if(isset($_GET["email"]) && empty($_GET["email"])) {
 												echo "blur-in";
 											}
 										?>">
@@ -169,7 +169,7 @@
 
 		<div class="row pop-up">
 		  <div class="box small-6 large-centered">
-		    <a class="close-button">&#10006;</a>
+		    <!--<a class="close-button">&#10006;</a>-->
 		    <h3>Please enter your email to continue</h3>
 		    <form action="menu.php" method="GET">
 		    	<input type="text" name="email" placeholder="Email" class="email" />

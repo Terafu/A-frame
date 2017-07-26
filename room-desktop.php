@@ -86,7 +86,7 @@
     $notConfigure = false; 
   }
 
-  if(isset($_SESSION[$room]) && isset($_SESSION['user'])) {
+  if(isset($_SESSION[$room]) && isset($_SESSION['email'])) {
     $_SESSION["advice-".$room] = $_SESSION[$room]; 
   }
 ?>

@@ -59,49 +59,20 @@
 
 		<div id="chartContainer"></div>
 
-		<table>
-			<colgroup>
-				<col class="warmthColor"/>
-				<col class="luxColor"/>
-				<col class="soundColor"/>
-				<col class="ventilationColor"/>
-			</colgroup>
-			<tr>
-				<th>WARMTH</th>
-				<th>LUX</th>
-				<th>SOUND</th>
-				<th>VENTILATION</th>
-			</tr>
-			<tr>
-				<td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
-				<td><a href="pdf/test.pdf" target="_blank" class="luxColorHover">test.pdf</a></td>
-				<td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td>
-				<td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td>
-			</tr>
-			<tr>
-				<td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
-				<td></td>
-				<td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td>
-				<td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td>
-			</tr>
-			<tr>
-				<td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</table>
+		<div id="pdf"></div>
 
-		<form action="menu.php">
-			<input type="submit" value="Configure another room">
+		<form action="menu.php" method="get">
+			<?php 
+				if (isset($_SESSION['kitchen']) && isset($_SESSION['bedroom']) && isset($_SESSION['livingroom']) && !isset($_SESSION['email'])) {
+					echo '<button name="email" type="submit" value="">Go further (you will need to enter your email address)</button>';
+				}
+
+				else {
+					echo '<input type="submit" value="Configure another room">';
+				}
+			?>
 		</form>
 
-		<?php include 'results-chart-connectedUser.php'; ?>
+		<?php if(isset($_SESSION["email"])) include 'results-chart-connectedUser.php'; else include 'results-chart-normalUser.php' ?>
 	</body>
 </html>

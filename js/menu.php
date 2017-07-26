@@ -70,7 +70,7 @@
 		$('.pop-up').hide();
 
 		<?php
-			if(isset($_SESSION["user"]) && !isset($_SESSION["email"])) {
+			if(isset($_GET["email"]) && empty($_GET["email"])) {
 
 				echo "$('.pop-up').fadeIn(1000);";
 			}

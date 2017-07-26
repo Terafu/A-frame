@@ -29,7 +29,7 @@
 					<div class="question">
 						<h2 class="question-title">Are you sensitive to warmth?</h2>
 						<input type="radio" class="answer" name="warmth" id="slide-1-answer-1" value="0" checked /><label for="slide-1-answer-1">Not at all</label><br/>
-						<input type="radio" class="answer" name="warmth" id="slide-1-answer-2" value="1" /><label for="slide-1-answer-3">Reasonably</label><br/>
+						<input type="radio" class="answer" name="warmth" id="slide-1-answer-2" value="1" /><label for="slide-1-answer-2">Reasonably</label><br/>
 						<input type="radio" class="answer" name="warmth" id="slide-1-answer-3" value="2" /><label for="slide-1-answer-3">A lot</label>
 						</input>
 					</div>

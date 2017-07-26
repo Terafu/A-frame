@@ -347,215 +347,365 @@
         elseif ($_SESSION['advice-livingroom']['ventilation-floor'] == "active-floor")
             $ventilationLivingroomAdvice += 34;
     }
+
 ?>
 
 <script>
+    var dataTableKitchen = [<?php if(isset($thermalKitchen)) echo $thermalKitchen; else echo "0" ?>, <?php if(isset($luxKitchen)) echo $luxKitchen; else echo "0" ?>, <?php if(isset($soundKitchen)) echo $soundKitchen; else echo "0" ?>, <?php if(isset($ventilationKitchen)) echo $ventilationKitchen; else echo "0" ?>, <?php if(isset($thermalKitchenAdvice)) echo $thermalKitchenAdvice - $thermalKitchen; else echo "0" ?>, <?php if(isset($luxKitchenAdvice)) echo $luxKitchenAdvice - $luxKitchen; else echo "0" ?>, <?php if(isset($soundKitchenAdvice)) echo $soundKitchenAdvice - $soundKitchen; else echo "0" ?>, <?php if(isset($ventilationKitchenAdvice)) echo $ventilationKitchenAdvice - $ventilationKitchen; else echo "0" ?>, <?php if(isset($thermalKitchenAdvice)) echo $thermalKitchenAdvice; else echo "0" ?>, <?php if(isset($luxKitchenAdvice)) echo $luxKitchenAdvice; else echo "0" ?>, <?php if(isset($soundKitchenAdvice)) echo $soundKitchenAdvice; else echo "0" ?>, <?php if(isset($ventilationKitchenAdvice)) echo $ventilationKitchenAdvice; else echo "0" ?>];
+
+    var dataTableBedroom = [<?php if(isset($thermalBedroom)) echo $thermalBedroom; else echo "0" ?>, <?php if(isset($luxBedroom)) echo $luxBedroom; else echo "0" ?>, <?php if(isset($soundBedroom)) echo $soundBedroom; else echo "0" ?>, <?php if(isset($ventilationBedroom)) echo $ventilationBedroom; else echo "0" ?>, <?php if(isset($thermalBedroomAdvice)) echo $thermalBedroomAdvice - $thermalBedroom; else echo "0" ?>, <?php if(isset($luxBedroomAdvice)) echo $luxBedroomAdvice - $luxBedroom; else echo "0" ?>, <?php if(isset($soundBedroomAdvice)) echo $soundBedroomAdvice - $soundBedroom; else echo "0" ?>, <?php if(isset($ventilationBedroomAdvice)) echo $ventilationBedroomAdvice - $ventilationBedroom; else echo "0" ?>, <?php if(isset($thermalBedroomAdvice)) echo $thermalBedroomAdvice; else echo "0" ?>, <?php if(isset($luxBedroomAdvice)) echo $luxBedroomAdvice; else echo "0" ?>, <?php if(isset($soundBedroomAdvice)) echo $soundBedroomAdvice; else echo "0" ?>, <?php if(isset($ventilationBedroomAdvice)) echo $ventilationBedroomAdvice; else echo "0" ?>];
+
+    var dataTableLivingroom = [<?php if(isset($thermalLivingroom)) echo $thermalLivingroom; else echo "0" ?>, <?php if(isset($luxLivingroom)) echo $luxLivingroom; else echo "0" ?>, <?php if(isset($soundLivingroom)) echo $soundLivingroom; else echo "0" ?>, <?php if(isset($ventilationLivingroom)) echo $ventilationLivingroom; else echo "0" ?>, <?php if(isset($thermalLivingroomAdvice)) echo $thermalLivingroomAdvice - $thermalLivingroom; else echo "0" ?>, <?php if(isset($luxLivingroomAdvice)) echo $luxLivingroomAdvice - $luxLivingroom; else echo "0" ?>, <?php if(isset($soundLivingroomAdvice)) echo $soundLivingroomAdvice - $soundLivingroom; else echo "0" ?>, <?php if(isset($ventilationLivingroomAdvice)) echo $ventilationLivingroomAdvice; else echo "0" ?>, <?php if(isset($thermalLivingroomAdvice)) echo $thermalLivingroomAdvice; else echo "0" ?>, <?php if(isset($luxLivingroomAdvice)) echo $luxLivingroomAdvice; else echo "0" ?>, <?php if(isset($soundLivingroomAdvice)) echo $soundLivingroomAdvice; else echo "0" ?>, <?php if(isset($ventilationLivingroomAdvice)) echo $ventilationLivingroomAdvice; else echo "0" ?>];
+
     $(function () {
         if ($(".active").attr("id") == "kitchen") {
-            var dataTable = [<?php if(isset($thermalKitchen)) echo $thermalKitchen; else echo "0" ?>, <?php if(isset($luxKitchen)) echo $luxKitchen; else echo "0" ?>, <?php if(isset($soundKitchen)) echo $soundKitchen; else echo "0" ?>, <?php if(isset($ventilationKitchen)) echo $ventilationKitchen; else echo "0" ?>, <?php if(isset($thermalKitchenAdvice)) echo $thermalKitchenAdvice - $thermalKitchen; else echo "0" ?>, <?php if(isset($luxKitchenAdvice)) echo $luxKitchenAdvice - $luxKitchen; else echo "0" ?>, <?php if(isset($soundKitchenAdvice)) echo $soundKitchenAdvice - $soundKitchen; else echo "0" ?>, <?php if(isset($ventilationKitchenAdvice)) echo $ventilationKitchenAdvice - $ventilationKitchen; else echo "0" ?>, <?php if(isset($thermalKitchenAdvice)) echo $thermalKitchenAdvice; else echo "0" ?>, <?php if(isset($luxKitchenAdvice)) echo $luxKitchenAdvice; else echo "0" ?>, <?php if(isset($soundKitchenAdvice)) echo $soundKitchenAdvice; else echo "0" ?>, <?php if(isset($ventilationKitchenAdvice)) echo $ventilationKitchenAdvice; else echo "0" ?>];
-            var myChart = Highcharts.chart('chartContainer', {
-                chart: {
-                    type: 'bar',
-                },
+            <?php
 
-                title:{
-                    text:''
-                },
+                if(isset($_SESSION["advice-kitchen"])) {
+                    echo    'var myChart = Highcharts.chart("chartContainer", {
+                                chart: {
+                                    type: "bar",
+                                },
 
-                tooltip: { 
-                        enabled: false 
-                    },
+                                title:{
+                                    text:""
+                                },
 
-                xAxis: {
-                    categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
-                },        
+                                tooltip: { 
+                                        enabled: false 
+                                    },
 
-                plotOptions: {
-                    series: {
-                        colorByPoint: true,
-                        colors: ['#e95b52', '#f0b911', '#8987c0', '#63bc9b', '#e58a84', '#e3c97b', '#deddf2', '#a8ddc9'],
-                        stacking: 'normal',
-                        events: {
-                            legendItemClick: function () {
+                                xAxis: {
+                                    categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                },        
 
-                                if (this.visible) {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[8], color: '#e58a84'}, {y:dataTable[9], color: '#e3c97b'}, {y:dataTable[10], color: '#deddf2'}, {y:dataTable[11], color: '#a8ddc9'}],
-                                    });
-                                }
+                                plotOptions: {
+                                    series: {
+                                        colorByPoint: true,
+                                        colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b", "#e58a84", "#e3c97b", "#deddf2", "#a8ddc9"],
+                                        stacking: "normal",
+                                        events: {
+                                            legendItemClick: function () {
 
-                                else {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                                    });
-                                }
-                            }
-                        }
-                    },
-                },
+                                                if (this.visible) {
+                                                    this.chart.series[0].update({
+                                                        data: [{y:dataTableKitchen[8], color: "#e58a84"}, {y:dataTableKitchen[9], color: "#e3c97b"}, {y:dataTableKitchen[10], color: "#deddf2"}, {y:dataTableKitchen[11], color: "#a8ddc9"}],
+                                                    });
+                                                }
 
-                yAxis: {
-                    title: {text: 'Percentage of Multi-Comfort experience'},
-                    min: 0,
-                    max: 100,
-                    minTickInterval: 5,
-                },
+                                                else {
+                                                    this.chart.series[0].update({
+                                                        data: [{y:dataTableKitchen[4], color: "#e58a84"}, {y:dataTableKitchen[5], color: "#e3c97b"}, {y:dataTableKitchen[6], color: "#deddf2"}, {y:dataTableKitchen[7], color: "#a8ddc9"}],
+                                                    });
+                                                }
+                                            }
+                                        }
+                                    },
+                                },
 
-                legend: {
-                    reversed: true
-                },
+                                yAxis: {
+                                    title: {text: "Percentage of Multi-Comfort experience"},
+                                    min: 0,
+                                    max: 100,
+                                    minTickInterval: 5,
+                                },
 
-                series: [{
-                    name: 'Recommendation based on your answers to the questions',
-                    data: [{x:dataTable[4], color: '#e58a84'}, {x:dataTable[5], color: '#e3c97b'}, {x:dataTable[6], color: '#deddf2'}, {x:dataTable[7], color: '#a8ddc9'}],
-                }, {
-                    name: 'Your choices',
-                    data: [{x:dataTable[0], color: '#e95b52'}, {x:dataTable[1], color: '#f0b911'}, {x:dataTable[2], color: '#8987c0'}, {x:dataTable[3], color: '#63bc9b'}],
-                }],
+                                legend: {
+                                    reversed: true
+                                },
 
-                credits: {
-                    enabled: false,
-                },
-            });
+                                series: [{
+                                    name: "Recommendations based on your answers to the questions",
+                                    data: [{x:dataTableKitchen[4], color: "#e58a84"}, {x:dataTableKitchen[5], color: "#e3c97b"}, {x:dataTableKitchen[6], color: "#deddf2"}, {x:dataTableKitchen[7], color: "#a8ddc9"}],
+                                }, {
+                                    name: "Your choices",
+                                    data: [{x:dataTableKitchen[0], color: "#e95b52"}, {x:dataTableKitchen[1], color: "#f0b911"}, {x:dataTableKitchen[2], color: "#8987c0"}, {x:dataTableKitchen[3], color: "#63bc9b"}],
+                                }],
+
+                                credits: {
+                                    enabled: false,
+                                },
+                            });';
+
+                    echo    '$("#pdf").append(\'<table><colgroup><col class="warmthColor"/><col class="luxColor"/><col class="soundColor"/><col class="ventilationColor"/></colgroup><tr><th>WARMTH</th><th>LUX</th><th>SOUND</th><th>VENTILATION</th></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="luxColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr></table>\')';
+                }
+
+                else {
+                    echo    'var myChart = Highcharts.chart("chartContainer", {
+                                chart: {
+                                    type: "bar",
+                                },
+
+                                title:{
+                                    text:""
+                                },
+
+                                xAxis: {
+                                    categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                },        
+
+                                plotOptions: {
+                                    series: {
+                                        colorByPoint: true,
+                                        colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b"],
+                                    },
+                                },
+
+                                yAxis: {
+                                    title: {text: "Percentage of Multi-Comfort experience"},
+                                    min: 0,
+                                    max: 100,
+                                    minTickInterval: 5,
+                                },
+
+                                series: [{
+                                    showInLegend: false,
+                                    name: "Percentage of Multi-Comfort experience",
+                                    data: [dataTableKitchen[0], dataTableKitchen[1], dataTableKitchen[2], dataTableKitchen[3]],
+                                }],
+
+                                credits: {
+                                    enabled: false,
+                                },
+                            });';
+
+                    echo    '$("#pdf").empty()';
+                }
+            ?>
         }
 
         else if ($(".active").attr("id") == "bedroom") {
-            var dataTable = [<?php if(isset($thermalBedroom)) echo $thermalBedroom; else echo "0" ?>, <?php if(isset($luxBedroom)) echo $luxBedroom; else echo "0" ?>, <?php if(isset($soundBedroom)) echo $soundBedroom; else echo "0" ?>, <?php if(isset($ventilationBedroom)) echo $ventilationBedroom; else echo "0" ?>, <?php if(isset($thermalBedroomAdvice)) echo $thermalBedroomAdvice - $thermalBedroom; else echo "0" ?>, <?php if(isset($luxBedroomAdvice)) echo $luxBedroomAdvice - $luxBedroom; else echo "0" ?>, <?php if(isset($soundBedroomAdvice)) echo $soundBedroomAdvice - $soundBedroom; else echo "0" ?>, <?php if(isset($ventilationBedroomAdvice)) echo $ventilationBedroomAdvice - $ventilationBedroom; else echo "0" ?>, <?php if(isset($thermalBedroomAdvice)) echo $thermalBedroomAdvice; else echo "0" ?>, <?php if(isset($luxBedroomAdvice)) echo $luxBedroomAdvice; else echo "0" ?>, <?php if(isset($soundBedroomAdvice)) echo $soundBedroomAdvice; else echo "0" ?>, <?php if(isset($ventilationBedroomAdvice)) echo $ventilationBedroomAdvice; else echo "0" ?>];
-            var myChart = Highcharts.chart('chartContainer', {
-                chart: {
-                    type: 'bar',
-                },
 
-                title:{
-                    text:''
-                },
+            <?php
 
-                tooltip: { 
-                        enabled: false 
-                    },
+                if(isset($_SESSION["advice-bedroom"])) {
+                    echo    'var myChart = Highcharts.chart("chartContainer", {
+                                chart: {
+                                    type: "bar",
+                                },
 
-                xAxis: {
-                    categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
-                },        
+                                title:{
+                                    text:""
+                                },
 
-                plotOptions: {
-                    series: {
-                        colorByPoint: true,
-                        colors: ['#e95b52', '#f0b911', '#8987c0', '#63bc9b'],
-                        stacking: 'normal',
-                        events: {
-                            legendItemClick: function () {
+                                tooltip: { 
+                                        enabled: false 
+                                    },
 
-                                if (this.visible) {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[8], color: '#e58a84'}, {y:dataTable[9], color: '#e3c97b'}, {y:dataTable[10], color: '#deddf2'}, {y:dataTable[11], color: '#a8ddc9'}],
-                                    });
-                                }
+                                xAxis: {
+                                    categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                },        
 
-                                else {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                                    });
-                                }
-                            }
-                        }
-                    },
-                },
+                                plotOptions: {
+                                    series: {
+                                        colorByPoint: true,
+                                        colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b"],
+                                        stacking: "normal",
+                                        events: {
+                                            legendItemClick: function () {
 
-                yAxis: {
-                    title: {text: 'Percentage of Multi-Comfort experience'},
-                    min: 0,
-                    max: 100,
-                    minTickInterval: 5,
-                },
+                                                if (this.visible) {
+                                                    this.chart.series[0].update({
+                                                        data: [{y:dataTableBedroom[8], color: "#e58a84"}, {y:dataTableBedroom[9], color: "#e3c97b"}, {y:dataTableBedroom[10], color: "#deddf2"}, {y:dataTableBedroom[11], color: "#a8ddc9"}],
+                                                    });
+                                                }
 
-                legend: {
-                    reversed: true
-                },
+                                                else {
+                                                    this.chart.series[0].update({
+                                                        data: [{y:dataTableBedroom[4], color: "#e58a84"}, {y:dataTableBedroom[5], color: "#e3c97b"}, {y:dataTableBedroom[6], color: "#deddf2"}, {y:dataTableBedroom[7], color: "#a8ddc9"}],
+                                                    });
+                                                }
+                                            }
+                                        }
+                                    },
+                                },
 
-                series: [{
-                    name: 'Recommendation based on your answers to the questions',
-                    data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                }, {
-                    name: 'Your choices',
-                    data: [{y:dataTable[0], color: '#e95b52'}, {y:dataTable[1], color: '#f0b911'}, {y:dataTable[2], color: '#8987c0'}, {y:dataTable[3], color: '#63bc9b'}],
-                }],
+                                yAxis: {
+                                    title: {text: "Percentage of Multi-Comfort experience"},
+                                    min: 0,
+                                    max: 100,
+                                    minTickInterval: 5,
+                                },
 
-                credits: {
-                    enabled: false,
-                },
-            });
+                                legend: {
+                                    reversed: true
+                                },
+
+                                series: [{
+                                    name: "Recommendations based on your answers to the questions",
+                                    data: [{y:dataTableBedroom[4], color: "#e58a84"}, {y:dataTableBedroom[5], color: "#e3c97b"}, {y:dataTableBedroom[6], color: "#deddf2"}, {y:dataTableBedroom[7], color: "#a8ddc9"}],
+                                }, {
+                                    name: "Your choices",
+                                    data: [{y:dataTableBedroom[0], color: "#e95b52"}, {y:dataTableBedroom[1], color: "#f0b911"}, {y:dataTableBedroom[2], color: "#8987c0"}, {y:dataTableBedroom[3], color: "#63bc9b"}],
+                                }],
+
+                                credits: {
+                                    enabled: false,
+                                },
+                            });';
+
+                    echo    '$("#pdf").append(\'<table><colgroup><col class="warmthColor"/><col class="luxColor"/><col class="soundColor"/><col class="ventilationColor"/></colgroup><tr><th>WARMTH</th><th>LUX</th><th>SOUND</th><th>VENTILATION</th></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="luxColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr></table>\')';
+                }
+
+                else {
+                    echo    'var myChart = Highcharts.chart("chartContainer", {
+                                chart: {
+                                    type: "bar",
+                                },
+
+                                title:{
+                                    text:""
+                                },
+
+                                xAxis: {
+                                    categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                },        
+
+                                plotOptions: {
+                                    series: {
+                                        colorByPoint: true,
+                                        colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b"],
+                                    },
+                                },
+
+                                yAxis: {
+                                    title: {text: "Percentage of Multi-Comfort experience"},
+                                    min: 0,
+                                    max: 100,
+                                    minTickInterval: 5,
+                                },
+
+                                series: [{
+                                    showInLegend: false,
+                                    name: "Percentage of Multi-Comfort experience",
+                                    data: [dataTableBedroom[0], dataTableBedroom[0], dataTableBedroom[0], dataTableBedroom[0]],
+                                }],
+
+                                credits: {
+                                    enabled: false,
+                                },
+                            });';
+                    echo    '$("#pdf").empty()';
+                }
+            ?>           
         }
 
         else if ($(".active").attr("id") == "livingroom") {
-            var dataTable = [<?php if(isset($thermalLivingroom)) echo $thermalLivingroom; else echo "0" ?>, <?php if(isset($luxLivingroom)) echo $luxLivingroom; else echo "0" ?>, <?php if(isset($soundLivingroom)) echo $soundLivingroom; else echo "0" ?>, <?php if(isset($ventilationLivingroom)) echo $ventilationLivingroom; else echo "0" ?>, <?php if(isset($thermalLivingroomAdvice)) echo $thermalLivingroomAdvice - $thermalLivingroom; else echo "0" ?>, <?php if(isset($luxLivingroomAdvice)) echo $luxLivingroomAdvice - $luxLivingroom; else echo "0" ?>, <?php if(isset($soundLivingroomAdvice)) echo $soundLivingroomAdvice - $soundLivingroom; else echo "0" ?>, <?php if(isset($ventilationLivingroomAdvice)) echo $ventilationLivingroomAdvice; else echo "0" ?>, <?php if(isset($thermalLivingroomAdvice)) echo $thermalLivingroomAdvice; else echo "0" ?>, <?php if(isset($luxLivingroomAdvice)) echo $luxLivingroomAdvice; else echo "0" ?>, <?php if(isset($soundLivingroomAdvice)) echo $soundLivingroomAdvice; else echo "0" ?>, <?php if(isset($ventilationLivingroomAdvice)) echo $ventilationLivingroomAdvice; else echo "0" ?>];
-            var myChart = Highcharts.chart('chartContainer', {
-                chart: {
-                    type: 'bar',
-                },
 
-                title:{
-                    text:''
-                },
+            <?php
+                if(isset($_SESSION["advice-livingroom"])) {
 
-                tooltip: { 
-                        enabled: false 
-                    },
+                    echo    'var myChart = Highcharts.chart("chartContainer", {
+                                chart: {
+                                    type: "bar",
+                                },
 
-                xAxis: {
-                    categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
-                },        
+                                title:{
+                                    text:""
+                                },
 
-                plotOptions: {
-                    series: {
-                        colorByPoint: true,
-                        colors: ['#e95b52', '#f0b911', '#8987c0', '#63bc9b'],
-                        stacking: 'normal',
-                        events: {
-                            legendItemClick: function () {
+                                tooltip: { 
+                                        enabled: false 
+                                    },
 
-                                if (this.visible) {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[8], color: '#e58a84'}, {y:dataTable[9], color: '#e3c97b'}, {y:dataTable[10], color: '#deddf2'}, {y:dataTable[11], color: '#a8ddc9'}],
-                                    });
-                                }
+                                xAxis: {
+                                    categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                },        
 
-                                else {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                                    });
-                                }
-                            }
-                        }
-                    },
-                },
+                                plotOptions: {
+                                    series: {
+                                        colorByPoint: true,
+                                        colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b"],
+                                        stacking: "normal",
+                                        events: {
+                                            legendItemClick: function () {
 
-                yAxis: {
-                    title: {text: 'Percentage of Multi-Comfort experience'},
-                    min: 0,
-                    max: 100,
-                    minTickInterval: 5,
-                },
+                                                if (this.visible) {
+                                                    this.chart.series[0].update({
+                                                        data: [{y:dataTableLivingroom[8], color: "#e58a84"}, {y:dataTableLivingroom[9], color: "#e3c97b"}, {y:dataTableLivingroom[10], color: "#deddf2"}, {y:dataTableLivingroom[11], color: "#a8ddc9"}],
+                                                    });
+                                                }
 
-                legend: {
-                    reversed: true
-                },
+                                                else {
+                                                    this.chart.series[0].update({
+                                                        data: [{y:dataTableLivingroom[4], color: "#e58a84"}, {y:dataTableLivingroom[5], color: "#e3c97b"}, {y:dataTableLivingroom[6], color: "#deddf2"}, {y:dataTableLivingroom[7], color: "#a8ddc9"}],
+                                                    });
+                                                }
+                                            }
+                                        }
+                                    },
+                                },
 
-                series: [{
-                    name: 'Recommendation based on your answers to the questions',
-                    data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                }, {
-                    name: 'Your choices',
-                    data: [{y:dataTable[0], color: '#e95b52'}, {y:dataTable[1], color: '#f0b911'}, {y:dataTable[2], color: '#8987c0'}, {y:dataTable[3], color: '#63bc9b'}],
-                }],
+                                yAxis: {
+                                    title: {text: "Percentage of Multi-Comfort experience"},
+                                    min: 0,
+                                    max: 100,
+                                    minTickInterval: 5,
+                                },
 
-                credits: {
-                    enabled: false,
-                },
-            });
-        }
+                                legend: {
+                                    reversed: true
+                                },
 
-        
+                                series: [{
+                                    name: "Recommendations based on your answers to the questions",
+                                    data: [{y:dataTableLivingroom[4], color: "#e58a84"}, {y:dataTableLivingroom[5], color: "#e3c97b"}, {y:dataTableLivingroom[6], color: "#deddf2"}, {y:dataTableLivingroom[7], color: "#a8ddc9"}],
+                                }, {
+                                    name: "Your choices",
+                                    data: [{y:dataTableLivingroom[0], color: "#e95b52"}, {y:dataTableLivingroom[1], color: "#f0b911"}, {y:dataTableLivingroom[2], color: "#8987c0"}, {y:dataTableLivingroom[3], color: "#63bc9b"}],
+                                }],
+
+                                credits: {
+                                    enabled: false,
+                                },
+                            });';
+
+                    echo    '$("#pdf").append(\'<table><colgroup><col class="warmthColor"/><col class="luxColor"/><col class="soundColor"/><col class="ventilationColor"/></colgroup><tr><th>WARMTH</th><th>LUX</th><th>SOUND</th><th>VENTILATION</th></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="luxColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr></table>\')';
+                }
+
+                else {
+
+                    echo    'var myChart = Highcharts.chart("chartContainer", {
+                                chart: {
+                                    type: "bar",
+                                },
+
+                                title:{
+                                    text:""
+                                },
+
+                                xAxis: {
+                                    categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                },        
+
+                                plotOptions: {
+                                    series: {
+                                        colorByPoint: true,
+                                        colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b"],
+                                    },
+                                },
+
+                                yAxis: {
+                                    title: {text: "Percentage of Multi-Comfort experience"},
+                                    min: 0,
+                                    max: 100,
+                                    minTickInterval: 5,
+                                },
+
+                                series: [{
+                                    showInLegend: false,
+                                    name: "Percentage of Multi-Comfort experience",
+                                    data: [dataTableLivingroom[0], dataTableLivingroom[1], dataTableLivingroom[2], dataTableLivingroom[3]],
+                                }],
+
+                                credits: {
+                                    enabled: false,
+                                },
+                            });';
+                    echo    '$("#pdf").empty()';
+                }
+            ?>
+        }        
     });
 
     $("li").on("click", function() {
@@ -565,207 +715,353 @@
         $(this).addClass("active");
         $(function () {
             if ($(".active").attr("id") == "kitchen") {
-                var dataTable = [<?php if(isset($thermalKitchen)) echo $thermalKitchen; else echo "0" ?>, <?php if(isset($luxKitchen)) echo $luxKitchen; else echo "0" ?>, <?php if(isset($soundKitchen)) echo $soundKitchen; else echo "0" ?>, <?php if(isset($ventilationKitchen)) echo $ventilationKitchen; else echo "0" ?>, <?php if(isset($thermalKitchenAdvice)) echo $thermalKitchenAdvice - $thermalKitchen; else echo "0" ?>, <?php if(isset($luxKitchenAdvice)) echo $luxKitchenAdvice - $luxKitchen; else echo "0" ?>, <?php if(isset($soundKitchenAdvice)) echo $soundKitchenAdvice - $soundKitchen; else echo "0" ?>, <?php if(isset($ventilationKitchenAdvice)) echo $ventilationKitchenAdvice - $ventilationKitchen; else echo "0" ?>, <?php if(isset($thermalKitchenAdvice)) echo $thermalKitchenAdvice; else echo "0" ?>, <?php if(isset($luxKitchenAdvice)) echo $luxKitchenAdvice; else echo "0" ?>, <?php if(isset($soundKitchenAdvice)) echo $soundKitchenAdvice; else echo "0" ?>, <?php if(isset($ventilationKitchenAdvice)) echo $ventilationKitchenAdvice; else echo "0" ?>];
-                var myChart = Highcharts.chart('chartContainer', {
-                    chart: {
-                        type: 'bar',
-                    },
+                <?php
 
-                    title:{
-                        text:''
-                    },
+                    if(isset($_SESSION["advice-kitchen"])) {
+                        echo    'var myChart = Highcharts.chart("chartContainer", {
+                                    chart: {
+                                        type: "bar",
+                                    },
 
-                    tooltip: { 
-                        enabled: false 
-                    },
+                                    title:{
+                                        text:""
+                                    },
 
-                    xAxis: {
-                        categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
-                    },        
+                                    tooltip: { 
+                                            enabled: false 
+                                        },
 
-                    plotOptions: {
-                        series: {
-                            colorByPoint: true,
-                            colors: ['#e95b52', '#f0b911', '#8987c0', '#63bc9b', '#e58a84', '#e3c97b', '#deddf2', '#a8ddc9'],
-                            stacking: 'normal',
-                            events: {
-                            legendItemClick: function () {
+                                    xAxis: {
+                                        categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                    },        
 
-                                if (this.visible) {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[8], color: '#e58a84'}, {y:dataTable[9], color: '#e3c97b'}, {y:dataTable[10], color: '#deddf2'}, {y:dataTable[11], color: '#a8ddc9'}],
-                                    });
-                                }
+                                    plotOptions: {
+                                        series: {
+                                            colorByPoint: true,
+                                            colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b", "#e58a84", "#e3c97b", "#deddf2", "#a8ddc9"],
+                                            stacking: "normal",
+                                            events: {
+                                                legendItemClick: function () {
 
-                                else {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                                    });
-                                }
-                            }
-                        }
-                        },
-                    },
+                                                    if (this.visible) {
+                                                        this.chart.series[0].update({
+                                                            data: [{y:dataTableKitchen[8], color: "#e58a84"}, {y:dataTableKitchen[9], color: "#e3c97b"}, {y:dataTableKitchen[10], color: "#deddf2"}, {y:dataTableKitchen[11], color: "#a8ddc9"}],
+                                                        });
+                                                    }
 
-                    yAxis: {
-                        title: {text: 'Percentage of Multi-Comfort experience'},
-                        min: 0,
-                        max: 100,
-                        minTickInterval: 5,
-                    },
+                                                    else {
+                                                        this.chart.series[0].update({
+                                                            data: [{y:dataTableKitchen[4], color: "#e58a84"}, {y:dataTableKitchen[5], color: "#e3c97b"}, {y:dataTableKitchen[6], color: "#deddf2"}, {y:dataTableKitchen[7], color: "#a8ddc9"}],
+                                                        });
+                                                    }
+                                                }
+                                            }
+                                        },
+                                    },
 
-                    legend: {
-                        reversed: true
-                    },
+                                    yAxis: {
+                                        title: {text: "Percentage of Multi-Comfort experience"},
+                                        min: 0,
+                                        max: 100,
+                                        minTickInterval: 5,
+                                    },
 
-                    series: [{
-                        name: 'Recommendation based on your answers to the questions',
-                        data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                    }, {
-                        name: 'Your choices',
-                        data: [{y:dataTable[0], color: '#e95b52'}, {y:dataTable[1], color: '#f0b911'}, {y:dataTable[2], color: '#8987c0'}, {x:dataTable[3], color: '#63bc9b'}],
-                    }],
+                                    legend: {
+                                        reversed: true
+                                    },
 
-                    credits: {
-                        enabled: false,
-                    },
-                });
+                                    series: [{
+                                        name: "Recommendations based on your answers to the questions",
+                                        data: [{x:dataTableKitchen[4], color: "#e58a84"}, {x:dataTableKitchen[5], color: "#e3c97b"}, {x:dataTableKitchen[6], color: "#deddf2"}, {x:dataTableKitchen[7], color: "#a8ddc9"}],
+                                    }, {
+                                        name: "Your choices",
+                                        data: [{x:dataTableKitchen[0], color: "#e95b52"}, {x:dataTableKitchen[1], color: "#f0b911"}, {x:dataTableKitchen[2], color: "#8987c0"}, {x:dataTableKitchen[3], color: "#63bc9b"}],
+                                    }],
+
+                                    credits: {
+                                        enabled: false,
+                                    },
+                                });';
+
+                        echo    '$("#pdf").append(\'<table><colgroup><col class="warmthColor"/><col class="luxColor"/><col class="soundColor"/><col class="ventilationColor"/></colgroup><tr><th>WARMTH</th><th>LUX</th><th>SOUND</th><th>VENTILATION</th></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="luxColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr></table>\')';
+                    }
+
+                    else {
+                        echo    'var myChart = Highcharts.chart("chartContainer", {
+                                    chart: {
+                                        type: "bar",
+                                    },
+
+                                    title:{
+                                        text:""
+                                    },
+
+                                    xAxis: {
+                                        categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                    },        
+
+                                    plotOptions: {
+                                        series: {
+                                            colorByPoint: true,
+                                            colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b"],
+                                        },
+                                    },
+
+                                    yAxis: {
+                                        title: {text: "Percentage of Multi-Comfort experience"},
+                                        min: 0,
+                                        max: 100,
+                                        minTickInterval: 5,
+                                    },
+
+                                    series: [{
+                                        showInLegend: false,
+                                        name: "Percentage of Multi-Comfort experience",
+                                        data: [dataTableKitchen[0], dataTableKitchen[1], dataTableKitchen[2], dataTableKitchen[3]],
+                                    }],
+
+                                    credits: {
+                                        enabled: false,
+                                    },
+                                });';
+                        echo    '$("#pdf").empty()';
+                    }
+                ?>
             }
 
             else if ($(".active").attr("id") == "bedroom") {
-                var dataTable = [<?php if(isset($thermalBedroom)) echo $thermalBedroom; else echo "0" ?>, <?php if(isset($luxBedroom)) echo $luxBedroom; else echo "0" ?>, <?php if(isset($soundBedroom)) echo $soundBedroom; else echo "0" ?>, <?php if(isset($ventilationBedroom)) echo $ventilationBedroom; else echo "0" ?>, <?php if(isset($thermalBedroomAdvice)) echo $thermalBedroomAdvice - $thermalBedroom; else echo "0" ?>, <?php if(isset($luxBedroomAdvice)) echo $luxBedroomAdvice - $luxBedroom; else echo "0" ?>, <?php if(isset($soundBedroomAdvice)) echo $soundBedroomAdvice - $soundBedroom; else echo "0" ?>, <?php if(isset($ventilationBedroomAdvice)) echo $ventilationBedroomAdvice - $ventilationBedroom; else echo "0" ?>, <?php if(isset($thermalBedroomAdvice)) echo $thermalBedroomAdvice; else echo "0" ?>, <?php if(isset($luxBedroomAdvice)) echo $luxBedroomAdvice; else echo "0" ?>, <?php if(isset($soundBedroomAdvice)) echo $soundBedroomAdvice; else echo "0" ?>, <?php if(isset($ventilationBedroomAdvice)) echo $ventilationBedroomAdvice; else echo "0" ?>];
-                var myChart = Highcharts.chart('chartContainer', {
-                    chart: {
-                        type: 'bar',
-                    },
 
-                    title:{
-                        text:''
-                    },
+                <?php
 
-                    tooltip: { 
-                        enabled: false 
-                    },
+                    if(isset($_SESSION["advice-bedroom"])) {
+                        echo    'var myChart = Highcharts.chart("chartContainer", {
+                                    chart: {
+                                        type: "bar",
+                                    },
 
-                    xAxis: {
-                        categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
-                    },        
+                                    title:{
+                                        text:""
+                                    },
 
-                    plotOptions: {
-                        series: {
-                            colorByPoint: true,
-                            colors: ['#e95b52', '#f0b911', '#8987c0', '#63bc9b'],
-                            stacking: 'normal',
-                            events: {
-                            legendItemClick: function () {
+                                    tooltip: { 
+                                            enabled: false 
+                                        },
 
-                                if (this.visible) {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[8], color: '#e58a84'}, {y:dataTable[9], color: '#e3c97b'}, {y:dataTable[10], color: '#deddf2'}, {y:dataTable[11], color: '#a8ddc9'}],
-                                    });
-                                }
+                                    xAxis: {
+                                        categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                    },        
 
-                                else {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                                    });
-                                }
-                            }
-                        }
-                        },
-                    },
+                                    plotOptions: {
+                                        series: {
+                                            colorByPoint: true,
+                                            colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b"],
+                                            stacking: "normal",
+                                            events: {
+                                                legendItemClick: function () {
 
-                    yAxis: {
-                        title: {text: 'Percentage of Multi-Comfort experience'},
-                        min: 0,
-                        max: 100,
-                        minTickInterval: 5,
-                    },
+                                                    if (this.visible) {
+                                                        this.chart.series[0].update({
+                                                            data: [{y:dataTableBedroom[8], color: "#e58a84"}, {y:dataTableBedroom[9], color: "#e3c97b"}, {y:dataTableBedroom[10], color: "#deddf2"}, {y:dataTableBedroom[11], color: "#a8ddc9"}],
+                                                        });
+                                                    }
 
-                    legend: {
-                        reversed: true
-                    },
+                                                    else {
+                                                        this.chart.series[0].update({
+                                                            data: [{y:dataTableBedroom[4], color: "#e58a84"}, {y:dataTableBedroom[5], color: "#e3c97b"}, {y:dataTableBedroom[6], color: "#deddf2"}, {y:dataTableBedroom[7], color: "#a8ddc9"}],
+                                                        });
+                                                    }
+                                                }
+                                            }
+                                        },
+                                    },
 
-                    series: [{
-                        name: 'Recommendation based on your answers to the questions',
-                        data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                    }, {
-                        name: 'Your choices',
-                        data: [{y:dataTable[0], color: '#e95b52'}, {y:dataTable[1], color: '#f0b911'}, {y:dataTable[2], color: '#8987c0'}, {y:dataTable[3], color: '#63bc9b'}],
-                    }],
+                                    yAxis: {
+                                        title: {text: "Percentage of Multi-Comfort experience"},
+                                        min: 0,
+                                        max: 100,
+                                        minTickInterval: 5,
+                                    },
 
-                    credits: {
-                        enabled: false,
-                    },
-                });
+                                    legend: {
+                                        reversed: true
+                                    },
+
+                                    series: [{
+                                        name: "Recommendations based on your answers to the questions",
+                                        data: [{y:dataTableBedroom[4], color: "#e58a84"}, {y:dataTableBedroom[5], color: "#e3c97b"}, {y:dataTableBedroom[6], color: "#deddf2"}, {y:dataTableBedroom[7], color: "#a8ddc9"}],
+                                    }, {
+                                        name: "Your choices",
+                                        data: [{y:dataTableBedroom[0], color: "#e95b52"}, {y:dataTableBedroom[1], color: "#f0b911"}, {y:dataTableBedroom[2], color: "#8987c0"}, {y:dataTableBedroom[3], color: "#63bc9b"}],
+                                    }],
+
+                                    credits: {
+                                        enabled: false,
+                                    },
+                                });';
+
+                        echo    '$("#pdf").append(\'<table><colgroup><col class="warmthColor"/><col class="luxColor"/><col class="soundColor"/><col class="ventilationColor"/></colgroup><tr><th>WARMTH</th><th>LUX</th><th>SOUND</th><th>VENTILATION</th></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="luxColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr></table>\')';
+                    }
+
+                    else {
+                        echo    'var myChart = Highcharts.chart("chartContainer", {
+                                    chart: {
+                                        type: "bar",
+                                    },
+
+                                    title:{
+                                        text:""
+                                    },
+
+                                    xAxis: {
+                                        categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                    },        
+
+                                    plotOptions: {
+                                        series: {
+                                            colorByPoint: true,
+                                            colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b"],
+                                        },
+                                    },
+
+                                    yAxis: {
+                                        title: {text: "Percentage of Multi-Comfort experience"},
+                                        min: 0,
+                                        max: 100,
+                                        minTickInterval: 5,
+                                    },
+
+                                    series: [{
+                                        showInLegend: false,
+                                        name: "Percentage of Multi-Comfort experience",
+                                        data: [dataTableBedroom[0], dataTableBedroom[0], dataTableBedroom[0], dataTableBedroom[0]],
+                                    }],
+
+                                    credits: {
+                                        enabled: false,
+                                    },
+                                });';
+
+                        echo    '$("#pdf").empty()';
+                    }
+                ?>           
             }
 
             else if ($(".active").attr("id") == "livingroom") {
-                var dataTable = [<?php if(isset($thermalLivingroom)) echo $thermalLivingroom; else echo "0" ?>, <?php if(isset($luxLivingroom)) echo $luxLivingroom; else echo "0" ?>, <?php if(isset($soundLivingroom)) echo $soundLivingroom; else echo "0" ?>, <?php if(isset($ventilationLivingroom)) echo $ventilationLivingroom; else echo "0" ?>, <?php if(isset($thermalLivingroomAdvice)) echo $thermalLivingroomAdvice - $thermalLivingroom; else echo "0" ?>, <?php if(isset($luxLivingroomAdvice)) echo $luxLivingroomAdvice - $luxLivingroom; else echo "0" ?>, <?php if(isset($soundLivingroomAdvice)) echo $soundLivingroomAdvice - $soundLivingroom; else echo "0" ?>, <?php if(isset($ventilationLivingroomAdvice)) echo $ventilationLivingroomAdvice - $ventilationLivingroom; else echo "0" ?>, <?php if(isset($thermalLivingroomAdvice)) echo $thermalLivingroomAdvice; else echo "0" ?>, <?php if(isset($luxLivingroomAdvice)) echo $luxLivingroomAdvice; else echo "0" ?>, <?php if(isset($soundLivingroomAdvice)) echo $soundLivingroomAdvice; else echo "0" ?>, <?php if(isset($ventilationLivingroomAdvice)) echo $ventilationLivingroomAdvice; else echo "0" ?>];
-                var myChart = Highcharts.chart('chartContainer', {
-                    chart: {
-                        type: 'bar',
-                    },
 
-                    tooltip: { 
-                        enabled: false 
-                    },
+                <?php
+                    if(isset($_SESSION["advice-livingroom"])) {
 
-                    title:{
-                        text:''
-                    },
+                        echo    'var myChart = Highcharts.chart("chartContainer", {
+                                    chart: {
+                                        type: "bar",
+                                    },
 
-                    xAxis: {
-                        categories: ['Warmth', 'Light', 'Sound', 'Ventilation'],
-                    },        
+                                    title:{
+                                        text:""
+                                    },
 
-                    plotOptions: {
-                        series: {
-                            colorByPoint: true,
-                            colors: ['#e95b52', '#f0b911', '#8987c0', '#63bc9b'],
-                            stacking: 'normal',
-                            events: {
-                            legendItemClick: function () {
+                                    tooltip: { 
+                                            enabled: false 
+                                        },
 
-                                if (this.visible) {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[8], color: '#e58a84'}, {y:dataTable[9], color: '#e3c97b'}, {y:dataTable[10], color: '#deddf2'}, {y:dataTable[11], color: '#a8ddc9'}],
-                                    });
-                                }
+                                    xAxis: {
+                                        categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                    },        
 
-                                else {
-                                    this.chart.series[0].update({
-                                        data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                                    });
-                                }
-                            }
-                        }
-                        },
-                    },
+                                    plotOptions: {
+                                        series: {
+                                            colorByPoint: true,
+                                            colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b"],
+                                            stacking: "normal",
+                                            events: {
+                                                legendItemClick: function () {
 
-                    yAxis: {
-                        title: {text: 'Percentage of Multi-Comfort experience'},
-                        min: 0,
-                        max: 100,
-                        minTickInterval: 5,
-                    },
+                                                    if (this.visible) {
+                                                        this.chart.series[0].update({
+                                                            data: [{y:dataTableLivingroom[8], color: "#e58a84"}, {y:dataTableLivingroom[9], color: "#e3c97b"}, {y:dataTableLivingroom[10], color: "#deddf2"}, {y:dataTableLivingroom[11], color: "#a8ddc9"}],
+                                                        });
+                                                    }
 
-                    legend: {
-                        reversed: true
-                    },
+                                                    else {
+                                                        this.chart.series[0].update({
+                                                            data: [{y:dataTableLivingroom[4], color: "#e58a84"}, {y:dataTableLivingroom[5], color: "#e3c97b"}, {y:dataTableLivingroom[6], color: "#deddf2"}, {y:dataTableLivingroom[7], color: "#a8ddc9"}],
+                                                        });
+                                                    }
+                                                }
+                                            }
+                                        },
+                                    },
 
-                    series: [{
-                        name: 'Recommendation based on your answers to the questions',
-                        data: [{y:dataTable[4], color: '#e58a84'}, {y:dataTable[5], color: '#e3c97b'}, {y:dataTable[6], color: '#deddf2'}, {y:dataTable[7], color: '#a8ddc9'}],
-                    }, {
-                        name: 'Your choices',
-                        data: [{y:dataTable[0], color: '#e95b52'}, {y:dataTable[1], color: '#f0b911'}, {y:dataTable[2], color: '#8987c0'}, {y:dataTable[3], color: '#63bc9b'}],
-                    }],
+                                    yAxis: {
+                                        title: {text: "Percentage of Multi-Comfort experience"},
+                                        min: 0,
+                                        max: 100,
+                                        minTickInterval: 5,
+                                    },
 
-                    credits: {
-                        enabled: false,
-                    },
-                });
+                                    legend: {
+                                        reversed: true
+                                    },
+
+                                    series: [{
+                                        name: "Recommendations based on your answers to the questions",
+                                        data: [{y:dataTableLivingroom[4], color: "#e58a84"}, {y:dataTableLivingroom[5], color: "#e3c97b"}, {y:dataTableLivingroom[6], color: "#deddf2"}, {y:dataTableLivingroom[7], color: "#a8ddc9"}],
+                                    }, {
+                                        name: "Your choices",
+                                        data: [{y:dataTableLivingroom[0], color: "#e95b52"}, {y:dataTableLivingroom[1], color: "#f0b911"}, {y:dataTableLivingroom[2], color: "#8987c0"}, {y:dataTableLivingroom[3], color: "#63bc9b"}],
+                                    }],
+
+                                    credits: {
+                                        enabled: false,
+                                    },
+                                });';
+
+                        echo    '$("#pdf").append(\'<table><colgroup><col class="warmthColor"/><col class="luxColor"/><col class="soundColor"/><col class="ventilationColor"/></colgroup><tr><th>WARMTH</th><th>LUX</th><th>SOUND</th><th>VENTILATION</th></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="luxColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td><a href="pdf/test.pdf" target="_blank" class="soundColorHover">test.pdf</a></td><td><a href="pdf/test.pdf" target="_blank" class="ventilationColorHover">test.pdf</a></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr><tr><td><a href="pdf/test.pdf" target="_blank" class="warmthColorHover">test.pdf</a></td><td></td><td></td><td></td></tr></table>\')';
+                    }
+
+                    else {
+
+                        echo    'var myChart = Highcharts.chart("chartContainer", {
+                                    chart: {
+                                        type: "bar",
+                                    },
+
+                                    title:{
+                                        text:""
+                                    },
+
+                                    xAxis: {
+                                        categories: ["Warmth", "Light", "Sound", "Ventilation"],
+                                    },        
+
+                                    plotOptions: {
+                                        series: {
+                                            colorByPoint: true,
+                                            colors: ["#e95b52", "#f0b911", "#8987c0", "#63bc9b"],
+                                        },
+                                    },
+
+                                    yAxis: {
+                                        title: {text: "Percentage of Multi-Comfort experience"},
+                                        min: 0,
+                                        max: 100,
+                                        minTickInterval: 5,
+                                    },
+
+                                    series: [{
+                                        showInLegend: false,
+                                        name: "Percentage of Multi-Comfort experience",
+                                        data: [dataTableLivingroom[0], dataTableLivingroom[1], dataTableLivingroom[2], dataTableLivingroom[3]],
+                                    }],
+
+                                    credits: {
+                                        enabled: false,
+                                    },
+                                });';
+
+                        echo    '$("#pdf").empty()';
+                    }
+                ?>
             }            
         });
     });

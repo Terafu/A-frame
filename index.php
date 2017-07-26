@@ -28,7 +28,7 @@
 				<h2 class="subtitle">Client</h2>
 			</div></a>
 
-			<a href="menu.php?user=pro"><div class="professional">
+			<a href="menu.php?email="><div class="professional">
 				<h2 class="subtitle">Professional</h2>
 			</div></a>
 		</div>
