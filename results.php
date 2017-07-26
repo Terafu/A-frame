@@ -73,6 +73,6 @@
 			?>
 		</form>
 
-		<?php if(isset($_SESSION["email"])) include 'results-chart-connectedUser.php'; else include 'results-chart-normalUser.php' ?>
+		<?php include 'results-chart-connectedUser.php'; ?>
 	</body>
 </html>
