@@ -23,6 +23,18 @@ $('input[type=radio][name=warmth-junctions][value=glass]').prop("checked", true)
 $('input[type=radio][name=sound-wall][value=glass]').prop('checked', true);
 $('input[type=radio][name=sound-floor][value=glass]').prop('checked', true);*/
 
+$("#warmth-roof-info-window").hide();
+$("#warmth-floor-info-window").hide();
+$("#warmth-wall-info-window").hide();
+$("#warmth-junctions-info-window").hide();
+$("#sound-floor-info-window").hide();
+$("#sound-wall-info-window").hide();
+$("#sound-type-info-window").hide();
+$("#light-info-window").hide();
+$("#ventilation-ventilation-info-window").hide();
+$("#ventilation-floor-info-window").hide();
+$("#ventilation-type-info-window").hide();
+
 jQuery(document).ready(function(){
 
 	$(".collapsible > form > li > a").on("click", function(e){		  
@@ -366,5 +378,78 @@ jQuery(document).ready(function(){
 		});
 
 		$('input[type=text][name=lux]').val($("#slider-vertical").slider("value"));
+	});
+
+	$("#warmth-roof-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#warmth-roof-info-window").fadeIn(1000);
+	});
+
+	$("#warmth-floor-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#warmth-floor-info-window").fadeIn(1000);	
+	});
+
+	$("#warmth-wall-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#warmth-wall-info-window").fadeIn(1000);
+	});
+
+	$("#warmth-junctions-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#warmth-junctions-info-window").fadeIn(1000);
+	});
+
+	$("#sound-floor-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#sound-floor-info-window").fadeIn(1000);
+	});
+
+	$("#sound-wall-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#sound-wall-info-window").fadeIn(1000);
+	});
+
+	$("#sound-type-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#sound-type-info-window").fadeIn(1000);
+	});
+
+	$("#light-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#light-info-window").fadeIn(1000);
+	});
+
+	$("#ventilation-ventilation-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#ventilation-ventilation-info-window").fadeIn(1000);
+	});
+
+	$("#ventilation-floor-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#ventilation-floor-info-window").fadeIn(1000);
+	});
+
+	$("#ventilation-type-info").on('click', function(e) {
+		$('#overlay').removeClass('blur-out');
+		$('#overlay').addClass('blur-in');
+		$("#ventilation-type-info-window").fadeIn(1000);
+	});
+
+	$('.close-button').click(function (e) {
+			$('.pop-up').fadeOut(700);
+			$('#overlay').removeClass('blur-in');
+			$('#overlay').addClass('blur-out');
+			e.stopPropagation();
 	});
 });
