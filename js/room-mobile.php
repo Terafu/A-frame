@@ -263,7 +263,7 @@
 
             $('.menu').attr('visible', 'false');
 
-            thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+            thermalToUse = "thermal-" + insulationSwitch[thermalRoofIndex] + "-" + insulationSwitch[thermalFloorIndex] + "-" + insulationSwitch[thermalWallIndex] + "-" + insulationSwitch[thermalJunctionsIndex];
             $("#bottom").attr("material", "src: #" + thermalToUse);
             $("#top").attr("material", "src: #" + thermalToUse);
             $("#left").attr("material", "src: #" + thermalToUse);
@@ -341,7 +341,7 @@
 
             this.el.setAttribute('visible', true);
 
-            soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+            soundToPlay = "sound-" + insulationSwitch[soundFloorIndex] + "-" + insulationSwitch[soundWallIndex] + "-" + soundTypeSwitch[soundTypeIndex];
             $("#steps").attr("sound", "src: #"+soundToPlay);
         } 
 
@@ -612,8 +612,8 @@
         else
           thermalRoofIndex = 2;
 
-        $('#warmth-roof').attr('text', 'value: ' + insulationSwitch[thermalRoofIndex] + '; align: center');
-        thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+        $('#warmth-roof').attr('text', 'value: Roof insulation\n-\n' + insulationSwitch[thermalRoofIndex] + '; align: center');
+        thermalToUse = "thermal-" + insulationSwitch[thermalRoofIndex] + "-" + insulationSwitch[thermalFloorIndex] + "-" + insulationSwitch[thermalWallIndex] + "-" + insulationSwitch[thermalJunctionsIndex];
         $("#bottom").attr("material", "src: #" + thermalToUse);
         $("#top").attr("material", "src: #" + thermalToUse);
         $("#left").attr("material", "src: #" + thermalToUse);
@@ -642,8 +642,8 @@
         else
           thermalRoofIndex = 0;
 
-        $('#warmth-roof').attr('text', 'value: ' + insulationSwitch[thermalRoofIndex] + '; align: center');
-        thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+        $('#warmth-roof').attr('text', 'value: Roof insulation\n-\n' + insulationSwitch[thermalRoofIndex] + '; align: center');
+        thermalToUse = "thermal-" + insulationSwitch[thermalRoofIndex] + "-" + insulationSwitch[thermalFloorIndex] + "-" + insulationSwitch[thermalWallIndex] + "-" + insulationSwitch[thermalJunctionsIndex];
         $("#bottom").attr("material", "src: #" + thermalToUse);
         $("#top").attr("material", "src: #" + thermalToUse);
         $("#left").attr("material", "src: #" + thermalToUse);
@@ -672,8 +672,8 @@
         else
           thermalWallIndex = 2;
 
-        $('#warmth-wall').attr('text', 'value: ' + insulationSwitch[thermalWallIndex] + '; align: center');
-        thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+        $('#warmth-wall').attr('text', 'value: Wall insulation\n-\n' + insulationSwitch[thermalWallIndex] + '; align: center');
+        thermalToUse = "thermal-" + insulationSwitch[thermalRoofIndex] + "-" + insulationSwitch[thermalFloorIndex] + "-" + insulationSwitch[thermalWallIndex] + "-" + insulationSwitch[thermalJunctionsIndex];
         $("#bottom").attr("material", "src: #" + thermalToUse);
         $("#top").attr("material", "src: #" + thermalToUse);
         $("#left").attr("material", "src: #" + thermalToUse);
@@ -702,8 +702,8 @@
         else
           thermalWallIndex = 0;
 
-        $('#warmth-wall').attr('text', 'value: ' + insulationSwitch[thermalWallIndex] + '; align: center');
-        thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+        $('#warmth-wall').attr('text', 'value: Wall insulation\n-\n' + insulationSwitch[thermalWallIndex] + '; align: center');
+        thermalToUse = "thermal-" + insulationSwitch[thermalRoofIndex] + "-" + insulationSwitch[thermalFloorIndex] + "-" + insulationSwitch[thermalWallIndex] + "-" + insulationSwitch[thermalJunctionsIndex];
         $("#bottom").attr("material", "src: #" + thermalToUse);
         $("#top").attr("material", "src: #" + thermalToUse);
         $("#left").attr("material", "src: #" + thermalToUse);
@@ -732,8 +732,8 @@
         else
           thermalFloorIndex = 2;
 
-        $('#warmth-floor').attr('text', 'value: ' + insulationSwitch[thermalFloorIndex] + '; align: center');
-        thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+        $('#warmth-floor').attr('text', 'value: Floor insulation\n-\n' + insulationSwitch[thermalFloorIndex] + '; align: center');
+        thermalToUse = "thermal-" + insulationSwitch[thermalRoofIndex] + "-" + insulationSwitch[thermalFloorIndex] + "-" + insulationSwitch[thermalWallIndex] + "-" + insulationSwitch[thermalJunctionsIndex];
         $("#bottom").attr("material", "src: #" + thermalToUse);
         $("#top").attr("material", "src: #" + thermalToUse);
         $("#left").attr("material", "src: #" + thermalToUse);
@@ -762,8 +762,8 @@
         else
           thermalFloorIndex = 0;
 
-        $('#warmth-floor').attr('text', 'value: ' + insulationSwitch[thermalFloorIndex] + '; align: center');
-        thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+        $('#warmth-floor').attr('text', 'value: Floor insulation\n-\n' + insulationSwitch[thermalFloorIndex] + '; align: center');
+        thermalToUse = "thermal-" + insulationSwitch[thermalRoofIndex] + "-" + insulationSwitch[thermalFloorIndex] + "-" + insulationSwitch[thermalWallIndex] + "-" + insulationSwitch[thermalJunctionsIndex];
         $("#bottom").attr("material", "src: #" + thermalToUse);
         $("#top").attr("material", "src: #" + thermalToUse);
         $("#left").attr("material", "src: #" + thermalToUse);
@@ -792,8 +792,8 @@
         else
           thermalJunctionsIndex = 2;
 
-        $('#warmth-junctions').attr('text', 'value: ' + insulationSwitch[thermalJunctionsIndex] + '; align: center');
-        thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+        $('#warmth-junctions').attr('text', 'value: Junctions\n-\n' + insulationSwitch[thermalJunctionsIndex] + '; align: center');
+        thermalToUse = "thermal-" + insulationSwitch[thermalRoofIndex] + "-" + insulationSwitch[thermalFloorIndex] + "-" + insulationSwitch[thermalWallIndex] + "-" + insulationSwitch[thermalJunctionsIndex];
         $("#bottom").attr("material", "src: #" + thermalToUse);
         $("#top").attr("material", "src: #" + thermalToUse);
         $("#left").attr("material", "src: #" + thermalToUse);
@@ -822,8 +822,8 @@
         else
           thermalJunctionsIndex = 0;
 
-        $('#warmth-junctions').attr('text', 'value: ' + insulationSwitch[thermalJunctionsIndex] + '; align: center');
-        thermalToUse = "thermal-" + $('#warmth-roof').attr('text').value + "-" + $('#warmth-floor').attr('text').value + "-" + $('#warmth-wall').attr('text').value + "-" + $('#warmth-junctions').attr('text').value;
+        $('#warmth-junctions').attr('text', 'value: Junctions\n-\n' + insulationSwitch[thermalJunctionsIndex] + '; align: center');
+        thermalToUse = "thermal-" + insulationSwitch[thermalRoofIndex] + "-" + insulationSwitch[thermalFloorIndex] + "-" + insulationSwitch[thermalWallIndex] + "-" + insulationSwitch[thermalJunctionsIndex];
         $("#bottom").attr("material", "src: #" + thermalToUse);
         $("#top").attr("material", "src: #" + thermalToUse);
         $("#left").attr("material", "src: #" + thermalToUse);
@@ -874,8 +874,8 @@
         else
           soundFloorIndex = 2;
 
-        $('#sound-floor').attr('text', 'value: ' + insulationSwitch[soundFloorIndex] + '; align: center');
-        soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+        $('#sound-floor').attr('text', 'value: Floor insulation\n-\n' + insulationSwitch[soundFloorIndex] + '; align: center');
+        soundToPlay = "sound-" + insulationSwitch[soundFloorIndex] + "-" + insulationSwitch[soundWallIndex] + "-" + soundTypeSwitch[soundTypeIndex];
         $("#steps").attr("sound", "src: #"+soundToPlay);
       });
     }
@@ -899,8 +899,8 @@
         else
           soundFloorIndex = 0;
 
-        $('#sound-floor').attr('text', 'value: ' + insulationSwitch[soundFloorIndex] + '; align: center');
-        soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+        $('#sound-floor').attr('text', 'value: Floor insulation\n-\n' + insulationSwitch[soundFloorIndex] + '; align: center');
+        soundToPlay = "sound-" + insulationSwitch[soundFloorIndex] + "-" + insulationSwitch[soundWallIndex] + "-" + soundTypeSwitch[soundTypeIndex];
         $("#steps").attr("sound", "src: #"+soundToPlay);
       });
     }
@@ -924,8 +924,8 @@
         else
           soundWallIndex = 2;
 
-        $('#sound-wall').attr('text', 'value: ' + insulationSwitch[soundWallIndex] + '; align: center');
-        soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+        $('#sound-wall').attr('text', 'value: Wall insulation\n-\n' + insulationSwitch[soundWallIndex] + '; align: center');
+        soundToPlay = "sound-" + insulationSwitch[soundFloorIndex] + "-" + insulationSwitch[soundWallIndex] + "-" + soundTypeSwitch[soundTypeIndex];
         $("#steps").attr("sound", "src: #"+soundToPlay);
       });
     }
@@ -949,8 +949,8 @@
         else
           soundWallIndex = 0;
 
-        $('#sound-wall').attr('text', 'value: ' + insulationSwitch[soundWallIndex] + '; align: center');
-        soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+        $('#sound-wall').attr('text', 'value: Wall insulation\n-\n' + insulationSwitch[soundWallIndex] + '; align: center');
+        soundToPlay = "sound-" + insulationSwitch[soundFloorIndex] + "-" + insulationSwitch[soundWallIndex] + "-" + soundTypeSwitch[soundTypeIndex];
         $("#steps").attr("sound", "src: #"+soundToPlay);
       });
     }
@@ -974,8 +974,8 @@
         else
           soundTypeIndex = 2;
 
-        $('#sound-type').attr('text', 'value: ' + soundTypeSwitch[soundTypeIndex] + '; align: center');
-        soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+        $('#sound-type').attr('text', 'value: Sound type\n-\n' + soundTypeSwitch[soundTypeIndex] + '; align: center');
+        soundToPlay = "sound-" + insulationSwitch[soundFloorIndex] + "-" + insulationSwitch[soundWallIndex] + "-" + soundTypeSwitch[soundTypeIndex];
         $("#steps").attr("sound", "src: #"+soundToPlay);
       });
     }
@@ -999,8 +999,8 @@
         else
           soundTypeIndex = 0;
 
-        $('#sound-type').attr('text', 'value: ' + soundTypeSwitch[soundTypeIndex] + '; align: center');
-        soundToPlay = "sound-" + $('#sound-type').attr('text').value + "-" + $('#sound-wall').attr('text').value + "-" + $('#sound-floor').attr('text').value;
+        $('#sound-type').attr('text', 'value: Sound type\n-\n' + soundTypeSwitch[soundTypeIndex] + '; align: center');
+        soundToPlay = "sound-" + insulationSwitch[soundFloorIndex] + "-" + insulationSwitch[soundWallIndex] + "-" + soundTypeSwitch[soundTypeIndex];
         $("#steps").attr("sound", "src: #"+soundToPlay);
       });
     }
