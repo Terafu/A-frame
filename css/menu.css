@@ -433,3 +433,8 @@ button.active {
 button.active:hover {
 	background-color: #C9E2CA;
 }
+
+div.hidden
+{
+   display: none
+}

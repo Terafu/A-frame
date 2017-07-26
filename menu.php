@@ -167,7 +167,7 @@
 			</div>
 		</div>
 
-		<div class="row pop-up">
+		<div class="row pop-up hidden">
 		  <div class="box small-6 large-centered">
 		    <!--<a class="close-button">&#10006;</a>-->
 		    <h3>Please enter your email to continue</h3>

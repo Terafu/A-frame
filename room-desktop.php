@@ -557,7 +557,7 @@
       </div>
     </div>
 
-    <div id="warmth-roof-info-window" class="row pop-up">
+    <div id="warmth-roof-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Roof insulation</h3>
@@ -567,7 +567,7 @@
       </div>
     </div>
 
-    <div id="warmth-floor-info-window" class="row pop-up">
+    <div id="warmth-floor-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Floor insulation</h3>
@@ -577,7 +577,7 @@
       </div>
     </div>
 
-    <div id="warmth-wall-info-window" class="row pop-up">
+    <div id="warmth-wall-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Wall insulation</h3>
@@ -587,7 +587,7 @@
       </div>
     </div>
 
-    <div id="warmth-junctions-info-window" class="row pop-up">
+    <div id="warmth-junctions-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Junctions</h3>
@@ -597,7 +597,7 @@
       </div>
     </div>
 
-    <div id="light-info-window" class="row pop-up">
+    <div id="light-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Light</h3>
@@ -607,7 +607,7 @@
       </div>
     </div>
 
-    <div id="sound-wall-info-window" class="row pop-up">
+    <div id="sound-wall-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Wall insulation</h3>
@@ -617,7 +617,7 @@
       </div>
     </div>
 
-    <div id="sound-floor-info-window" class="row pop-up">
+    <div id="sound-floor-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Floor insulation</h3>
@@ -627,7 +627,7 @@
       </div>
     </div>
 
-    <div id="sound-type-info-window" class="row pop-up">
+    <div id="sound-type-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Type of sound</h3>
@@ -637,7 +637,7 @@
       </div>
     </div>
 
-    <div id="ventilation-ventilation-info-window" class="row pop-up">
+    <div id="ventilation-ventilation-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Ventilation</h3>
@@ -647,7 +647,7 @@
       </div>
     </div>
 
-    <div id="ventilation-floor-info-window" class="row pop-up">
+    <div id="ventilation-floor-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Special floor</h3>
@@ -657,7 +657,7 @@
       </div>
     </div>
 
-    <div id="ventilation-type-info-window" class="row pop-up">
+    <div id="ventilation-type-info-window" class="row pop-up hidden">
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Type of ventilation</h3>

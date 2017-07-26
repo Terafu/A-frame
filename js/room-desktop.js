@@ -23,17 +23,6 @@ $('input[type=radio][name=warmth-junctions][value=glass]').prop("checked", true)
 $('input[type=radio][name=sound-wall][value=glass]').prop('checked', true);
 $('input[type=radio][name=sound-floor][value=glass]').prop('checked', true);*/
 
-$("#warmth-roof-info-window").hide();
-$("#warmth-floor-info-window").hide();
-$("#warmth-wall-info-window").hide();
-$("#warmth-junctions-info-window").hide();
-$("#sound-floor-info-window").hide();
-$("#sound-wall-info-window").hide();
-$("#sound-type-info-window").hide();
-$("#light-info-window").hide();
-$("#ventilation-ventilation-info-window").hide();
-$("#ventilation-floor-info-window").hide();
-$("#ventilation-type-info-window").hide();
 
 jQuery(document).ready(function(){
 
