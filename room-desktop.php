@@ -513,7 +513,7 @@
 
           <!-- LIGHTS -->
           <a-entity light="type: ambient; color: #BBBBBB"></a-entity>
-          <a-entity id="directional-light" light="type: directional; color: #FFF; intensity: 0.6" position="0 6 0"></a-entity>
+          <a-entity id="point-light" light="type: point; color: #FFF; intensity: <?php if (isset($_SESSION[$room]['lux'])) echo $_SESSION[$room]['lux']/700; else echo 150/700 ?>" position="0 4 0"></a-entity>
 
           <!-- ADD A CURSOR (timeout in ms) -->
           <a-camera rotation="0 180 0"><a-cursor color="#4CC3D9" fuse="true" timeout="1000" cursor-feedback></a-cursor></a-camera>

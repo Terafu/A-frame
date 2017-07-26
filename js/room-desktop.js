@@ -75,6 +75,7 @@ jQuery(document).ready(function(){
 			$("#steps").removeAttr("sound");
 		}
 
+		/* VENTILATION */
 		if($("#ventilation").hasClass("active")) {
 			ventilationToShow = "ventilation-" + $('input[type=radio][name=ventilation-ventilation]:checked').val() + "-" + $('input[type=radio][name=ventilation-floor]:checked').val() + "-" + $('input[type=radio][name=ventilation-type]:checked').val();
 			if (ventilationToShow == "ventilation-no-ventilation-normal-floor-VOC") {
@@ -362,7 +363,7 @@ jQuery(document).ready(function(){
 		  value: $('input[type=text][name=lux]').val(),
 		  slide: function( event, ui ) {
 		    $('input[type=text][name=lux]').val(ui.value);
-		    $("#directional-light").attr("light", "type: directional; color: #FFF; intensity: "+ui.value/300);
+		    $("#point-light").attr("light", "type: point; color: #FFF; intensity: "+ui.value/700);
 		  }
 		});
 

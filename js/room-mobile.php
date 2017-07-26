@@ -1067,7 +1067,7 @@
           $('#light-slider').attr('position', -((300-nextValue))/400 + ' -1.6 0.02');
           $('#light-text').attr('text', 'value: ' + nextValue + ' Lux; align: center');
 
-          $("#directional-light").attr("light", "type: directional; color: #FFF; intensity: " + nextValue/300);
+          $("#point-light").attr("light", "type: point; color: #FFF; intensity: "+nextValue/700);
       });
     }
   });
@@ -1093,7 +1093,7 @@
           $('#light-slider').attr('position', -((300-nextValue))/400 + ' -1.6 0.02');
           $('#light-text').attr('text', 'value: ' + nextValue + ' Lux; align: center');
 
-          $("#directional-light").attr("light", "type: directional; color: #FFF; intensity: " + nextValue/300);
+          $("#point-light").attr("light", "type: point; color: #FFF; intensity: "+nextValue/700);
       });
     }
   });
