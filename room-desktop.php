@@ -135,7 +135,7 @@
         <form action="results.php" method="get">
           <li class="dropdown"><a id="warmth">Warmth</a>
             <ul>
-              <li><a>Roof insulation <i id="warmth-roof-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="warmth-roof-info" class="info">Roof insulation <i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 <input id="warmth-roof-glass" type="radio" name="warmth-roof" value="glass" 
                 <?php 
                     if ($notConfigure) 
@@ -159,7 +159,7 @@
                 <label for="warmth-roof-rock">Rock</label><br>
               </li>
               <hr>
-              <li><a>Floor insulation <i id="warmth-floor-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="warmth-floor-info" class="info">Floor insulation <i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 <input id="warmth-floor-glass" type="radio" name="warmth-floor" value="glass"
                 <?php 
                     if ($notConfigure) 
@@ -183,7 +183,7 @@
                 <label for="warmth-floor-rock">Rock</label><br>
               </li>
               <hr>
-              <li><a>Wall insulation <i id="warmth-wall-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="warmth-wall-info" class="info">Wall insulation <i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 <input id="warmth-wall-glass" type="radio" name="warmth-wall" value="glass"
                 <?php 
                     if ($notConfigure) 
@@ -207,7 +207,7 @@
                 <label for="warmth-wall-rock">Rock</label><br>
               </li>
               <hr>
-              <li><a>Junctions <i id="warmth-junctions-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="warmth-junctions-info" class="info">Junctions <i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 <input id="warmth-junctions-glass" type="radio" name="warmth-junctions" value="glass"
                 <?php 
                     if ($notConfigure) 
@@ -234,7 +234,7 @@
           </li>
           <li class="dropdown"><a id="light">Light</a>
             <ul>
-              <li><a>Lux <i id="light-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="light-info" class="info">Lux <i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 <input id="lux" type="text" name="lux" value=
                 <?php 
                   if (isset($_SESSION[$room]))
@@ -248,7 +248,7 @@
           </li>
           <li class="dropdown"><a id="sound">Sound</a>
             <ul>
-              <li><a>Wall insulation <i id="sound-wall-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="sound-wall-info" class="info">Wall insulation <i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 <input id="sound-wall-glass" type="radio" name="sound-wall" value="glass"
                 <?php 
                     if ($notConfigure) 
@@ -272,7 +272,7 @@
                 <label for="sound-wall-rock">Rock</label><br>
               </li>
               <hr>
-              <li><a>Floor insulation <i id="sound-floor-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="sound-floor-info" class="info">Floor insulation <i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 <input id="sound-floor-glass" type="radio" name="sound-floor" value="glass"
                 <?php 
                     if ($notConfigure) 
@@ -296,7 +296,7 @@
                 <label for="sound-floor-rock">Rock</label><br>
               </li>
               <hr>
-              <li><a>Type of sound <i id="sound-type-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="sound-type-info" class="info">Type of sound <i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 <input id="sound-steps" type="radio" name="sound-type" value="steps" checked="checked">
                 <label for="sound-steps">Steps</label><br>
                 <input id="sound-music" type="radio" name="sound-type" value="music">
@@ -310,7 +310,7 @@
           </li>
           <li class="dropdown"><a id="ventilation">Ventilation</a>
             <ul>
-              <li><a>Ventilation System <i id="ventilation-ventilation-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="ventilation-ventilation-info" class="info">Ventilation System <i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 <input id="ventilation-ventilation-no-ventilation" type="radio" name="ventilation-ventilation" value="no-ventilation"
                 <?php 
                     if ($notConfigure) 
@@ -334,7 +334,7 @@
                 <label for="ventilation-ventilation-air-conditioner">Air Conditioner</label><br>
               </li>
               <hr>
-              <li><a>Floor <i id="ventilation-floor-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="ventilation-floor-info" class="info">Floor <i class="fa fa-info-circle" aria-hidden="true"></i></a>
               <input id="ventilation-floor-normal-floor" type="radio" name="ventilation-floor" value="normal-floor"
                 <?php 
                     if ($notConfigure) 
@@ -352,7 +352,7 @@
                 <label for="ventilation-floor-active-floor">Active Floor</label><br>
               </li>
               <hr>
-              <li><a>Type <i id="ventilation-type-info" class="fa fa-info-circle" aria-hidden="true"></i></a>
+              <li><a id="ventilation-type-info" class="info">Type <i class="fa fa-info-circle" aria-hidden="true"></i></a>
               <input id="ventilation-type-VOC" type="radio" name="ventilation-type" value="VOC"
                 <?php 
                     if ($notConfigure) 
@@ -561,6 +561,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Roof insulation</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>
@@ -571,6 +572,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Floor insulation</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>
@@ -581,6 +583,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Wall insulation</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>
@@ -591,6 +594,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Junctions</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>
@@ -601,6 +605,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Light</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>
@@ -611,6 +616,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Wall insulation</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>
@@ -621,6 +627,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Floor insulation</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>
@@ -631,6 +638,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Type of sound</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>
@@ -641,6 +649,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Ventilation</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>
@@ -651,6 +660,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Special floor</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>
@@ -661,6 +671,7 @@
       <div class="box small-6 large-centered">
         <a class="close-button">&#10006;</a>
         <h3>Type of ventilation</h3>
+        <hr />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin neque vel libero consequat interdum. Phasellus laoreet dui enim, ut fermentum quam consequat eu. Donec sollicitudin, nisl sit amet feugiat pharetra, urna nisl ullamcorper leo, sit amet faucibus augue neque nec erat. Donec dolor nulla, interdum ut iaculis vitae, placerat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ullamcorper velit sed fermentum vehicula. Sed cursus, purus quis faucibus ornare, elit eros iaculis nunc, at commodo mauris sapien eget enim. Maecenas eget metus mauris. Donec ullamcorper lorem ultrices enim venenatis laoreet. Aenean ut placerat lorem, eu ultricies ex. Nullam eget aliquet mi, a aliquam erat. Ut vel nulla at eros fermentum efficitur et nec augue. Pellentesque at scelerisque nisl, at condimentum orci.
         </p>

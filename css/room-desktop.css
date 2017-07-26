@@ -412,3 +412,18 @@ div.hidden
 {
    display: none
 }
+
+.info:hover {
+	color: #76d678;
+}
+
+.pop-up hr {
+	width: 70%;
+	margin-bottom: 8%;
+}
+
+.pop-up p {
+	margin-left: 15px;
+	margin-right: 15px;
+	text-align: justify;
+}
