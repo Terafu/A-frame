@@ -361,7 +361,7 @@
 
     var pdfBedroom = [<?php if (isset($_SESSION['bedroom'])) echo '"'.$_SESSION['bedroom']['warmth-roof'].'"'; ?>, <?php if (isset($_SESSION['bedroom'])) echo '"'.$_SESSION['bedroom']['warmth-wall'].'"'; ?>, <?php if (isset($_SESSION['bedroom'])) echo '"'.$_SESSION['bedroom']['warmth-floor'].'"'; ?>, <?php if (isset($_SESSION['bedroom'])) echo '"'.$_SESSION['bedroom']['warmth-junctions'].'"'; ?>, <?php if (isset($_SESSION['bedroom'])) echo '"'.$_SESSION['bedroom']['sound-floor'].'"'; ?>, <?php if (isset($_SESSION['bedroom'])) echo '"'.$_SESSION['bedroom']['sound-wall'].'"'; ?>, <?php if (isset($_SESSION['bedroom'])) echo '"'.$_SESSION['bedroom']['lux'].'"'; ?>, <?php if (isset($_SESSION['bedroom'])) echo '"'.$_SESSION['bedroom']['ventilation-ventilation'].'"'; ?>, <?php if (isset($_SESSION['bedroom'])) echo '"'.$_SESSION['bedroom']['ventilation-floor'].'"'; ?>];
 
-    var pdfLivingroom = [<?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['warmth-roof'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['warmth-wall'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['warmth-floor'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['warmth-junctions'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['sound-floor'].'"'; ?>, <?php if (isset($_SESSION['kitchen'])) echo '"'.$_SESSION['livingroom']['sound-wall'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['lux'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['ventilation-ventilation'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['ventilation-floor'].'"'; ?>];
+    var pdfLivingroom = [<?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['warmth-roof'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['warmth-wall'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['warmth-floor'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['warmth-junctions'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['sound-floor'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['sound-wall'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['lux'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['ventilation-ventilation'].'"'; ?>, <?php if (isset($_SESSION['livingroom'])) echo '"'.$_SESSION['livingroom']['ventilation-floor'].'"'; ?>];
 
     $(function () {
         if ($(".active").attr("id") == "kitchen") {
@@ -588,7 +588,7 @@
                                 series: [{
                                     showInLegend: false,
                                     name: "Percentage of Multi-Comfort experience",
-                                    data: [dataTableBedroom[0], dataTableBedroom[0], dataTableBedroom[0], dataTableBedroom[0]],
+                                    data: [dataTableBedroom[0], dataTableBedroom[1], dataTableBedroom[2], dataTableBedroom[3]],
                                 }],
 
                                 credits: {
@@ -949,7 +949,7 @@
                                     series: [{
                                         showInLegend: false,
                                         name: "Percentage of Multi-Comfort experience",
-                                        data: [dataTableBedroom[0], dataTableBedroom[0], dataTableBedroom[0], dataTableBedroom[0]],
+                                        data: [dataTableBedroom[0], dataTableBedroom[1], dataTableBedroom[2], dataTableBedroom[3]],
                                     }],
 
                                     credits: {
