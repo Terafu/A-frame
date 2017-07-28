@@ -72,15 +72,6 @@
 				}
 			?>
 		</form>
-		<form action="send-mail.php" method="get">
-			<?php 
-				if (isset($_SESSION['kitchen']) && isset($_SESSION['bedroom']) && isset($_SESSION['livingroom']) && isset($_SESSION['email'])) {
-
-					echo '<input type="submit" value="Receive your configuration by email">';
-
-				}
-			?>
-		</form>
 
 		<?php include 'results-chart.php'; ?>
 	</body>
