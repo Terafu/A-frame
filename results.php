@@ -73,6 +73,6 @@
 			?>
 		</form>
 
-		<?php include 'results-chart-connectedUser.php'; ?>
+		<?php include 'results-chart.php'; ?>
 	</body>
 </html>

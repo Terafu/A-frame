@@ -544,7 +544,7 @@
           <!-- IMPORT AN OBJ -->
           <?php 
             if ($_SESSION["room"] == "bedroom") {
-              echo '<a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:bed/bed.obj;mtl:bed/bed.mtl"></a-obj-model>';
+              echo '<a-obj-model rotation="0 -90 0" position="2.7 0.5 -2.4" scale="1.4 1.4 1.4" id="test_model" obj-model="obj:obj/bed.obj;mtl:obj/bed.mtl"></a-obj-model>';
             }
           ?>
 
