@@ -355,7 +355,7 @@
 
     var dataTableBedroom = [<?php if(isset($thermalBedroom)) echo $thermalBedroom; else echo "0" ?>, <?php if(isset($luxBedroom)) echo $luxBedroom; else echo "0" ?>, <?php if(isset($soundBedroom)) echo $soundBedroom; else echo "0" ?>, <?php if(isset($ventilationBedroom)) echo $ventilationBedroom; else echo "0" ?>, <?php if(isset($thermalBedroomAdvice)) echo $thermalBedroomAdvice - $thermalBedroom; else echo "0" ?>, <?php if(isset($luxBedroomAdvice)) echo $luxBedroomAdvice - $luxBedroom; else echo "0" ?>, <?php if(isset($soundBedroomAdvice)) echo $soundBedroomAdvice - $soundBedroom; else echo "0" ?>, <?php if(isset($ventilationBedroomAdvice)) echo $ventilationBedroomAdvice - $ventilationBedroom; else echo "0" ?>, <?php if(isset($thermalBedroomAdvice)) echo $thermalBedroomAdvice; else echo "0" ?>, <?php if(isset($luxBedroomAdvice)) echo $luxBedroomAdvice; else echo "0" ?>, <?php if(isset($soundBedroomAdvice)) echo $soundBedroomAdvice; else echo "0" ?>, <?php if(isset($ventilationBedroomAdvice)) echo $ventilationBedroomAdvice; else echo "0" ?>];
 
-    var dataTableLivingroom = [<?php if(isset($thermalLivingroom)) echo $thermalLivingroom; else echo "0" ?>, <?php if(isset($luxLivingroom)) echo $luxLivingroom; else echo "0" ?>, <?php if(isset($soundLivingroom)) echo $soundLivingroom; else echo "0" ?>, <?php if(isset($ventilationLivingroom)) echo $ventilationLivingroom; else echo "0" ?>, <?php if(isset($thermalLivingroomAdvice)) echo $thermalLivingroomAdvice - $thermalLivingroom; else echo "0" ?>, <?php if(isset($luxLivingroomAdvice)) echo $luxLivingroomAdvice - $luxLivingroom; else echo "0" ?>, <?php if(isset($soundLivingroomAdvice)) echo $soundLivingroomAdvice - $soundLivingroom; else echo "0" ?>, <?php if(isset($ventilationLivingroomAdvice)) echo $ventilationLivingroomAdvice; else echo "0" ?>, <?php if(isset($thermalLivingroomAdvice)) echo $thermalLivingroomAdvice; else echo "0" ?>, <?php if(isset($luxLivingroomAdvice)) echo $luxLivingroomAdvice; else echo "0" ?>, <?php if(isset($soundLivingroomAdvice)) echo $soundLivingroomAdvice; else echo "0" ?>, <?php if(isset($ventilationLivingroomAdvice)) echo $ventilationLivingroomAdvice; else echo "0" ?>];
+    var dataTableLivingroom = [<?php if(isset($thermalLivingroom)) echo $thermalLivingroom; else echo "0" ?>, <?php if(isset($luxLivingroom)) echo $luxLivingroom; else echo "0" ?>, <?php if(isset($soundLivingroom)) echo $soundLivingroom; else echo "0" ?>, <?php if(isset($ventilationLivingroom)) echo $ventilationLivingroom; else echo "0" ?>, <?php if(isset($thermalLivingroomAdvice)) echo $thermalLivingroomAdvice - $thermalLivingroom; else echo "0" ?>, <?php if(isset($luxLivingroomAdvice)) echo $luxLivingroomAdvice - $luxLivingroom; else echo "0" ?>, <?php if(isset($soundLivingroomAdvice)) echo $soundLivingroomAdvice - $soundLivingroom; else echo "0" ?>, <?php if(isset($ventilationLivingroomAdvice)) echo $ventilationLivingroomAdvice - $ventilationLivingroom; else echo "0" ?>, <?php if(isset($thermalLivingroomAdvice)) echo $thermalLivingroomAdvice; else echo "0" ?>, <?php if(isset($luxLivingroomAdvice)) echo $luxLivingroomAdvice; else echo "0" ?>, <?php if(isset($soundLivingroomAdvice)) echo $soundLivingroomAdvice; else echo "0" ?>, <?php if(isset($ventilationLivingroomAdvice)) echo $ventilationLivingroomAdvice; else echo "0" ?>];
 
     var pdfKitchen = [<?php if (isset($_SESSION['kitchen'])) echo '"'.$_SESSION['kitchen']['warmth-roof'].'"'; ?>, <?php if (isset($_SESSION['kitchen'])) echo '"'.$_SESSION['kitchen']['warmth-wall'].'"'; ?>, <?php if (isset($_SESSION['kitchen'])) echo '"'.$_SESSION['kitchen']['warmth-floor'].'"'; ?>, <?php if (isset($_SESSION['kitchen'])) echo '"'.$_SESSION['kitchen']['warmth-junctions'].'"'; ?>, <?php if (isset($_SESSION['kitchen'])) echo '"'.$_SESSION['kitchen']['sound-floor'].'"'; ?>, <?php if (isset($_SESSION['kitchen'])) echo '"'.$_SESSION['kitchen']['sound-wall'].'"'; ?>, <?php if (isset($_SESSION['kitchen'])) echo '"'.$_SESSION['kitchen']['lux'].'"'; ?>, <?php if (isset($_SESSION['kitchen'])) echo '"'.$_SESSION['kitchen']['ventilation-ventilation'].'"'; ?>, <?php if (isset($_SESSION['kitchen'])) echo '"'.$_SESSION['kitchen']['ventilation-floor'].'"'; ?>];
 
@@ -393,7 +393,13 @@
                                         events: {
                                             legendItemClick: function () {
 
-                                                if (this.visible) {
+                                                if (this.chart.legend.allItems[0].visible == false && this.visible == false && this.name == "Recommendations based on your answers to the questions") {
+                                                    this.chart.series[0].update({
+                                                        data: [{y:dataTableKitchen[8], color: "#e58a84"}, {y:dataTableKitchen[9], color: "#e3c97b"}, {y:dataTableKitchen[10], color: "#deddf2"}, {y:dataTableKitchen[11], color: "#a8ddc9"}],
+                                                    });
+                                                }
+
+                                                else if (this.chart.legend.allItems[0].visible == true && this.visible == true) {
                                                     this.chart.series[0].update({
                                                         data: [{y:dataTableKitchen[8], color: "#e58a84"}, {y:dataTableKitchen[9], color: "#e3c97b"}, {y:dataTableKitchen[10], color: "#deddf2"}, {y:dataTableKitchen[11], color: "#a8ddc9"}],
                                                     });
@@ -512,7 +518,13 @@
                                         events: {
                                             legendItemClick: function () {
 
-                                                if (this.visible) {
+                                                if (this.chart.legend.allItems[0].visible == false && this.visible == false && this.name == "Recommendations based on your answers to the questions") {
+                                                    this.chart.series[0].update({
+                                                        data: [{y:dataTableBedroom[8], color: "#e58a84"}, {y:dataTableBedroom[9], color: "#e3c97b"}, {y:dataTableBedroom[10], color: "#deddf2"}, {y:dataTableBedroom[11], color: "#a8ddc9"}],
+                                                    });
+                                                }
+
+                                                else if (this.chart.legend.allItems[0].visible == true && this.visible == true) {
                                                     this.chart.series[0].update({
                                                         data: [{y:dataTableBedroom[8], color: "#e58a84"}, {y:dataTableBedroom[9], color: "#e3c97b"}, {y:dataTableBedroom[10], color: "#deddf2"}, {y:dataTableBedroom[11], color: "#a8ddc9"}],
                                                     });
@@ -630,7 +642,13 @@
                                         events: {
                                             legendItemClick: function () {
 
-                                                if (this.visible) {
+                                                if (this.chart.legend.allItems[0].visible == false && this.visible == false && this.name == "Recommendations based on your answers to the questions") {
+                                                    this.chart.series[0].update({
+                                                        data: [{y:dataTableLivingroom[8], color: "#e58a84"}, {y:dataTableLivingroom[9], color: "#e3c97b"}, {y:dataTableLivingroom[10], color: "#deddf2"}, {y:dataTableLivingroom[11], color: "#a8ddc9"}],
+                                                    });
+                                                }
+
+                                                else if (this.chart.legend.allItems[0].visible == true && this.visible == true) {
                                                     this.chart.series[0].update({
                                                         data: [{y:dataTableLivingroom[8], color: "#e58a84"}, {y:dataTableLivingroom[9], color: "#e3c97b"}, {y:dataTableLivingroom[10], color: "#deddf2"}, {y:dataTableLivingroom[11], color: "#a8ddc9"}],
                                                     });
@@ -755,7 +773,13 @@
                                             events: {
                                                 legendItemClick: function () {
 
-                                                    if (this.visible) {
+                                                    if (this.chart.legend.allItems[0].visible == false && this.visible == false && this.name == "Recommendations based on your answers to the questions") {
+                                                        this.chart.series[0].update({
+                                                            data: [{y:dataTableKitchen[8], color: "#e58a84"}, {y:dataTableKitchen[9], color: "#e3c97b"}, {y:dataTableKitchen[10], color: "#deddf2"}, {y:dataTableKitchen[11], color: "#a8ddc9"}],
+                                                        });
+                                                    }
+
+                                                    else if (this.chart.legend.allItems[0].visible == true && this.visible == true) {
                                                         this.chart.series[0].update({
                                                             data: [{y:dataTableKitchen[8], color: "#e58a84"}, {y:dataTableKitchen[9], color: "#e3c97b"}, {y:dataTableKitchen[10], color: "#deddf2"}, {y:dataTableKitchen[11], color: "#a8ddc9"}],
                                                         });
@@ -873,7 +897,13 @@
                                             events: {
                                                 legendItemClick: function () {
 
-                                                    if (this.visible) {
+                                                    if (this.chart.legend.allItems[0].visible == false && this.visible == false && this.name == "Recommendations based on your answers to the questions") {
+                                                        this.chart.series[0].update({
+                                                            data: [{y:dataTableBedroom[8], color: "#e58a84"}, {y:dataTableBedroom[9], color: "#e3c97b"}, {y:dataTableBedroom[10], color: "#deddf2"}, {y:dataTableBedroom[11], color: "#a8ddc9"}],
+                                                        });
+                                                    }
+
+                                                    else if (this.chart.legend.allItems[0].visible == true && this.visible == true) {
                                                         this.chart.series[0].update({
                                                             data: [{y:dataTableBedroom[8], color: "#e58a84"}, {y:dataTableBedroom[9], color: "#e3c97b"}, {y:dataTableBedroom[10], color: "#deddf2"}, {y:dataTableBedroom[11], color: "#a8ddc9"}],
                                                         });
@@ -992,7 +1022,13 @@
                                             events: {
                                                 legendItemClick: function () {
 
-                                                    if (this.visible) {
+                                                    if (this.chart.legend.allItems[0].visible == false && this.visible == false && this.name == "Recommendations based on your answers to the questions") {
+                                                        this.chart.series[0].update({
+                                                            data: [{y:dataTableLivingroom[8], color: "#e58a84"}, {y:dataTableLivingroom[9], color: "#e3c97b"}, {y:dataTableLivingroom[10], color: "#deddf2"}, {y:dataTableLivingroom[11], color: "#a8ddc9"}],
+                                                        });
+                                                    }
+
+                                                    else if (this.chart.legend.allItems[0].visible == true && this.visible == true) {
                                                         this.chart.series[0].update({
                                                             data: [{y:dataTableLivingroom[8], color: "#e58a84"}, {y:dataTableLivingroom[9], color: "#e3c97b"}, {y:dataTableLivingroom[10], color: "#deddf2"}, {y:dataTableLivingroom[11], color: "#a8ddc9"}],
                                                         });
