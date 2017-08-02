@@ -24,7 +24,7 @@
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
 
     <!-- JQUERY UI -->
-    <link rel='stylesheet prefetch' href='http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css'>
+    <link rel='stylesheet prefetch' href='https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css'>
     <script src='https://code.jquery.com/ui/1.11.1/jquery-ui.js'></script>
 
     <!-- CURSOR FEEDBACK -->
