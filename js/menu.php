@@ -34,7 +34,7 @@
 			window.location.replace(
 				<?php 
 					if (isset($_SESSION["email"])) {
-						echo '"survey.php?room=kitchen"'; 
+						echo '"questionnaire.php?room=kitchen"'; 
 					}
 
 					else {
@@ -46,7 +46,7 @@
 		$(".bedroom").click(function () {
 			window.location.replace(<?php 
 					if (isset($_SESSION["email"])) {
-						echo '"survey.php?room=bedroom"'; 
+						echo '"questionnaire.php?room=bedroom"'; 
 					}
 
 					else {
@@ -58,7 +58,7 @@
 		$(".livingroom").click(function () {
 			window.location.replace(<?php 
 					if (isset($_SESSION["email"])) {
-						echo '"survey.php?room=livingroom"'; 
+						echo '"questionnaire.php?room=livingroom"'; 
 					}
 
 					else {

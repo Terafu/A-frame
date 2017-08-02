@@ -107,7 +107,7 @@
 
     <!-- JQUERY UI -->
     <link rel='stylesheet prefetch' href='http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css'>
-    <script src='http://code.jquery.com/ui/1.11.1/jquery-ui.js'></script>
+    <script src='https://code.jquery.com/ui/1.11.1/jquery-ui.js'></script>
 
     <!-- CURSOR FEEDBACK -->
     <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
